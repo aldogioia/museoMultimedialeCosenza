@@ -1,0 +1,116 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: .5rem;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.image-container img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem .5rem;
+  color: var(--primary);
+  width: 100%;
+  background: linear-gradient(to top, var(--secondary60), transparent);
+}
+
+.image-caption h1, .image-caption p {
+  max-width: 500px;
+}
+
+.image-caption a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--primary60);
+  backdrop-filter: blur(.8rem);
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  transition: .3s ease-in-out;
+}
+
+.image-caption a:hover {
+  background: var(--primary);
+  border-radius: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 250px;
+  padding: 1rem 0;
+}
+
+.image-control {
+  display: flex;
+  height: .5rem;
+  width: .5rem;
+  transition: .3s ease-in-out;
+  background: var(--secondary60);
+  border-radius: 5px;
+}
+
+.image-control:not(.expanded):hover {
+  cursor: pointer;
+  scale: 1.3;
+}
+
+.image-control.expanded {
+  width: 100%;
+  background: var(--secondary);
+}
+
+.exhibitions-container {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 100%;
+  max-width: min(500px, 60%);
+}
+
+.exhibitions-container > p:first-of-type {
+  font-weight: 600;
+}
+
+.exhibitions {
+  display: flex;
+  align-items: center;
+  transition: .5s ease-in-out;
+  gap: 2rem;
+}
+
+.exhibition {
+  aspect-ratio: 1/1.5;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: .3s ease-in-out;
+  transform: scale(.9);
+  cursor: pointer;
+}
+
+.exhibition.focused{
+  transform: scale(1);
+}

@@ -1,0 +1,21 @@
+img {
+  width: 2rem;
+  cursor: pointer;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+p {
+  text-transform: capitalize;
+  color: var(--secondary60);
+  transition: .3s ease-in-out;
+  cursor: pointer;
+}
+
+p.active-route{
+  color: var(--secondary);
+}
