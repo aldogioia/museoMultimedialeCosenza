@@ -8,14 +8,19 @@
 
 :root {
   --primary: #F8F8FF;
-  --secondary: #353535;
+  --secondary: #151515;
   --primary60: #F8F8FF99;
-  --secondary60: #35353599;
+  --secondary60: #15151599;
+  --primary40: #F8F8FF66;
+  --secondary40: #15151566;
+  --secondary20: #15151533;
+  --secondary10: #1515151A;
 }
 
 body{
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
   background: var(--primary);
   color: var(--secondary);
@@ -29,21 +34,30 @@ section {
   flex-direction: column;
 }
 
-.navbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-}
-
-.main{
+.main, .footer{
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+
+.footer{
+  padding: 2rem;
+}
+
+h1{
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 400;
 }

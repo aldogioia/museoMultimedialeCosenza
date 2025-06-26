@@ -9,6 +9,7 @@ import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
 import {NgOptimizedImage} from '@angular/common';
 import { Home } from './pages/home/home';
+import { Exhibition } from './pages/exhibition/exhibition';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Home } from './pages/home/home';
     Exhibitions,
     Navbar,
     Footer,
-    Home
+    Home,
+    Exhibition
   ],
   imports: [
     BrowserModule,

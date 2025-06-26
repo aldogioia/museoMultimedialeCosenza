@@ -1,33 +1,54 @@
 <div class="hero">
-  <div class="image-container">
-    <img [src]="images[indexHero]" alt="Hero Image" class="hero-image">
-    <div class="image-caption">
-      <h2>{{ captions[indexHero] }}</h2>
-      <p>{{ descriptions[indexHero] }}</p>
-      <a href="#">Call to Action</a>
+  <img [src]="images[indexHero]" alt="Hero Image" class="hero-image">
+  <div class="image-caption">
+    <h1>{{ captions[indexHero] }}</h1>
+    <p>{{ descriptions[indexHero] }}</p>
+    <a href="#">Call to Action</a>
+    <div class="controls">
+      @for (image of images; track image; let i = $index) {
+        <div class="image-control" [class]="{'expanded': i == indexHero}" (click)="indexHero = i"></div>
+      }
     </div>
   </div>
+</div>
 
-  <div class="controls">
-    @for (image of images; track image; let i = $index) {
-      <div class="image-control" [class]="{'expanded': i == indexHero}" (click)="indexHero = i"></div>
-    }
+<div class="grid">
+  <div class="cell">
+    <img src="images/leonardo.jpg" alt="Image 1">
+    <div class="caption">
+      <h3>Caption for Image</h3>
+    </div>
+  </div>
+  <div class="cell">
+    <img src="images/vangogh.jpg" alt="Image 2">
+    <div class="caption">
+      <h3>Caption for Image</h3>
+    </div>
+  </div>
+  <div class="cell">
+    <img src="images/bambini.jpg" alt="Image 3">
+    <div class="caption">
+      <h3>Caption for Image</h3>
+    </div>
+  </div>
+  <div class="cell">
+    <img src="images/conferenza.jpg" alt="Image 4">
+    <div class="caption">
+      <h3>Caption for Image</h3>
+    </div>
   </div>
 </div>
 
-<div class="exhibitions-container">
-  <h3>What's on</h3>
-  <div
-    class="exhibitions" [style.transform]="'translateX(calc(-' + indexBanner * 100 + '% - ' + indexBanner * 2 +'rem))'">
-    @for (exhibition of images; track exhibition; let i = $index) {
-      <img
-        class="exhibition"
-        [src]="exhibition"
-        alt="locandina evento"
-        (click)="indexBanner = i"
-        [class]="{'focused': i == indexBanner}">
-     }
+<div #scrollContainer class="immersive-scroll-wrapper">
+  <div class="sticky-video-container">
+    <video
+      #videoPlayer
+      src="videos/view360.mp4"
+      muted
+      playsinline
+      preload="metadata"
+    ></video>
   </div>
-  <p>{{captions[indexBanner]}}</p>
-  <p>{{descriptions[indexBanner]}}</p>
 </div>
+
+<app-footer></app-footer>

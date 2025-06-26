@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   host: {"class": "navbar"}
 })
 export class Navbar {
+  open: boolean = false;
 
 }

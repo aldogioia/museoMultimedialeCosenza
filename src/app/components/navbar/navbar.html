@@ -1,10 +1,20 @@
-<img
-  src="logoMuseoMultimediale.png"
-  alt="Logo del museo Multimediale Cosenza"
-  routerLink=""
->
+<div class="navbar">
+  <img
+    src="logoMuseoMultimediale.png"
+    alt="Logo del museo Multimediale Cosenza"
+    routerLink="/home">
 
-<div>
-  <p routerLinkActive="active-route" routerLink="/about">about</p>
-  <p routerLinkActive="active-route" routerLink="/exhibitions">exhibitions</p>
+  <div class="menu" [class]="{'open': open}" (click)="open = !open">
+    <div class="hamburger">
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" [class]="{'open': open}"  (click)="open = false">
+  <div class="links">
+    <h2 routerLinkActive="active-route" [style.animation-delay]="1" style="top: 2rem" routerLink="/home">Home</h2>
+    <h2 routerLinkActive="active-route" [style.animation-delay]="2" style="top: 8rem" routerLink="/exhibitions">exhibitions</h2>
+    <h2 routerLinkActive="active-route" [style.animation-delay]="3" style="top: 2rem" routerLink="/about">about</h2>
+  </div>
 </div>
