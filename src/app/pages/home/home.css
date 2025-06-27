@@ -1,10 +1,12 @@
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 0;
 }
 
 .hero img {
@@ -13,37 +15,41 @@
   object-fit: cover;
 }
 
-.image-caption {
+.row-actions{
   position: absolute;
-  bottom: 0;
+  bottom: 5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 0 .5rem;
-  color: var(--primary);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
-  background: linear-gradient(to top, var(--secondary60), transparent);
+  max-width: 600px;
+  padding: 1rem;
 }
 
-.image-caption h1, .image-caption p {
-  max-width: 500px;
-}
-
-.image-caption a {
-  color: var(--secondary);
-  text-decoration: none;
-  font-weight: 600;
-  background: var(--primary60);
-  backdrop-filter: blur(.8rem);
-  border-radius: .5rem;
+.row-actions > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  min-width: 200px;
+  border-radius: 1rem;
   padding: .5rem 1rem;
+  color: var(--primary);
+  background: var(--secondary60);
+  backdrop-filter: blur(1rem);
+}
+
+.row-actions > div > svg {
+  stroke: var(--primary);
   transition: .3s ease-in-out;
 }
 
-.image-caption a:hover {
-  background: var(--primary);
-  border-radius: 0;
+.row-actions > div:hover > svg {
+  animation: move 0.5s linear;
 }
 
 .controls {
@@ -69,42 +75,85 @@
   background: var(--primary);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-}
-
-.cell {
+.services {
   position: relative;
-  overflow: hidden;
-}
-
-.caption {
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  background: var(--secondary20);
-  color: var(--primary);
+  align-items: center;
+  gap: 5rem;
+  padding: 5rem 1rem;
+  width: 100%;
+  z-index: 2;
+  background: var(--primary);
+  will-change: transform;
 }
 
-.cell img{
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title h1 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.service.right{
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.service img {
+  aspect-ratio: 1/1.5;
+  width: 100%;
+  max-width: 350px;
+  object-fit: cover;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.service-info h4 {
+  font-style: italic;
+  font-weight: 500;
+  padding: .2rem 0;
+}
+
+.service.right > .service-info {
+  align-items: end;
+}
+
+.square {
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square > svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: .3s ease-in-out;
-  aspect-ratio: 1.5/1;
 }
 
-.cell:hover > img{
-  scale: 1.05;
+.service-info .row {
+  margin-top: 1rem;
 }
 
 .immersive-scroll-wrapper {
@@ -132,8 +181,18 @@
   opacity: 0;
 }
 
+.to-fade{
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
 .reveal{
+  animation: reveal .3s linear forwards;
+}
+
+.fade{
   animation: fadeIn .3s linear forwards;
+
 }
 
 .to-reveal.reveal > h3,
@@ -142,22 +201,63 @@
   animation: textFadeIn .3s linear forwards;
 }
 
-@keyframes fadeIn {
+@keyframes reveal {
   to{
     opacity: 1;
   }
 }
 
-@keyframes textFadeIn {
+@keyframes fadeIn {
   to {
-    letter-spacing: initial;
-    scale: 1;
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
 
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+  .title > h1 {
+    font-size: 2.5rem;
+  }
+  .service,
+  .service.right{
+    flex-direction: column;
+    text-align: start;
+  }
+  .service.right > .service-info{
+    align-items: start;
+  }
+
+  .service img{
+    max-width: 400px;
+  }
+
+  .row-actions{
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .row-actions > div {
+    width: 100%;
+    max-width: 400px;
   }
 }

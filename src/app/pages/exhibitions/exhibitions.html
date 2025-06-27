@@ -1,14 +1,12 @@
 @if (nextExhibitions.length !== 0) {
   <div class="wrapper">
-    <div class="text">
-      <h2>Prossime Mostre</h2>
-    </div>
+    <h2>Prossime Mostre</h2>
     <div class="exhibitions">
       @for (exhibition of nextExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">
           <img [src]="images[i]" alt="{{ exhibition }}" />
           <h3>{{ exhibition }}</h3>
-          <div class="row">
+          <div class="row" (click)="goToExhibition(i)">
             <p>Prossimamente</p>
             <div class="btn">
               <div class="scroll">
@@ -35,15 +33,13 @@
 
 @if (nowExhibitions.length !== 0) {
   <div class="wrapper">
-    <div class="text">
-      <h2>Attualmente in mostra</h2>
-    </div>
+    <h2>Attualmente in mostra</h2>
     <div class="exhibitions">
       @for (exhibition of nowExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">
           <img [src]="images[i]" alt="{{ exhibition }}" />
           <h3>{{ exhibition }}</h3>
-          <div class="row">
+          <div class="row" (click)="goToExhibition(i)">
             <p>Acquista Biglietti</p>
             <div class="btn">
               <div class="scroll">
@@ -70,16 +66,14 @@
 
 @if (pastExhibitions.length !== 0) {
   <div class="wrapper">
-    <div class="text">
-      <h2>Mostre Passate</h2>
-    </div>
+    <h2>Mostre Passate</h2>
     <div class="exhibitions">
       @for (exhibition of pastExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">
           <img [src]="images[i]" alt="{{ exhibition }}" />
           <h3>{{ exhibition }}</h3>
-          <div class="row">
-            <p>Galleria</p>
+          <div class="row" (click)="goToExhibition(i)">
+            <p>Galleria Mostra</p>
             <div class="btn">
               <div class="scroll">
             <span>

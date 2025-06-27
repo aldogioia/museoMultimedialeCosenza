@@ -11,26 +11,8 @@ export class Home implements AfterViewInit {
   @ViewChild('videoPlayer', { static: true }) video!: ElementRef<HTMLVideoElement>;
   @ViewChild('scrollContainer', { static: true }) scrollContainer!: ElementRef<HTMLElement>;
 
-  indexHero: number = 0;
-  indexBanner: number = 0;
-
-  images: String[] = [
-    'images/hero1.jpeg',
-    'images/hero2.jpg',
-  ];
-
-  captions: String[] = [
-    'Titolo 1',
-    'Titolo 2',
-  ]
-
-  descriptions: String[] = [
-    'Descrizione 1',
-    'Descrizione 2',
-  ];
-
-  constructor(private el: ElementRef) {
-  }
+  image: String = "images/vangogh.jpg";
+  constructor(private el: ElementRef) {}
 
   videoDuration = 0;
 
@@ -43,12 +25,19 @@ export class Home implements AfterViewInit {
 
     window.addEventListener('scroll', this.onScroll.bind(this));
 
-    const exhibition = this.el.nativeElement.querySelectorAll('.to-reveal');
+    const exhibition = this.el.nativeElement.querySelectorAll('.to-reveal, .to-fade');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('reveal');
+          const el = entry.target as HTMLElement;
+
+          if (el.classList.contains('to-reveal')) {
+            el.classList.add('reveal');
+          } else if (el.classList.contains('to-fade')) {
+            el.classList.add('fade');
+          }
+
           observer.unobserve(entry.target);
         }
       });

@@ -3,12 +3,14 @@ import {ExtraOptions, RouterModule, Routes} from '@angular/router';
 import {About} from './pages/about/about';
 import {Exhibitions} from './pages/exhibitions/exhibitions';
 import {Home} from './pages/home/home';
+import { Exhibition } from './pages/exhibition/exhibition';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',  component: Home },
   { path: 'about',  component: About },
   { path: 'exhibitions',  component: Exhibitions },
+  { path: 'exhibition/:image', component: Exhibition },
 ];
 
 const routerOptions: ExtraOptions = {

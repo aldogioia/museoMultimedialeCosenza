@@ -1,0 +1,85 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: 88px 1rem 1rem;
+}
+
+.image-box{
+  display: flex;
+  align-items: start;
+  flex: 1;
+}
+
+img {
+  position: sticky;
+  top: calc(88px);
+  width: 100%;
+}
+
+.exhibition {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  flex: 1 0 100%;
+  max-width: 500px;
+  padding: 0 2rem;
+}
+
+.exhibition-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.section h4 {
+  padding: .5rem 0;
+  opacity: .6;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--secondary10);
+}
+
+.row p {
+  flex: 1 0 0;
+}
+
+b {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 88px 0 1rem;
+  }
+
+  .image-box {
+    width: 100%;
+  }
+
+  img {
+    position: relative;
+    top: auto;
+    width: 100%;
+  }
+
+  .exhibition {
+    max-width: none;
+    padding: 0 1rem;
+  }
+
+}

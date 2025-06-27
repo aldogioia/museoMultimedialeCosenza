@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-exhibitions',
@@ -27,7 +28,10 @@ export class Exhibitions implements AfterViewInit {
   ];
 
 
-  constructor(private el: ElementRef) {}
+  constructor(
+    private el: ElementRef,
+    private router: Router
+  ) {}
 
   ngAfterViewInit(): void {
     const exhibition = this.el.nativeElement.querySelectorAll('.exhibition');
@@ -44,5 +48,9 @@ export class Exhibitions implements AfterViewInit {
     });
 
     exhibition.forEach((p: HTMLElement) => observer.observe(p));
+  }
+
+  goToExhibition(i: number) {
+    this.router.navigate(['/exhibition', this.images[i]]).then(() => {});
   }
 }

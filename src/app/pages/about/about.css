@@ -2,12 +2,12 @@
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  padding: 77px 1rem 1rem;
+  padding: 88px 1rem 1rem;
 }
 
 .text-column {
   position: sticky;
-  top: 4rem;
+  top: 88px;
   flex-direction: column;
   display: flex;
   max-width: 400px;
@@ -29,7 +29,7 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .wrapper {
     flex-direction: column;
     align-items: center;

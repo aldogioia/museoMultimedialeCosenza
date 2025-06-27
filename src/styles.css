@@ -39,11 +39,13 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  background: var(--primary);
 }
 
 .footer{
   padding: 2rem;
+  gap: 2rem;
+  z-index: 2;
 }
 
 h1{
@@ -60,4 +62,71 @@ h3 {
 
 h4 {
   font-weight: 400;
+}
+
+.row{
+  display: flex;
+  gap: .5rem;
+  cursor: pointer;
+}
+
+.row:hover > p {
+  border-radius: 0;
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.row:hover > .btn {
+  border-radius: 1.5rem;
+  background: var(--secondary);
+}
+
+.row > p {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  background: var(--secondary10);
+  color: var(--secondary);
+  transition: .3s ease-in-out;
+}
+
+.btn{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background: var(--secondary10);
+  height: 40px;
+  width: 40px;
+  transition: .3s ease-in-out;
+  overflow: hidden;
+}
+
+.scroll {
+  transition: .3s ease-in-out;
+}
+
+.row:hover > .btn > .scroll{
+  transform: translate(-100%, 50%);
+}
+
+.scroll > span {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll > span > svg {
+  stroke: var(--secondary);
+}
+.row:hover > .btn > .scroll > span > svg {
+  stroke: var(--primary);
+}
+
+.scroll > span:first-of-type {
+  transform: translateX(100%);
 }
