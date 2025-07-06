@@ -17,8 +17,7 @@
 .text-column p {
   max-width: min(65ch, 90%);
   font-size: 1.125rem;
-  line-height: 1.5;
-  color: var(--secondary80);
+  line-height: 1.6;
 }
 
 .container-image {

@@ -16,6 +16,7 @@ img {
   position: sticky;
   top: calc(83px);
   width: 100%;
+  border-radius: 1.5rem;
 }
 
 .exhibition {
@@ -41,9 +42,21 @@ img {
   gap: .5rem;
 }
 
+.section h1 {
+  font-size: 2rem;
+  line-height: 2;
+  font-weight: 500;
+}
+
 .section h4 {
   padding: .5rem 0;
   opacity: .6;
+}
+
+.section p {
+  max-width: 65ch;
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 .divider {
@@ -91,6 +104,7 @@ b {
     position: relative;
     top: auto;
     width: 100%;
+    border-radius: 0;
   }
 
   .exhibition {

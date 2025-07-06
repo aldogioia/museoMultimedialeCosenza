@@ -9,6 +9,7 @@
 :root {
   --primary: #F8F8FF;
   --secondary: #151515;
+  --primary80: #F8F8FFCC;
   --secondary80: #151515CC;
   --primary60: #F8F8FF99;
   --secondary60: #15151599;
@@ -167,8 +168,8 @@ h4 {
 .horizontal-gallery img {
   height: 100%;
   object-fit: cover;
+  border-radius: 0;
 }
-
 
 .title{
   display: flex;

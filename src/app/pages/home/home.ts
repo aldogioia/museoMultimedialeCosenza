@@ -12,7 +12,7 @@ export class Home implements AfterViewInit {
   @ViewChild('videoPlayer', { static: true }) video!: ElementRef<HTMLVideoElement>;
   @ViewChild('stickyBox') stickyRef!: ElementRef<HTMLDivElement>;
 
-  image: String = "images/vangogh.jpg";
+  image: String = "images/hero1.png";
 
   images: ClothStruct[] = [
     {

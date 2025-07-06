@@ -17,9 +17,8 @@
 
 .hero h1 {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 2rem;
+  left: 2rem;
   color: var(--primary);
   font-weight: 300;
   font-size: 4rem;
@@ -27,26 +26,6 @@
 
 .hero b {
   font-weight: 400;
-}
-
-.svg-container{
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-}
-
-.svg-container > svg:first-of-type path {
-  fill: var(--primary);
-}
-
-.svg-container > svg:last-of-type {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  stroke: var(--secondary60);
-  animation: .5s linear move-down infinite alternate;
 }
 
 .paragraph{
@@ -271,12 +250,6 @@
   }
 }
 
-@keyframes move-down {
-  to{
-    transform: translate(-50%, -25%);
-  }
-}
-
 @media (max-width: 1256px) {
   .service,
   .service.right{
@@ -314,6 +287,9 @@
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .paragraph > p {
     font-size: 1.1rem;
