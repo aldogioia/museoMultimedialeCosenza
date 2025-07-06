@@ -1,5 +1,5 @@
 img{
-  height: 5rem;
+  height: 150px;
 }
 
 .newsletter {
@@ -55,7 +55,7 @@ form > input {
   transition: .3s ease-in-out;
 }
 
-.btn:hover > .scroll{
+.submit:hover > .scroll{
   transform: translateY(50%);
 }
 
@@ -133,7 +133,7 @@ a:hover, p:hover, svg:hover {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .row {
     flex-direction: column;
     width: 100%;
@@ -143,5 +143,10 @@ a:hover, p:hover, svg:hover {
   }
   .newsletter{
     max-width: unset;
+  }
+
+  .row-end{
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -3,7 +3,7 @@
   display: flex;
   gap: 1rem;
   width: 100%;
-  padding: 88px 1rem 1rem;
+  padding: 83px 1rem 1rem;
 }
 
 .image-box{
@@ -14,7 +14,7 @@
 
 img {
   position: sticky;
-  top: calc(88px);
+  top: calc(83px);
   width: 100%;
 }
 
@@ -61,10 +61,26 @@ b {
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1256px) {
+  .wrapper {
+    gap: 1rem;
+  }
+  .exhibition {
+    max-width: 450px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .exhibition {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
   .wrapper {
     flex-direction: column;
-    padding: 88px 0 1rem;
+    padding: 83px 0 1rem;
   }
 
   .image-box {
@@ -81,5 +97,4 @@ b {
     max-width: none;
     padding: 0 1rem;
   }
-
 }

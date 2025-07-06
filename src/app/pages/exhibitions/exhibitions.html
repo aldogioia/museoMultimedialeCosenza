@@ -1,6 +1,9 @@
 @if (nextExhibitions.length !== 0) {
   <div class="wrapper">
-    <h2>Prossime Mostre</h2>
+    <div class="title left">
+      <h2><i>Prossime</i> Mostre</h2>
+      <div class="title-bar"></div>
+    </div>
     <div class="exhibitions">
       @for (exhibition of nextExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">
@@ -33,7 +36,10 @@
 
 @if (nowExhibitions.length !== 0) {
   <div class="wrapper">
-    <h2>Attualmente in mostra</h2>
+    <div class="title left">
+      <h2><i>Attualmente</i> in Mostra</h2>
+      <div class="title-bar"></div>
+    </div>
     <div class="exhibitions">
       @for (exhibition of nowExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">
@@ -66,7 +72,10 @@
 
 @if (pastExhibitions.length !== 0) {
   <div class="wrapper">
-    <h2>Mostre Passate</h2>
+    <div class="title left">
+      <h2>Mostre <i>Passate</i></h2>
+      <div class="title-bar"></div>
+    </div>
     <div class="exhibitions">
       @for (exhibition of pastExhibitions; track exhibition; let i = $index) {
         <div class="exhibition">

@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './about.css'
 })
 export class About {
-  images: String[] = ['hero2.jpg', 'hero2.jpg', 'hero2.jpg', 'hero2.jpg', 'hero2.jpg', 'hero2.jpg', 'hero2.jpg'];
+  images: String[] = ['images/vangogh2.jpg', 'images/vangogh.jpg', 'images/vangogh2.jpg', 'images/vangogh.jpg', 'images/vangogh2.jpg', 'images/vangogh.jpg'];
 
 }

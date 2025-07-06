@@ -1,10 +1,12 @@
-<div class="navbar">
+<div class="navbar" [class]="{'open': open}">
   <img
     src="logoMuseoMultimediale.png"
-    alt="Logo del museo Multimediale Cosenza"
+    alt="Logo del museo Multimediale città di Cosenza"
     routerLink="/home">
 
-  <div class="menu" [class]="{'open': open}" (click)="open = !open">
+  <ng-container [ngTemplateOutlet]="links" [ngTemplateOutletContext]="{ className: 'links-row' }"></ng-container>
+
+  <div class="hamburger-menu" [class]="{'open': open}" (click)="open = !open">
     <div class="hamburger">
       <div class="bar"></div>
     </div>
@@ -12,9 +14,15 @@
 </div>
 
 <div class="overlay" [class]="{'open': open}"  (click)="open = false">
-  <div class="links">
-    <h2 routerLinkActive="active-route" [style.animation-delay]="1" style="top: 2rem" routerLink="/home">Home</h2>
-    <h2 routerLinkActive="active-route" [style.animation-delay]="2" style="top: 8rem" routerLink="/exhibitions">exhibitions</h2>
-    <h2 routerLinkActive="active-route" [style.animation-delay]="3" style="top: 2rem" routerLink="/about">about</h2>
-  </div>
+  <ng-container [ngTemplateOutlet]="links" [ngTemplateOutletContext]="{ className: 'links' }"></ng-container>
 </div>
+
+
+<ng-template #links let-className="className">
+  <div [class]="className">
+    <a routerLinkActive="active-route" [style.animation-delay]="1" routerLink="/home">Home</a>
+    <a routerLinkActive="active-route" [style.animation-delay]="2" routerLink="/exhibitions">Mostre</a>
+    <a routerLinkActive="active-route" [style.animation-delay]="3" routerLink="/about">chi siamo?</a>
+    <a routerLinkActive="active-route" [style.animation-delay]="4" style="color: var(--blue)" routerLink="/about">Biglietteria</a>
+  </div>
+</ng-template>

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="image-box">
-    <img src="images/atlanthis.jpg" alt="immagine mostra">
+    <img [src]="image" alt="immagine mostra">
   </div>
   <div class="exhibition">
     <div class="exhibition-info">
@@ -56,6 +56,17 @@
     </div>
   </div>
 </div>
+
+<div class="pin-wrapper" [style.height.px]="horizontalScrollLength + windowHeight">
+  <div class="horizontal-gallery-container" #container>
+    <div class="horizontal-gallery">
+      @for (image of images; track image) {
+        <img [src]="image" alt="immagine mostra"/>
+      }
+    </div>
+  </div>
+</div>
+
 
 <app-footer>
 

@@ -9,12 +9,17 @@
 :root {
   --primary: #F8F8FF;
   --secondary: #151515;
+  --secondary80: #151515CC;
   --primary60: #F8F8FF99;
   --secondary60: #15151599;
   --primary40: #F8F8FF66;
   --secondary40: #15151566;
   --secondary20: #15151533;
   --secondary10: #1515151A;
+  --green: #00A950;
+  --red: #D34135;
+  --blue: #0073BC;
+  --yellow: #F1B650;
 }
 
 body{
@@ -40,6 +45,10 @@ section {
   flex-direction: column;
   align-items: center;
   background: var(--primary);
+}
+
+.main {
+  gap: 3rem;
 }
 
 .footer{
@@ -129,4 +138,64 @@ h4 {
 
 .scroll > span:first-of-type {
   transform: translateX(100%);
+}
+
+
+
+.pin-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.horizontal-gallery-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.horizontal-gallery {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+}
+
+.horizontal-gallery img {
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .25rem;
+}
+
+.title > h2 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.title h2 b{
+  font-weight: 500;
+}
+
+.title-bar {
+  width: 100%;
+  max-width: 200px;
+  height: 1px;
+  background: var(--red);
+  border-radius: 1px;
+}
+
+.title.left {
+  align-items: start;
+  text-align: left;
 }

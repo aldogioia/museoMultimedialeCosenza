@@ -1,147 +1,118 @@
 .hero {
-  position: sticky;
-  top: 0;
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   z-index: 0;
+  background: var(--secondary);
 }
 
 .hero img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  opacity: .8;
 }
 
-.row-actions{
+.hero h1 {
   position: absolute;
-  bottom: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-  max-width: 600px;
-  padding: 1rem;
-}
-
-.row-actions > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  cursor: pointer;
-  transition: .3s ease-in-out;
-  min-width: 200px;
-  border-radius: 1rem;
-  padding: .5rem 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--primary);
-  background: var(--secondary60);
-  backdrop-filter: blur(1rem);
+  font-weight: 300;
+  font-size: 4rem;
 }
 
-.row-actions > div > svg {
-  stroke: var(--primary);
-  transition: .3s ease-in-out;
+.hero b {
+  font-weight: 400;
 }
 
-.row-actions > div:hover > svg {
-  animation: move 0.5s linear;
-}
-
-.controls {
+.svg-container{
+  position: absolute;
+  bottom: 0;
   display: flex;
-  gap: 1rem;
-  width: 100%;
-  max-width: 250px;
-  padding: 1rem 0;
+  align-items: center;
 }
 
-.image-control {
-  display: flex;
-  height: 10px;
-  width: 15px;
-  border-radius: .5rem;
-  transition: .3s ease-in-out;
-  background: var(--primary60);
-  cursor: pointer;
+.svg-container > svg:first-of-type path {
+  fill: var(--primary);
 }
 
-.image-control.expanded {
-  flex: 1;
-  background: var(--primary);
+.svg-container > svg:last-of-type {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  stroke: var(--secondary60);
+  animation: .5s linear move-down infinite alternate;
 }
 
-.services {
+.paragraph{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
-  padding: 5rem 1rem;
-  width: 100%;
-  z-index: 2;
-  background: var(--primary);
-  will-change: transform;
+  gap: 1.5rem;
 }
 
-.title{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.paragraph > p {
+  max-width: min(65ch, 80%);
+  line-height: 1.6;
+  font-size: 1.25rem;
 }
 
-.title h1 {
-  text-align: center;
+.paragraph i {
   font-weight: 500;
-  font-size: 3rem;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
 }
 
 .service {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.service.right{
-  flex-direction: row-reverse;
-  text-align: right;
-}
-
-.service img {
-  aspect-ratio: 1/1.5;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  max-width: 350px;
-  object-fit: cover;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+  max-width: 450px;
+  flex: 1 0 0;
+  gap: 1rem;
+  border: 1px solid var(--secondary10);
+  border-radius: 2rem;
+  padding: 1rem;
 }
 
 .service-info {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 400px;
+  gap: .5rem;
+}
+
+.service-info h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .service-info h4 {
   font-style: italic;
   font-weight: 500;
-  padding: .2rem 0;
 }
 
-.service.right > .service-info {
-  align-items: end;
+.service-info p {
+  line-height: 1.6;
+  color: var(--secondary80);
 }
 
 .square {
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/.8;
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +138,7 @@
   top: 0;
   height: 100vh;
   width: 100%;
-  background: black;
+  margin-top: 1rem;
 }
 
 .sticky-video-container video {
@@ -201,6 +172,92 @@
   animation: textFadeIn .3s linear forwards;
 }
 
+.sticky-section-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.sticky-content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 2rem;
+  padding: 83px 1rem 1rem;
+}
+
+.progress-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.box-progress {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--secondary60);
+}
+
+.progress-index {
+  width: 30px;
+  transition: .5s ease-in-out;
+}
+
+.progress-title {
+  font-size: 1.2rem;
+  transition: .5s ease-in-out;
+}
+
+.box-progress.active {
+  color: var(--secondary);
+}
+
+.bar {
+  flex: 1;
+  height: 2px;
+  background: var(--secondary40);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: var(--secondary);
+}
+
+.box-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--secondary10);
+  border-radius: 2rem;
+  padding: 1rem 1rem 0;
+  overflow: hidden;
+}
+
+.main-image {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  object-fit: cover;
+  transform: translateY(30%);
+  transition: opacity .5s ease;
+}
+
+.main-image.visible {
+  opacity: 1;
+  z-index: 2;
+}
+
 @keyframes reveal {
   to{
     opacity: 1;
@@ -214,29 +271,13 @@
   }
 }
 
-@keyframes move {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: translateX(0);
+@keyframes move-down {
+  to{
+    transform: translate(-50%, -25%);
   }
 }
 
-
-@media (max-width: 768px) {
-  .title > h1 {
-    font-size: 2.5rem;
-  }
+@media (max-width: 1256px) {
   .service,
   .service.right{
     flex-direction: column;
@@ -245,9 +286,17 @@
   .service.right > .service-info{
     align-items: start;
   }
+}
 
-  .service img{
-    max-width: 400px;
+
+@media (max-width: 992px) {
+  .hero > h1 {
+    font-size: 2.5rem;
+  }
+
+  .services{
+    flex-direction: column;
+    align-items: center;
   }
 
   .row-actions{
@@ -259,5 +308,14 @@
   .row-actions > div {
     width: 100%;
     max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .paragraph > p {
+    font-size: 1.1rem;
   }
 }
