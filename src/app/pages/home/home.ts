@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {MuseumService} from '../../../model/struct/MuseumService';
 
 @Component({
   selector: 'app-home',
@@ -10,36 +11,48 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 export class Home implements AfterViewInit {
   @ViewChild('scrollContainer', { static: true }) scrollContainer!: ElementRef<HTMLElement>;
   @ViewChild('videoPlayer', { static: true }) video!: ElementRef<HTMLVideoElement>;
-  @ViewChild('stickyBox') stickyRef!: ElementRef<HTMLDivElement>;
 
-  image: String = "images/hero1.png";
+  //@ViewChild('stickyBox') stickyRef!: ElementRef<HTMLDivElement>;
 
-  images: ClothStruct[] = [
-    {
-      image: 'images/planimetria.png',
-      title: 'Museo in Mostra',
-    },
-    {
-      image: 'images/planimetria_mostra.png',
-      title: 'Museo in Convegno',
-    },
-    {
-      image: 'images/vangogh2.jpg',
-      title: 'Museo in Fiera',
-    }
+  @ViewChild('bannerVideo') bannerVideo!: ElementRef<HTMLVideoElement>;
+
+  muted: boolean = true;
+
+  image: String = "images/klimt.png";
+
+  cards: MuseumService[] = [  new MuseumService(
+    "images/klimt.png",
+    "Mostre Multimediali",
+    "Un'esperienza immersiva dove l’arte prende vita tra luci, suoni e movimento."
+  ),
+    new MuseumService(
+      "images/convegno.jpg",
+      "Eventi e Convegni",
+      "Uno spazio all’avanguardia che unisce eleganza e tecnologia per ogni occasione."
+    ),
+    new MuseumService(
+      "images/bambini.jpg",
+      "Percorsi Educativi",
+      "Laboratori e attività coinvolgenti per ispirare le menti più giovani attraverso l’arte."
+    ),
+    new MuseumService(
+      "images/fiera.jpg",
+      "Spazi per Fiere ed Esposizioni",
+      "Ambienti versatili per ospitare eventi espositivi, culturali e commerciali di ogni tipo."
+    )
   ];
 
-  currentIndex = 0;
-  numSections = this.images.length;
-  windowHeight = window.innerHeight;
-  scrollStart = 0;
+  //currentIndex = 0;
+  //numSections = this.images.length;
+  //windowHeight = window.innerHeight;
+  //scrollStart = 0;
 
   constructor(private el: ElementRef) {}
 
   videoDuration = 0;
 
   ngAfterViewInit(): void {
-    this.scrollStart = this.stickyRef.nativeElement.getBoundingClientRect().top + window.scrollY;
+    //this.scrollStart = this.stickyRef.nativeElement.getBoundingClientRect().top + window.scrollY;
 
     const videoElement = this.video.nativeElement;
 
@@ -47,9 +60,25 @@ export class Home implements AfterViewInit {
       this.videoDuration = videoElement.duration;
     });
 
+    window.addEventListener('scroll', this.onBannerVideoScroll.bind(this));
     window.addEventListener('scroll', this.onScroll.bind(this));
 
-    const exhibition = this.el.nativeElement.querySelectorAll('.to-reveal, .to-fade');
+    /*const btn = this.el.nativeElement.querySelector('.row');
+
+    const minOpacity = 0;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 100;
+      const clampedScroll = Math.min(scrollY, maxScroll);
+      const scale = 1 - (clampedScroll / maxScroll);
+      const opacity = minOpacity + (1 - minOpacity) * scale;
+
+      btn.style.opacity = `${opacity}`;
+    });*/
+
+
+    /*const exhibition = this.el.nativeElement.querySelectorAll('.to-reveal, .to-fade');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -69,7 +98,29 @@ export class Home implements AfterViewInit {
       threshold: 0.5,
     });
 
-    exhibition.forEach((p: HTMLElement) => observer.observe(p));
+    exhibition.forEach((p: HTMLElement) => observer.observe(p));*/
+  }
+
+  onBannerVideoScroll() {
+    const video = this.bannerVideo?.nativeElement;
+    if (!video) return;
+
+    const maxScroll = 200;
+    const scrollY = window.scrollY;
+    const clamped = Math.min(scrollY, maxScroll);
+    const progress = clamped / maxScroll;
+
+    // dimensioni dinamiche
+    const minWidth = 90; // in vw
+    const maxWidth = 100;
+    const width = minWidth + (maxWidth - minWidth) * progress;
+
+    const minRadius = 2.3; // in rem
+    const maxRadius = 0;
+    const radius = minRadius + (maxRadius - minRadius) * progress;
+
+    video.style.borderRadius = `${radius}rem`;
+    video.style.width = `${width}vw`;
   }
 
   onScroll() {
@@ -84,7 +135,7 @@ export class Home implements AfterViewInit {
     this.video.nativeElement.currentTime = scrollProgress * this.videoDuration;
 
     // STICKY BOX
-    const scrollY = window.scrollY;
+    /*const scrollY = window.scrollY;
     const sectionTop = this.scrollStart;
     const sectionHeight = this.windowHeight * this.numSections;
 
@@ -94,9 +145,10 @@ export class Home implements AfterViewInit {
     const maxScroll = this.windowHeight * (this.numSections - 1);
 
     const scrollClamped = Math.min(relativeScroll, maxScroll);
-    this.currentIndex = Math.floor(scrollClamped / this.windowHeight);
+    this.currentIndex = Math.floor(scrollClamped / this.windowHeight);*/
   }
 
+  /*
   getProgressForBar(index: number): number {
     const scrollY = window.scrollY;
     const sectionTop = this.scrollStart;
@@ -114,5 +166,5 @@ export class Home implements AfterViewInit {
 
     return ((relativeScroll - start) / sectionHeight) * 100;
   }
-
+  */
 }

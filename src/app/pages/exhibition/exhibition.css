@@ -1,9 +1,8 @@
 .wrapper {
   position: relative;
   display: flex;
-  gap: 1rem;
   width: 100%;
-  padding: 83px 1rem 1rem;
+  padding: 0 1rem;
 }
 
 .image-box{
@@ -14,9 +13,11 @@
 
 img {
   position: sticky;
-  top: calc(83px);
+  top: 83px;
   width: 100%;
-  border-radius: 1.5rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: .5rem;
 }
 
 .exhibition {
@@ -43,20 +44,22 @@ img {
 }
 
 .section h1 {
-  font-size: 2rem;
-  line-height: 2;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  line-height: 1.5;
   font-weight: 500;
 }
 
 .section h4 {
-  padding: .5rem 0;
-  opacity: .6;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .section p {
-  max-width: 65ch;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  max-width: 80ch;
+  line-height: 1.6;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: var(--secondary80);
 }
 
 .divider {
@@ -86,14 +89,14 @@ b {
 
 @media (max-width: 1024px) {
   .exhibition {
-    max-width: 400px;
+    max-width: 350px;
   }
 }
 
 @media (max-width: 992px) {
   .wrapper {
     flex-direction: column;
-    padding: 83px 0 1rem;
+    padding: 0;
   }
 
   .image-box {

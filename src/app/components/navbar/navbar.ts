@@ -5,9 +5,8 @@ import { Component } from '@angular/core';
   standalone: false,
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
-  host: {"class": "navbar"}
+  host: {"class": "nav"}
 })
 export class Navbar {
   open: boolean = false;
-
 }

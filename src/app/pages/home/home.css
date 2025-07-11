@@ -1,109 +1,72 @@
-.hero {
-  height: 100vh;
-  width: 100%;
+.row {
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  margin: 1rem 0;
+}
+
+.row p {
+  flex: 1 0 0;
+}
+
+.video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.video-wrapper > span{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  z-index: 0;
-  background: var(--secondary);
+  justify-content: center;
+  background: var(--primary80);
+  backdrop-filter: blur(8px);
+  border-radius: 1.3rem;
+  padding: .5rem;
+  cursor: pointer;
 }
 
-.hero img {
-  height: 100%;
-  width: 100%;
+.video-wrapper > span svg {
+  stroke: var(--secondary);
+  transition: .3s ease-in-out;
+}
+
+.video-wrapper > span:hover svg {
+  stroke: var(--secondary80);
+}
+
+.banner-video {
+  height: 100vh;
+  width: 90vw;
   object-fit: cover;
-  opacity: .8;
+  display: block;
+  border-radius: 2.3rem;
 }
 
-.hero h1 {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  color: var(--primary);
-  font-weight: 300;
-  font-size: 4rem;
-}
-
-.hero b {
-  font-weight: 400;
+.paragraphs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .paragraph{
+  grid-column: 2 / span 4;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.paragraph > p {
-  max-width: min(65ch, 80%);
-  line-height: 1.6;
-  font-size: 1.25rem;
-}
-
-.paragraph i {
-  font-weight: 500;
-}
-
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  padding: 1rem;
-}
-
-.service {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 450px;
-  flex: 1 0 0;
-  gap: 1rem;
-  border: 1px solid var(--secondary10);
-  border-radius: 2rem;
-  padding: 1rem;
-}
-
-.service-info {
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 
-.service-info h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.service-info h4 {
-  font-style: italic;
-  font-weight: 500;
-}
-
-.service-info p {
+.paragraph > p {
+  max-width: 80ch;
   line-height: 1.6;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
   color: var(--secondary80);
-}
-
-.square {
-  aspect-ratio: 1/.8;
-  width: 100%;
-  max-width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.square > svg {
-  width: 100%;
-  height: 100%;
-}
-
-.service-info .row {
-  margin-top: 1rem;
 }
 
 .immersive-scroll-wrapper {
@@ -127,30 +90,6 @@
   display: block;
 }
 
-.to-reveal{
-  opacity: 0;
-}
-
-.to-fade{
-  opacity: 0;
-  transform: translateY(2rem);
-}
-
-.reveal{
-  animation: reveal .3s linear forwards;
-}
-
-.fade{
-  animation: fadeIn .3s linear forwards;
-
-}
-
-.to-reveal.reveal > h3,
-.to-reveal.reveal > .video-caption > p,
-.to-reveal.reveal > .video-caption > h2 {
-  animation: textFadeIn .3s linear forwards;
-}
-
 .sticky-section-wrapper {
   position: relative;
   width: 100%;
@@ -166,7 +105,7 @@
   align-items: center;
   gap: 1rem;
   border-radius: 2rem;
-  padding: 83px 1rem 1rem;
+  padding: 1rem;
 }
 
 .progress-bars {
@@ -228,7 +167,6 @@
   opacity: 0;
   width: 100%;
   object-fit: cover;
-  transform: translateY(30%);
   transition: opacity .5s ease;
 }
 
@@ -237,61 +175,16 @@
   z-index: 2;
 }
 
-@keyframes reveal {
-  to{
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
-@media (max-width: 1256px) {
-  .service,
-  .service.right{
-    flex-direction: column;
-    text-align: start;
-  }
-  .service.right > .service-info{
-    align-items: start;
-  }
-}
-
-
-@media (max-width: 992px) {
-  .hero > h1 {
-    font-size: 2.5rem;
-  }
-
-  .services{
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .row-actions{
-    bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-  }
-  .row-actions > div {
-    width: 100%;
-    max-width: 400px;
+@media (max-width: 1024px) {
+  .paragraph{
+    grid-column: 1 / -1;
+    padding: 0 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .paragraph > p {
-    font-size: 1.1rem;
+  .banner-video {
+    height: 60vh;
+    border-radius: 1.5rem;
   }
 }

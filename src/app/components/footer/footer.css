@@ -25,7 +25,7 @@ form > input {
   width: 100%;
   min-width: 200px;
   border-radius: 2rem;
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--secondary80);
   height: 3rem;
   padding: 0 1rem;
   background: none;
@@ -33,6 +33,11 @@ form > input {
   font-size: 1rem;
   -webkit-appearance: none;
   outline: none;
+}
+
+a, p {
+  color: var(--secondary80);
+  transition: .3s ease-in-out;
 }
 
 .submit{
@@ -66,11 +71,11 @@ form > input {
   color: var(--primary);
 }
 
-
 .column{
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  cursor: initial;
 }
 
 .column.bg{
@@ -80,9 +85,8 @@ form > input {
   min-width: 200px;
 }
 
-.column.bg > p, .column.bg > a {
-  font-size: .9rem;
-  color: var(--secondary60);
+.column.bg > a:hover {
+  color: var(--green);
 }
 
 .row{
@@ -98,11 +102,6 @@ form > input {
   padding: .5rem;
   width: 100%;
   max-width: 800px;
-}
-
-a {
-  text-decoration: none;
-  color: var(--primary);
 }
 
 @media (max-width: 992px) {
@@ -124,15 +123,6 @@ a {
   }
 }
 
-a, p {
-  color: var(--secondary60);
-  transition: .3s ease-in-out;
-}
-a:hover, p:hover, svg:hover {
-  color: var(--secondary);
-}
-
-
 @media (max-width: 992px) {
   .row {
     flex-direction: column;
@@ -143,6 +133,7 @@ a:hover, p:hover, svg:hover {
   }
   .newsletter{
     max-width: unset;
+    text-align: center;
   }
 
   .row-end{

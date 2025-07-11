@@ -1,0 +1,104 @@
+.controls {
+  position: sticky;
+  bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-right: 1rem;
+  z-index: 10;
+}
+
+.controls > span {
+  position: sticky;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary80);
+  backdrop-filter: blur(8px);
+  border-radius: 1.3rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.controls > span svg{
+  stroke: var(--primary);
+  transition: .3s ease-in-out;
+}
+
+.controls > span:hover svg{
+  stroke: var(--primary80);
+}
+
+.scroll-cards {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;  /* IE and Edge */
+  padding: 0 1rem;
+}
+
+.scroll-cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.card {
+  flex: 0 0 auto;
+  position: relative;
+  width: calc(100% - 2rem);
+  max-width: 550px;
+  min-width: 250px;
+  height: 700px;
+  background: var(--secondary10);
+  overflow: hidden;
+  border-radius: 1rem;
+  scroll-snap-align: start;
+  margin: 0 .5rem;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.2);
+}
+
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+  background: linear-gradient(to bottom, var(--secondary80) 45%, transparent);
+  color: var(--primary);
+}
+
+.card-content h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 500;
+}
+
+.card-content p {
+  max-width: 80ch;
+  line-height: 1.6;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: var(--primary80);
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 600px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    height: 500px;
+  }
+}

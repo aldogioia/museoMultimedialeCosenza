@@ -22,7 +22,8 @@
   <div [class]="className">
     <a routerLinkActive="active-route" [style.animation-delay]="1" routerLink="/home">Home</a>
     <a routerLinkActive="active-route" [style.animation-delay]="2" routerLink="/exhibitions">Mostre</a>
+    <span></span>
     <a routerLinkActive="active-route" [style.animation-delay]="3" routerLink="/about">chi siamo?</a>
-    <a routerLinkActive="active-route" [style.animation-delay]="4" style="color: var(--blue); font-weight: 600" routerLink="/about">Biglietteria</a>
+    <a [style.animation-delay]="4" >Biglietteria</a>
   </div>
 </ng-template>

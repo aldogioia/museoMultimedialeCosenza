@@ -4,9 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-about',
   standalone: false,
   templateUrl: './about.html',
-  styleUrl: './about.css'
+  styleUrl: './about.css',
+  host: { class: 'main' }
 })
 export class About {
-  images: String[] = ['images/vangogh2.jpg', 'images/vangogh.jpg', 'images/vangogh2.jpg', 'images/vangogh.jpg', 'images/vangogh2.jpg', 'images/vangogh.jpg'];
+  images: String[] = [
+    'images/klimt.png',
+    'images/vangogh.jpg',
+    'images/leonardo.jpg',
+    'images/pinocchio.jpg',
+    'images/convegno.jpg',
+    'images/fiera.jpg'
+  ];
 
 }
