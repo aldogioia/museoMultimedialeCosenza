@@ -9,9 +9,12 @@ import {MuseumService} from '../../../model/struct/MuseumService';
   host: { class: 'main' }
 })
 export class Home implements AfterViewInit {
-
   @ViewChild('bannerVideo') bannerVideo!: ElementRef<HTMLVideoElement>;
   @ViewChild('scrollWrapper') scrollWrapper!: ElementRef<HTMLElement>;
+
+  @ViewChild('museumClothWrapper') museumClothWrapper!: ElementRef<HTMLElement>;
+  @ViewChild('mostraVideo') mostraVideo!: ElementRef<HTMLVideoElement>;
+  @ViewChild('conferenzaVideo') conferenzaVideo!: ElementRef<HTMLVideoElement>;
 
   muted: boolean = true;
 
@@ -40,6 +43,7 @@ export class Home implements AfterViewInit {
   ];
 
   videoVisible: number = 0;
+  private videoObserver?: IntersectionObserver;
 
   ngAfterViewInit(): void {
     if (this.bannerVideo && this.scrollWrapper) {
@@ -47,6 +51,7 @@ export class Home implements AfterViewInit {
       window.addEventListener('scroll', this.onBannerVideoScroll, { passive: true });
       window.addEventListener('resize', this.onResize);
     }
+    this.setupVideoObserver();
   }
 
   onResize = () => {
@@ -58,6 +63,30 @@ export class Home implements AfterViewInit {
     const finalHeightPx = window.innerWidth * (9 / 16);
     const scrollAnimationDistance = window.innerHeight;
     wrapper.style.height = `${scrollAnimationDistance + finalHeightPx}px`;
+  }
+
+  setupVideoObserver(): void {
+    const options = {
+      rootMargin: '0px',
+      threshold: 0.25
+    };
+
+    this.videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.mostraVideo?.nativeElement.play().catch(e => console.error("Errore autoplay video mostra:", e));
+          this.conferenzaVideo?.nativeElement.play().catch(e => console.error("Errore autoplay video conferenza:", e));
+
+          // Una volta partiti, possiamo smettere di osservare per risparmiare risorse.
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Diciamo all'observer di iniziare a guardare il nostro wrapper
+    if (this.museumClothWrapper) {
+      this.videoObserver.observe(this.museumClothWrapper.nativeElement);
+    }
   }
 
   onBannerVideoScroll = () => {

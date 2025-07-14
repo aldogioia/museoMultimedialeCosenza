@@ -85,20 +85,19 @@
   </div>
 </div>
 
-
-<div class="museum-cloth-wrapper">
+<div class="museum-cloth-wrapper" #museumClothWrapper>
   <video
-    src="videos/Tour_Mostra.mp4"
+    #mostraVideo  src="videos/Tour_Mostra.mp4"
     autoplay
-    muted
     loop
+    muted
     playsinline
     preload="metadata"
     [class.visible]="videoVisible == 0"
   ></video>
 
   <video
-    src="videos/Tour_Conferenza.mp4"
+    #conferenzaVideo  src="videos/Tour_Conferenza.mp4"
     autoplay
     loop
     muted
