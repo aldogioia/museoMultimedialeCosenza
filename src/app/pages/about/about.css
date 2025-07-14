@@ -26,7 +26,7 @@
 .paragraph p {
   max-width: 80ch;
   line-height: 1.6;
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--secondary80);
 }
 
