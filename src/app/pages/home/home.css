@@ -134,7 +134,6 @@
   align-items: center;
   gap: .5rem;
   z-index: 2;
-  color: var(--secondary);
 }
 
 .controls button {
@@ -146,6 +145,7 @@
   min-width: 120px;
   border-radius: .25rem;
   background: var(--primary60);
+  color: var(--secondary);
   backdrop-filter: blur(1rem);
   transition: color 0.3s ease-in-out;
 }
