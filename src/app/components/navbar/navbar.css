@@ -7,9 +7,20 @@
   z-index: 99;
 }
 
-img{
+.background-img {
   display: none;
-  height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: .8rem;
+  background: var(--primary80);
+  backdrop-filter: blur(8px);
+  border-radius: 2rem;
+  height: 50px;
+  width: fit-content;
+}
+
+img{
+  height: 100%;
 }
 
 .links {
@@ -177,8 +188,8 @@ span {
     display: none;
   }
 
-  img{
-    display: initial;
+  .background-img{
+    display: flex;
   }
 
   .hamburger-menu {

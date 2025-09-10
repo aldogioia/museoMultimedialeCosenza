@@ -12,46 +12,65 @@ export class Home implements AfterViewInit {
   @ViewChild('bannerVideo') bannerVideo!: ElementRef<HTMLVideoElement>;
   @ViewChild('scrollWrapper') scrollWrapper!: ElementRef<HTMLElement>;
 
-  @ViewChild('museumClothWrapper') museumClothWrapper!: ElementRef<HTMLElement>;
-  @ViewChild('mostraVideo') mostraVideo!: ElementRef<HTMLVideoElement>;
-  @ViewChild('conferenzaVideo') conferenzaVideo!: ElementRef<HTMLVideoElement>;
-
   muted: boolean = true;
-
-  image: String = "images/klimt.png";
+  hideControlsTimeout?: any;
+  showControls: boolean = true;
 
   cards: MuseumService[] = [  new MuseumService(
     "images/klimt.png",
     "Mostre Multimediali",
-    "Un'esperienza immersiva dove l’arte prende vita tra luci, suoni e movimento."
+    "Un'esperienza immersiva dove l’arte prende vita tra luci, suoni e movimento.",
+    "Immagine di una mostra multimediale con opere di Gustav Klimt"
   ),
     new MuseumService(
       "images/convegno.jpg",
       "Eventi e Convegni",
-      "Uno spazio all’avanguardia che unisce eleganza e tecnologia per ogni occasione."
+      "Uno spazio all’avanguardia che unisce eleganza e tecnologia per ogni occasione.",
+      "Immagine di una conferenza nel museo multimediale nelle vesti di un auditorium moderno"
     ),
     new MuseumService(
       "images/bambini.jpg",
       "Percorsi Educativi",
-      "Laboratori e attività coinvolgenti per ispirare le menti più giovani attraverso l’arte."
+      "Laboratori e attività coinvolgenti per ispirare le menti più giovani attraverso l’arte.",
+      "Immagine di bambini che partecipano a un laboratorio artistico nel museo multimediale"
     ),
     new MuseumService(
       "images/fiera.jpg",
       "Spazi per Fiere ed Esposizioni",
-      "Ambienti versatili per ospitare eventi espositivi, culturali e commerciali di ogni tipo."
+      "Ambienti versatili per ospitare eventi espositivi, culturali e commerciali di ogni tipo.",
+      "Immagine di una fiera allestita negli spazi del museo multimediale"
     )
   ];
 
   videoVisible: number = 0;
-  private videoObserver?: IntersectionObserver;
 
   ngAfterViewInit(): void {
     if (this.bannerVideo && this.scrollWrapper) {
-      this.setWrapperHeight(); // Imposta l'altezza all'avvio
+      this.setWrapperHeight();
       window.addEventListener('scroll', this.onBannerVideoScroll, { passive: true });
       window.addEventListener('resize', this.onResize);
     }
-    this.setupVideoObserver();
+  }
+
+  togglePlay(video: HTMLVideoElement) {
+    if (video.paused) {
+      video.play().catch(err => console.warn("Play non riuscito:", err));
+    } else {
+      video.pause();
+    }
+    this.resetControlsTimer();
+  }
+
+  resetControlsTimer() {
+    this.showControls = true;
+    clearTimeout(this.hideControlsTimeout);
+    this.hideControlsTimeout = setTimeout(() => {
+      this.showControls = false;
+    }, 2000); // nasconde dopo 2 secondi
+  }
+
+  onUserActivity() {
+    this.resetControlsTimer();
   }
 
   onResize = () => {
@@ -63,30 +82,6 @@ export class Home implements AfterViewInit {
     const finalHeightPx = window.innerWidth * (9 / 16);
     const scrollAnimationDistance = window.innerHeight;
     wrapper.style.height = `${scrollAnimationDistance + finalHeightPx}px`;
-  }
-
-  setupVideoObserver(): void {
-    const options = {
-      rootMargin: '0px',
-      threshold: 0.25
-    };
-
-    this.videoObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.mostraVideo?.nativeElement.play().catch(e => console.error("Errore autoplay video mostra:", e));
-          this.conferenzaVideo?.nativeElement.play().catch(e => console.error("Errore autoplay video conferenza:", e));
-
-          // Una volta partiti, possiamo smettere di osservare per risparmiare risorse.
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    // Diciamo all'observer di iniziare a guardare il nostro wrapper
-    if (this.museumClothWrapper) {
-      this.videoObserver.observe(this.museumClothWrapper.nativeElement);
-    }
   }
 
   onBannerVideoScroll = () => {

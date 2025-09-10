@@ -11,5 +11,9 @@ import {ExhibitionDto} from '../../../model/dto/ExhibitionDto';
 export class Exhibition {
   @Input({ required: true }) exhibition!: ExhibitionDto;
 
+  @Input() openDescription: boolean = false;
+  openTimes: boolean = false;
+  openPeriod: boolean = false;
+
   today: Date = new Date();
 }

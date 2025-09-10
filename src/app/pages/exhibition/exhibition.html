@@ -1,71 +1,76 @@
-  <div class="image-box">
+<div class="image-box">
+  @if (exhibition.video !== '') {
+    <video
+      [src]="exhibition.video"
+      controls
+      playsinline
+      preload="metadata"
+      [poster]="exhibition.image"
+      class="custom-video"
+    ></video>
+  }
+  @else {
     <img [src]="exhibition.image" alt="immagine mostra">
-  </div>
-  <div class="exhibition">
-    <div class="exhibition-info">
+  }
+</div>
+<div class="exhibition">
+  <div class="exhibition-info">
+    <h2>{{exhibition.name}}</h2>
 
-      <div class="section">
-        <h1>{{exhibition.name}}</h1>
-        <p>{{exhibition.description}}</p>
+    <div class="section">
+      <div class="extend">
+        <h4>Descrizione</h4>
+        <div class="toggle" (click)="openDescription = !openDescription" [class.open]="openDescription"></div>
       </div>
+      @if (openDescription) {
+        <p>{{exhibition.description}}</p>
+      }
+    </div>
 
-      <span class="divider"></span>
-
-      <div class="section">
-        <h4>Periodo disponibilità</h4>
+    <div class="section">
+      <div class="extend">
+        <h4>Periodo</h4>
+        <div class="toggle" (click)="openPeriod = !openPeriod" [class.open]="openPeriod"></div>
+      </div>
+      @if (openPeriod) {
         @if (exhibition.startDate === undefined || exhibition.endDate === undefined) {
           <p>La mostra sarà disponibile a partire da <b>{{exhibition.month}}</b>.</p>
         } @else {
           <p>Dal <b>{{ exhibition.startDate | date:'dd-MM-yyyy' }}</b> al <b>{{ exhibition.endDate | date:'dd-MM-yyyy' }}</b>.</p>
         }
-      </div>
-
-      <span class="divider"></span>
-
-      <div class="section">
-        <h4>Orari</h4>
-        <p>{{exhibition.time}}</p>
-      </div>
-
-      <span class="divider"></span>
-
-      <div class="section">
-        <h4>Luogo</h4>
-        <p>{{exhibition.location}}</p>
-      </div>
-
-      <span class="divider"></span>
+      }
     </div>
 
-    @if (exhibition.endDate !== undefined && exhibition.endDate > today) {
-      <div class="row">
-        <p>Acquista Biglietti</p>
-        <div class="btn">
-          <div class="scroll">
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-              <path d="M9.5 14.5L14.5 9.49995" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M16.8463 14.6095L19.4558 12C21.5147 9.94108 21.5147 6.60298 19.4558 4.54411C17.397 2.48524 14.0589 2.48524 12 4.54411L9.39045 7.15366M14.6095 16.8463L12 19.4558C9.94113 21.5147 6.60303 21.5147 4.54416 19.4558C2.48528 17.3969 2.48528 14.0588 4.54416 12L7.1537 9.39041" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </span>
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-              <path d="M9.5 14.5L14.5 9.49995" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M16.8463 14.6095L19.4558 12C21.5147 9.94108 21.5147 6.60298 19.4558 4.54411C17.397 2.48524 14.0589 2.48524 12 4.54411L9.39045 7.15366M14.6095 16.8463L12 19.4558C9.94113 21.5147 6.60303 21.5147 4.54416 19.4558C2.48528 17.3969 2.48528 14.0588 4.54416 12L7.1537 9.39041" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </span>
-          </div>
-        </div>
+    <div class="section">
+      <div class="extend">
+        <h4>Orari</h4>
+        <div class="toggle" (click)="openTimes = !openTimes" [class.open]="openTimes"></div>
       </div>
-    }
-  </div>
-
-<!-- <div class="pin-wrapper" [style.height.px]="horizontalScrollLength + windowHeight">
-  <div class="horizontal-gallery-container" #container>
-    <div class="horizontal-gallery">
-      @for (image of images; track image) {
-        <img [src]="image" alt="immagine mostra"/>
+      @if (openTimes) {
+        <p>{{exhibition.time}}</p>
       }
     </div>
   </div>
-</div> -->
+
+  @if (exhibition.endDate !== undefined && exhibition.endDate > today) {
+    <div class="row">
+      <p>Acquista Biglietti</p>
+      <div class="btn">
+        <div class="scroll">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M9.5 14.5L14.5 9.49995" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M16.8463 14.6095L19.4558 12C21.5147 9.94108 21.5147 6.60298 19.4558 4.54411C17.397 2.48524 14.0589 2.48524 12 4.54411L9.39045 7.15366M14.6095 16.8463L12 19.4558C9.94113 21.5147 6.60303 21.5147 4.54416 19.4558C2.48528 17.3969 2.48528 14.0588 4.54416 12L7.1537 9.39041" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M9.5 14.5L14.5 9.49995" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M16.8463 14.6095L19.4558 12C21.5147 9.94108 21.5147 6.60298 19.4558 4.54411C17.397 2.48524 14.0589 2.48524 12 4.54411L9.39045 7.15366M14.6095 16.8463L12 19.4558C9.94113 21.5147 6.60303 21.5147 4.54416 19.4558C2.48528 17.3969 2.48528 14.0588 4.54416 12L7.1537 9.39041" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
