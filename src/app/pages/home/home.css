@@ -50,6 +50,7 @@
 
 .content-wrapper > span svg {
   stroke: var(--secondary);
+  fill: none;
   transition: .3s ease-in-out;
 }
 

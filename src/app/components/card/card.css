@@ -23,6 +23,7 @@
 
 .controls > span svg{
   stroke: var(--primary);
+  fill: none;
   transition: .3s ease-in-out;
 }
 
