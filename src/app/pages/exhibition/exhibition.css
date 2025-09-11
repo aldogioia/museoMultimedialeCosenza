@@ -122,7 +122,7 @@ b {
 @media (max-width: 1256px) {
   .exhibition {
     max-width: 450px;
-    padding: 1rem .5rem;
+    padding: .5rem;
   }
 
   .section {
