@@ -12,7 +12,7 @@ import {ExhibitionDto} from '../../../model/dto/ExhibitionDto';
 export class Exhibitions {
   exhibitions: ExhibitionDto[] = [
     new ExhibitionDto(
-      'images/klimt_copertina.jpg',
+      'images/klimt_copertina.jpeg',
       'Klimt: l\'incanto dorato',
       "Un viaggio sensoriale nell’universo dorato di Gustav Klimt: un’esperienza immersiva che trasporta il visitatore nel cuore dell’arte del maestro austriaco, tra luci, colori, musiche e suggestioni visive che danno nuova vita ai suoi capolavori più iconici. Un percorso esistenziale nell'anima tormanetata di un artista che sente su di sè forte la presenza del dolore, della morte, della malinconia che veste della luce aurea dei fasti della società Viennese dei primi del Novecento. La mostra multimediale apre allo spettatore il mondo di Klimt, attraverso le pulsanti immagini visionarie e coinvolgenti ed un ritmo incessante che colpisce il cuore e l'anima.",
       undefined,
