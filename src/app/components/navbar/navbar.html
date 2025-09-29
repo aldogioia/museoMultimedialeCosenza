@@ -22,10 +22,10 @@
 
 <ng-template #links let-className="className">
   <div [class]="className">
-    <a routerLinkActive="active-route" [style.animation-delay]=".2" routerLink="/home">Home</a>
-    <a routerLinkActive="active-route" [style.animation-delay]=".4" routerLink="/exhibitions">Mostre</a>
+    <a routerLinkActive="active-route" routerLink="/home">Home</a>
+    <a routerLinkActive="active-route" routerLink="/exhibitions">Mostre</a>
     <span></span>
-    <a routerLinkActive="active-route" [style.animation-delay]=".6" routerLink="/about">Chi siamo?</a>
-    <a [style.animation-delay]="4" >Biglietteria</a>
+    <a routerLinkActive="active-route" routerLink="/about">Chi siamo?</a>
+    <a routerLinkActive="active-route" routerLink="/ticketing" >Biglietteria</a>
   </div>
 </ng-template>

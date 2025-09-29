@@ -17,7 +17,11 @@
   --secondary40: #15151566;
   --secondary20: #15151533;
   --secondary10: #1515151A;
+  --secondary4: #1515150A;
   --green: #00A950;
+  --green10: #00A9501A;
+  --red: #A90014;
+  --red10: #A900141A;
 }
 
 body{
@@ -105,18 +109,7 @@ p, a {
   cursor: pointer;
 }
 
-.row:hover > p {
-  border-radius: 0;
-  background: var(--secondary);
-  color: var(--primary);
-}
-
-.row:hover > .btn {
-  border-radius: 1.5rem;
-  background: var(--secondary);
-}
-
-.row > p {
+.row > p, .row > a {
   padding: 0 1rem;
   display: flex;
   align-items: center;
@@ -126,9 +119,16 @@ p, a {
   background: var(--secondary10);
   color: var(--secondary);
   transition: .3s ease-in-out;
+  text-decoration: none;
 }
 
-.btn{
+.row:hover > p, .row:hover > a {
+  border-radius: 0;
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.btn {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -137,6 +137,11 @@ p, a {
   width: 40px;
   transition: .3s ease-in-out;
   overflow: hidden;
+}
+
+.row:hover > .btn {
+  border-radius: 1.5rem;
+  background: var(--secondary);
 }
 
 .scroll {
@@ -157,6 +162,7 @@ p, a {
 
 .scroll > span > svg {
   stroke: var(--secondary);
+  fill: none;
 }
 .row:hover > .btn > .scroll > span > svg {
   stroke: var(--primary);

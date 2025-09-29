@@ -28,6 +28,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
   width: 100%;
   height: fit-content;
   max-width: 500px;
@@ -46,7 +47,7 @@ img {
   line-height: 1.5;
 }
 
-.exhibition p {
+.exhibition .section p {
   max-width: 80ch;
   line-height: 1.6;
   font-size: clamp(1.15rem, 2cqw, 1.45rem);

@@ -9,9 +9,10 @@ import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
 import {NgOptimizedImage} from '@angular/common';
 import { Home } from './pages/home/home';
-import { Exhibition } from './pages/exhibition/exhibition';
+import { Exhibition } from './components/exhibition/exhibition';
 import { Gallery } from './components/gallery/gallery';
 import { Card } from './components/card/card';
+import { Ticketing } from './pages/ticketing/ticketing';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Card } from './components/card/card';
     Home,
     Exhibition,
     Gallery,
-    Card
+    Card,
+    Ticketing
   ],
   imports: [
     BrowserModule,

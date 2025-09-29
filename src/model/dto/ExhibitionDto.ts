@@ -6,9 +6,9 @@ export class ExhibitionDto {
   month: string;
   startDate?: Date;
   endDate?: Date;
-  time?: string;
+  time: string[];
 
-  constructor(image: string, name: string, description: string, month?: string, startDate?: Date, endDate?: Date, time?: string, video?: string) {
+  constructor(image: string, name: string, description: string, time: string[], month?: string, startDate?: Date, endDate?: Date, video?: string) {
     this.image = image;
     this.video = video || '';
     this.name = name;
@@ -16,6 +16,6 @@ export class ExhibitionDto {
     this.month = month || '';
     this.startDate = startDate;
     this.endDate = endDate;
-    this.time = time || '';
+    this.time = time;
   }
 }

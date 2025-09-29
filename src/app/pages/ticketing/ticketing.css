@@ -1,0 +1,145 @@
+figure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 1rem;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+figure figcaption {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+figcaption h2 {
+  font-size: clamp(1.45rem, 5cqw, 1.9rem);
+  line-height: 1.5;
+  color: var(--secondary);
+}
+
+.times-section {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.times-section h2 {
+  font-size: clamp(1.45rem, 5cqw, 1.9rem);
+  line-height: 1.5;
+  color: var(--secondary);
+  width: 100%;
+}
+
+.times-section p {
+  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--secondary80);
+  width: 100%;
+}
+
+.sub-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--secondary10);
+  border-radius: 1rem;
+  width: 100%;
+  align-self: stretch;
+}
+
+.title-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.times svg {
+  fill: var(--secondary80);
+}
+
+.title-time p {
+  max-width: 80ch;
+  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--secondary80);
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+  background-color: var(--secondary4);
+  border-radius: 1.5rem;
+  color: var(--secondary);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 .5rem;
+}
+
+.tag {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--green10);
+  border: 1px solid var(--green10);
+  color: var(--green);
+}
+
+.tag.not {
+  background-color: var(--red10);
+  border: 1px solid var(--red10);
+  color: var(--red);
+}
+
+@media (max-width: 768px) {
+  figure figcaption {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sub-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  figure figcaption {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sub-section {
+    flex-direction: column;
+  }
+}
