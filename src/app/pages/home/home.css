@@ -65,6 +65,7 @@ figure {
   gap: 1rem;
   width: 100%;
   max-width: 1080px;
+  padding: 0 1rem;
 }
 
 figure img {
