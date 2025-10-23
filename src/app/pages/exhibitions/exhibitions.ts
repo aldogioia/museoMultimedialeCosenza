@@ -10,17 +10,30 @@ import {ExhibitionDto} from '../../../model/dto/ExhibitionDto';
 })
 
 export class Exhibitions {
+
+  nowExhibition: ExhibitionDto = new ExhibitionDto(
+    'images/klimt_copertina.jpeg',
+    'Klimt: l\'incanto dorato',
+    "Un viaggio sensoriale nell’universo dorato di Gustav Klimt: un’esperienza immersiva che trasporta il visitatore nel cuore dell’arte del maestro austriaco, tra luci, colori, musiche e suggestioni visive che danno nuova vita ai suoi capolavori più iconici. Un percorso esistenziale nell'anima tormanetata di un artista che sente su di sè forte la presenza del dolore, della morte, della malinconia che veste della luce aurea dei fasti della società Viennese dei primi del Novecento. La mostra multimediale apre allo spettatore il mondo di Klimt, attraverso le pulsanti immagini visionarie e coinvolgenti ed un ritmo incessante che colpisce il cuore e l'anima.",
+    ["Dal lunedì al Sabato dalle 09:00 alle 13:00 e dalle 15:00 alle 20:00.", "La Domenica dalle 10:00 alle 13:00 e dalle 16:00 alle 20:00."],
+    undefined,
+    new Date("2025-09-26"),
+    new Date("2026-03-31"),
+    'videos/Preview_Mostra.mp4'
+  );
+
+  nextExhibition: ExhibitionDto = new ExhibitionDto(
+    'images/locandina_natale.jpeg',
+    'Christmas world tour: Il sogno di Renzo',
+    "Presto disponibili più dettagli.", //TODO da inserire descrizione
+    ["Presto disponibili gli orari di apertura."],
+    "Dicembre",
+    undefined,
+    undefined,
+    'videos/teaser_natale.mov'
+  );
+
   exhibitions: ExhibitionDto[] = [
-    new ExhibitionDto(
-      'images/klimt_copertina.jpeg',
-      'Klimt: l\'incanto dorato',
-      "Un viaggio sensoriale nell’universo dorato di Gustav Klimt: un’esperienza immersiva che trasporta il visitatore nel cuore dell’arte del maestro austriaco, tra luci, colori, musiche e suggestioni visive che danno nuova vita ai suoi capolavori più iconici. Un percorso esistenziale nell'anima tormanetata di un artista che sente su di sè forte la presenza del dolore, della morte, della malinconia che veste della luce aurea dei fasti della società Viennese dei primi del Novecento. La mostra multimediale apre allo spettatore il mondo di Klimt, attraverso le pulsanti immagini visionarie e coinvolgenti ed un ritmo incessante che colpisce il cuore e l'anima.",
-      ["Dal lunedì al Sabato dalle 09:00 alle 13:00 e dalle 15:00 alle 20:00.", "La Domenica dalle 10:00 alle 13:00 e dalle 16:00 alle 20:00."],
-      undefined,
-      new Date("2025-09-26"),
-      new Date("2026-03-31"),
-      'videos/Preview_Mostra.mp4'
-    ),
     new ExhibitionDto(
       'images/pinocchio.jpg',
       'Il Natale di Pinocchio',

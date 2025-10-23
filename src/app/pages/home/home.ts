@@ -1,5 +1,8 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {MuseumService} from '../../../model/struct/MuseumService';
+import {Exhibition} from '../../components/exhibition/exhibition';
+import {ExhibitionDto} from '../../../model/dto/ExhibitionDto';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +19,17 @@ export class Home implements AfterViewInit {
   hideControlsTimeout?: any;
   showControls: boolean = true;
 
-  cards: MuseumService[] = [  new MuseumService(
-    "images/klimt.png",
-    "Mostre Multimediali",
-    "Un'esperienza immersiva dove l’arte prende vita tra luci, suoni e movimento.",
-    "Immagine di una mostra multimediale con opere di Gustav Klimt"
-  ),
+  constructor(
+    private router: Router,
+  ) {}
+
+  cards: MuseumService[] = [
+    new MuseumService(
+      "images/klimt.png",
+      "Mostre Multimediali",
+      "Un'esperienza immersiva dove l’arte prende vita tra luci, suoni e movimento.",
+      "Immagine di una mostra multimediale con opere di Gustav Klimt"
+    ),
     new MuseumService(
       "images/convegno.jpg",
       "Eventi e Convegni",
@@ -41,6 +49,16 @@ export class Home implements AfterViewInit {
       "Immagine di una fiera allestita negli spazi del museo multimediale"
     )
   ];
+
+  nextExhibition: ExhibitionDto = new ExhibitionDto(
+    'images/locandina_natale.jpeg',
+    'Christmas world tour: Il sogno di Renzo',
+    "",
+    [],
+    "",
+    undefined,
+    undefined,
+  );
 
   videoVisible: number = 0;
 
@@ -126,5 +144,9 @@ export class Home implements AfterViewInit {
     video.style.width = `${widthVW}vw`;
     video.style.height = `${heightPx}px`;
     video.style.borderRadius = `${radius}rem`;
+  }
+
+  goToExhibitions() {
+    this.router.navigate(['/exhibitions']).then();
   }
 }

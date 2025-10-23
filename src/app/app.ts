@@ -17,7 +17,7 @@ export class App implements AfterViewInit {
     const title = this.el.nativeElement.querySelectorAll('h1, section > p');
 
     const minOpacity = 0;
-    const minHeight = 61;
+    const minHeight = 50;
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;

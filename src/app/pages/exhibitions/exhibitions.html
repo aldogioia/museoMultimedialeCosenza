@@ -1,3 +1,27 @@
-@for (exhibition of exhibitions; track exhibition; let i = $index) {
-  <app-exhibition [openDescription]="i === 0" [exhibition]="exhibition"></app-exhibition>
+<div class="title left">
+  <h2>Prossimamente <i>disponibile</i></h2>
+  <div class="title-bar"></div>
+</div>
+<app-exhibition
+  [openDescription]="true"
+  [title]="'Prossimamente'"
+  [exhibition]="nextExhibition">
+</app-exhibition>
+
+<div class="title left">
+  <h2>Attualmente <i>disponibile</i></h2>
+  <div class="title-bar"></div>
+</div>
+<app-exhibition
+  [openDescription]="true"
+  [title]="'Attualmente in mostra'"
+  [exhibition]="nowExhibition">
+</app-exhibition>
+
+<div class="title left">
+  <h2>Mostre <i>passate</i></h2>
+  <div class="title-bar"></div>
+</div>
+@for (exhibition of exhibitions; track exhibition) {
+  <app-exhibition [exhibition]="exhibition"></app-exhibition>
 }

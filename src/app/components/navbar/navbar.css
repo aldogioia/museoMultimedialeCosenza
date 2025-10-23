@@ -11,7 +11,7 @@
   display: none;
   align-items: center;
   justify-content: center;
-  padding: .8rem;
+  padding: .25rem .8rem;
   background: var(--primary80);
   backdrop-filter: blur(8px);
   border-radius: 2rem;
@@ -48,7 +48,7 @@ a {
 }
 
 .links-row a {
-  width: 150px;
+  width: 130px;
   border-radius: .25rem;
   text-align: center;
   background: var(--primary60);
@@ -76,7 +76,7 @@ a.active-route::before {
 }
 
 span {
-  width: 100px;
+  width: 174px;
 }
 
 .hamburger-menu {

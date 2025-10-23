@@ -51,6 +51,22 @@
   </div>
 </div>
 
+<figure>
+  <div class="title left">
+    <h2>Presto <i>disponibile </i><b>nelle nostre sale</b></h2>
+    <div class="title-bar"></div>
+  </div>
+  <img [src]="nextExhibition.image" [alt]="nextExhibition.name" />
+  <figcaption>
+    <div class="discover" (click)="goToExhibitions()">
+      <div class="scroll">
+        <p>Scopri di più</p>
+        <p>Scopri di più</p>
+      </div>
+    </div>
+  </figcaption>
+</figure>
+
 <app-card [cards]="cards"></app-card>
 
 <div class="paragraphs">
@@ -85,7 +101,7 @@
   </div>
 </div>
 
-<div class="museum-cloth-wrapper" #museumClothWrapper>
+<div class="museum-cloth-wrapper">
   <div class="video-container" [class.visible]="videoVisible == 0" (mousemove)="onUserActivity()" (click)="onUserActivity()" (touchstart)="onUserActivity()">
     <video
       #mostraVideo
