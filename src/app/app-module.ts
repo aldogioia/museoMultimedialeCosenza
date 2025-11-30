@@ -3,34 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { About } from './pages/about/about';
-import { Exhibitions } from './pages/exhibitions/exhibitions';
-import { Navbar } from './components/navbar/navbar';
-import { Footer } from './components/footer/footer';
-import {NgOptimizedImage} from '@angular/common';
 import { Home } from './pages/home/home';
-import { Exhibition } from './components/exhibition/exhibition';
-import { Gallery } from './components/gallery/gallery';
-import { Card } from './components/card/card';
-import { Ticketing } from './pages/ticketing/ticketing';
+import { NavBar } from './components/nav-bar/nav-bar';
 
 @NgModule({
   declarations: [
     App,
-    About,
-    Exhibitions,
-    Navbar,
-    Footer,
     Home,
-    Exhibition,
-    Gallery,
-    Card,
-    Ticketing
+    NavBar,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
