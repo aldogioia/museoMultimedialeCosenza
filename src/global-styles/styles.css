@@ -9,7 +9,9 @@
 
 :root {
   --background: rgba(255, 255, 255, 1);
+  --background-transparent: rgba(255, 255, 255, 0.6);
   --background-dark: rgba(0, 0, 0, 0.9);
+  --background-dark-transparent: rgba(0, 0, 0, 0.5);
 
   --text-strong: rgba(10, 10, 10, 1);
   --text-dark-strong: rgba(245, 245, 245, 0.9);
@@ -18,8 +20,39 @@
   --text-weak: rgba(10, 10, 10, 0.65);
   --text-dark-weak: rgba(245, 245, 245, 0.5);
 
-  --stroke-strong: rgba(0, 0, 0, 0.5);
-  --stroke-dark-strong: rgba(255, 255, 255, 0.5);
-  --stroke-weak: rgba(0, 0, 0, 0.2);
-  --stroke-dark-weak: rgba(255, 255, 255, 0.2);
+  --stroke-strong: rgba(0, 0, 0, 0.4);
+  --stroke-dark-strong: rgba(255, 255, 255, 0.4);
+  --stroke-regular: rgba(0, 0, 0, 0.2);
+  --stroke-dark-regular: rgba(255, 255, 255, 0.2);
+  --stroke-weak: rgba(0, 0, 0, 0.1);
+  --stroke-dark-weak: rgba(255, 255, 255, 0.1);
+
+  --fill: rgba(10, 10, 10, 0.025);
+  --fill-dark: rgba(245, 245, 245, 0.025);
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  gap: 128pt;
+  width: 100%;
+}
+
+.name-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: var(--text-strong);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 1.288px;
+  text-transform: uppercase;
+}
+
+.name-section span {
+  width: 48pt;
+  height: 2pt;
+  background: var(--background-dark);
 }

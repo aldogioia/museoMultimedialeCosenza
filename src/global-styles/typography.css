@@ -7,32 +7,32 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 96px;
-  line-height: 91px;
+  font-size: clamp(48px, 6vw + 1rem, 96px);
+  line-height: 0.95;
   letter-spacing: -2.4px;
 }
 
 h2 {
-  font-size: 72px;
-  line-height: 72px;
+  font-size: clamp(36px, 5vw + 1rem, 72px);
+  line-height: 1;
   letter-spacing: -1.677px;
 }
 
 h3 {
-  font-size: 56px;
-  line-height: 62px;
+  font-size: clamp(28px, 4vw + 1rem, 56px);
+  line-height: 1.1;
   letter-spacing: -1.099px;
 }
 
 h4 {
-  font-size: 36px;
-  line-height: 40px;
+  font-size: clamp(20px, 2.5vw + 0.5rem, 36px);
+  line-height: 1.11;
   letter-spacing: 0.369px;
 }
 
 h5 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: clamp(16px, 2vw + 0.5rem, 24px);
+  line-height: 1.33;
   letter-spacing: 0.07px;
 }
 
@@ -60,7 +60,7 @@ a {
   justify-content: center;
   gap: 4pt;
   text-decoration: none;
-  border-bottom: 1pt solid var(--stroke-strong);
+  color: var(--text-strong);
 }
 
 a.regular {
@@ -79,6 +79,21 @@ a.small {
   text-transform: uppercase;
 }
 
-a.small.uppercase {
-  text-transform: uppercase;
+a.button {
+  padding-bottom: 2pt;
+  border-bottom: 2px solid var(--background-dark);
+}
+
+a.button > hugeicons-icon {
+  transition: .3s ease-in-out;
+  stroke: var(--text-strong);
+  stroke-width: 2px;
+}
+
+a.button:hover > hugeicons-icon {
+  transform: translateX(4pt);
+}
+
+hugeicons-icon {
+  display: flex;
 }

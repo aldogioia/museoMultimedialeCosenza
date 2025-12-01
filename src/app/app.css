@@ -1,6 +1,18 @@
 header {
+  position: sticky;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
+  background: var(--background-transparent);
   backdrop-filter: blur(16px);
+  padding: 0 16pt;
+  z-index: 99;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  padding: 32pt;
+  background: var(--background-dark);
 }
