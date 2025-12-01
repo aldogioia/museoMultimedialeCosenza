@@ -1,0 +1,120 @@
+:host {
+  width: 100%;
+  max-width: 1256pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 64pt 32pt;
+  gap: 96pt;
+}
+
+:host:before {
+  content: "Prossimamente";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--fill-dark);
+  font-size: 254px;
+  font-weight: 500;
+  line-height: 254px;
+  letter-spacing: -12.71px;
+  text-transform: uppercase;
+}
+
+section {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 96pt;
+}
+
+figure {
+  aspect-ratio: 16 / 10;
+  position: relative;
+  width: 100%;
+}
+
+image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.3s ease;
+}
+
+figure:hover > img {
+  scale: 1.1;
+}
+
+figcaption {
+  position: absolute;
+  top: -16pt;
+  right: -16pt;
+  background: var(--background);
+  padding: 16pt;
+}
+
+figcaption hugeicons-icon {
+  stroke: var(--text-strong);
+  stroke-width: 1.5px;
+}
+
+figcaption .small {
+  color: var(--text-weak);
+}
+
+article, .title, .infos, .info {
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  gap: 32pt;
+  width: 100%;
+  max-width: 400pt;
+}
+
+article > .large, .small {
+  color: var(--text-dark-weak);
+}
+
+.regular, .name-section, h3, h5 {
+  color: var(--text-dark-strong);
+}
+
+.name-section > span {
+  background: var(--background);
+}
+
+a.regular {
+  width: fit-content;
+  border-color: var(--background);
+}
+
+a.regular hugeicons-icon {
+  stroke: var(--background);
+}
+
+.infos {
+  flex-direction: row;
+  gap: 48pt;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 64pt 16pt;
+  }
+
+  section {
+    flex-direction: column-reverse;
+    gap: 48pt;
+  }
+}

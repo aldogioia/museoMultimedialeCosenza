@@ -28,7 +28,7 @@
   --stroke-dark-weak: rgba(255, 255, 255, 0.1);
 
   --fill: rgba(10, 10, 10, 0.025);
-  --fill-dark: rgba(245, 245, 245, 0.025);
+  --fill-dark: rgba(245, 245, 245, 0.02);
 }
 
 .page{

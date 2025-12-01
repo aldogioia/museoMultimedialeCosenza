@@ -110,7 +110,7 @@ figure:hover > img {
 @media (max-width: 1080px) {
   :host{
     padding: 16pt;
-    gap: 16pt;
+    gap: 64pt;
   }
 
   section:first-of-type {
@@ -121,7 +121,7 @@ figure:hover > img {
 @media (max-width: 768px) {
   :host{
     flex-direction: column;
-    gap: 32pt;
+    gap: 48pt;
   }
   section:first-of-type {
     position: relative;

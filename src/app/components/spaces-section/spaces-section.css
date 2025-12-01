@@ -80,6 +80,7 @@ figure:hover > img {
 
 @media (max-width: 1080px) {
   :host{
+    gap: 64pt;
     padding: 16pt;
   }
 
@@ -90,5 +91,11 @@ figure:hover > img {
 
   .sub-section {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :host{
+    gap: 48pt;
   }
 }
