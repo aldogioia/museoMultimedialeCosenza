@@ -1,0 +1,91 @@
+:host {
+  display: flex;
+  align-items: start;
+  position: relative;
+  gap: 96pt;
+}
+
+figure {
+  position: sticky;
+  top: calc(80px + 32pt);
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.3s ease;
+}
+
+figure:hover > img {
+  scale: 1.1;
+}
+
+figcaption {
+  position: absolute;
+  top: -16pt;
+  right: -16pt;
+  background: var(--background);
+  padding: 16pt;
+}
+
+figcaption hugeicons-icon {
+  stroke: var(--text-strong);
+  stroke-width: 1.5px;
+}
+
+figcaption .small {
+  color: var(--text-weak);
+}
+
+article, .title, .infos, .info {
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  gap: 32pt;
+  width: 100%;
+  max-width: 400pt;
+}
+
+article > .large, .small {
+  color: var(--text-weak);
+}
+
+a.regular {
+  width: fit-content;
+}
+
+.infos {
+  flex-direction: row;
+  gap: 48pt;
+}
+
+@media (max-width: 1256px) {
+  :host {
+    gap: 32pt;
+  }
+}
+
+@media (max-width: 1080px) {
+  :host {
+    gap: 24pt;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    flex-direction: column-reverse;
+  }
+
+  figure {
+    position: relative;
+    top: auto;
+  }
+}
+

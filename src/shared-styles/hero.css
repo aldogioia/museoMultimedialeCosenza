@@ -1,5 +1,4 @@
 :host{
-  min-height: 100vh;
   width: 100%;
   max-width: 1256pt;
   display: flex;
@@ -11,22 +10,14 @@
   padding: 32pt;
 }
 
-:host:before {
-  content: "Museo";
-  position: absolute;
-  color: var(--fill);
-  font-size: 254px;
-  font-weight: 500;
-  line-height: 254px;
-  letter-spacing: -12.71px;
-  text-transform: uppercase;
-  z-index: -1;
-}
-
-section, .sub-section {
+section, .sub-section, .title {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.title {
+  text-transform: capitalize;
 }
 
 section{
@@ -37,13 +28,7 @@ section{
   gap: 24pt;
 }
 
-.sub-section.row {
-  flex-direction: row;
-  align-items: center;
-  gap: 16pt;
-}
-
-p.regular {
+p.regular, .sub-section > p.large {
   color: var(--text-regular);
 }
 

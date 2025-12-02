@@ -1,0 +1,12 @@
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 32pt;
+  padding: 32pt;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 16pt;
+  }
+}

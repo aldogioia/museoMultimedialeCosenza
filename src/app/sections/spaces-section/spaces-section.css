@@ -74,14 +74,15 @@ figure:hover > img {
   color: var(--text-weak);
 }
 
-.sub-section  > figure {
-  aspect-ratio: 1 / 1;
+.figures {
+  display: flex;
+  flex-direction: column;
+  gap: 16pt;
 }
 
 @media (max-width: 1080px) {
   :host{
     gap: 64pt;
-    padding: 16pt;
   }
 
   section.row {
@@ -96,6 +97,7 @@ figure:hover > img {
 
 @media (max-width: 768px) {
   :host{
+    padding: 16pt;
     gap: 48pt;
   }
 }

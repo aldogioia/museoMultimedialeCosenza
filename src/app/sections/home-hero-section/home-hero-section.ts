@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import {ArrowRight02Icon, PlayIcon} from '@hugeicons/core-free-icons';
 
 @Component({
-  selector: 'app-hero-section',
+  selector: 'app-home-hero-section',
   standalone: false,
-  templateUrl: './hero-section.html',
-  styleUrl: './hero-section.css',
+  templateUrl: './home-hero-section.html',
+  styleUrls: ['./home-hero-section.css', '../../../shared-styles/hero.css'],
 })
-export class HeroSection {
+export class HomeHeroSection {
   protected readonly ArrowRight02Icon = ArrowRight02Icon;
   protected readonly PlayIcon = PlayIcon;
 }
