@@ -1,29 +1,49 @@
 <figure>
-  <img src="images/locandina_natale.jpeg" alt="Locandina evento">
+  <div class="image-wrapper">
+    <img [src]="exhibition.imageUrl" alt="Locandina evento">
+  </div>
+  @if (exhibition.opening != null) {
+    <figcaption>
+      <hugeicons-icon [icon]="Calendar01FreeIcons" [size]="32"></hugeicons-icon>
+      <p class="small">Inizio</p>
+      <p class="large">{{exhibition.opening}}</p>
+    </figcaption>
+  }
 </figure>
 <article>
-  <div class="name-section">
-    <span></span>
-    <p class="large">Prossimamente</p>
-  </div>
   <div class="title">
-    <h3>Christmas</h3>
-    <h3>World Tour</h3>
-    <h5>Il sogno di Renzo</h5>
+    @for (title of exhibition.titles; track title) {
+      <h3>{{title}}</h3>
+    }
+    <h5>{{exhibition.subtitle}}</h5>
   </div>
-  <p class="large">descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione</p>
+  <p class="large">{{exhibition.description}}</p>
   <div class="infos">
-    <div class="info">
-      <p class="small">Periodo</p>
-      <p class="regular">Dic - Gen 2026</p>
-    </div>
+    @if (exhibition.closing != null) {
+      <div class="info">
+        <p class="small">Fino al</p>
+        <p class="regular">{{exhibition.closing}}</p>
+      </div>
+    } @else {
+      <div class="info">
+        <p class="small">Periodo</p>
+        <p class="regular">{{exhibition.period}}</p>
+      </div>
+    }
     <div class="info">
       <p class="small">Durata</p>
-      <p class="regular">45 - 60 minuti</p>
+      <p class="regular">{{exhibition.duration}}</p>
     </div>
   </div>
-  <a href="" class="regular button">
-    Biglietti
-    <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-  </a>
+  @if (exhibition.reservationLink != null) {
+    <a [href]="exhibition.reservationLink" class="regular button">
+      Prenota un posto
+      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+    </a>
+  } @else {
+    <a href="" class="regular button">
+      Biglietti
+      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+    </a>
+  }
 </article>

@@ -16,6 +16,7 @@ import { ExhibitionHeroSection } from './sections/exhibition-hero-section/exhibi
 import { HomeHeroSection } from './sections/home-hero-section/home-hero-section';
 import { InfoHeroSection } from './sections/info-hero-section/info-hero-section';
 import { Info } from './pages/info/info';
+import { ExhibitionArchiveItem } from './items/exhibition-archive-item/exhibition-archive-item';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Info } from './pages/info/info';
     HomeHeroSection,
     InfoHeroSection,
     Info,
+    ExhibitionArchiveItem,
   ],
   imports: [
     BrowserModule,

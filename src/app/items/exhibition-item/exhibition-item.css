@@ -2,7 +2,7 @@
   display: flex;
   align-items: start;
   position: relative;
-  gap: 96pt;
+  gap: 48pt;
 }
 
 figure {
@@ -10,10 +10,15 @@ figure {
   top: calc(80px + 32pt);
   aspect-ratio: 16 / 10;
   width: 100%;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-img {
+.image-wrapper > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -21,7 +26,7 @@ img {
   transition: 0.3s ease;
 }
 
-figure:hover > img {
+figure:hover img {
   scale: 1.1;
 }
 
@@ -29,17 +34,22 @@ figcaption {
   position: absolute;
   top: -16pt;
   right: -16pt;
-  background: var(--background);
+  background: var(--background-dark);
+  backdrop-filter: blur(16pt);
   padding: 16pt;
 }
 
 figcaption hugeicons-icon {
-  stroke: var(--text-strong);
+  stroke: var(--text-dark-strong);
   stroke-width: 1.5px;
 }
 
 figcaption .small {
-  color: var(--text-weak);
+  color: var(--text-dark-regular);
+}
+
+figcaption .large {
+  color: var(--text-dark-strong);
 }
 
 article, .title, .infos, .info {
@@ -86,6 +96,12 @@ a.regular {
   figure {
     position: relative;
     top: auto;
+  }
+
+  article {
+    gap: 16pt;
+    width: 100%;
+    max-width: 400pt;
   }
 }
 

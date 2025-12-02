@@ -1,23 +1,48 @@
 <app-exhibition-hero-section></app-exhibition-hero-section>
 <section>
-  <div class="name-section">
-    <span></span>
-    <p class="large">In corso</p>
+  <div class="title">
+    <div class="name-section">
+      <span></span>
+      <p class="large">In corso</p>
+    </div>
+    <h2>Visita ora</h2>
   </div>
-  <h2>Visita ora</h2>
-  <app-exhibition-item></app-exhibition-item>
+
+  @for(exhibition of exhibitions; let i = $index; track i) {
+    <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+  }
+</section>
+
+<section class="bg">
+  <div class="title">
+    <div class="name-section">
+      <span></span>
+      <p class="large">Prossimamente</p>
+    </div>
+    <h2>In arrivo</h2>
+  </div>
+
+  <div class="sub-section">
+    @for (upcomingExhibition of upcomingExhibitions; let i = $index; track i) {
+      <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+    }
+  </div>
 </section>
 <section>
-  <div class="name-section">
-    <span></span>
-    <p class="large">Prossimamente</p>
+  <div class="title">
+    <div class="name-section">
+      <span></span>
+      <p class="large">Archivio</p>
+    </div>
+    <h2>Mostre passate</h2>
   </div>
-  <h2>In arrivo</h2>
-</section>
-<section>
-  <div class="name-section">
-    <span></span>
-    <p class="large">Archivio</p>
+
+  <div class="sub-section">
+    @for (pastExhibition of pastExhibitions; let isLast = $last; track pastExhibitions) {
+      <app-exhibition-archive-item [exhibition]="pastExhibition"></app-exhibition-archive-item>
+      @if (!isLast) {
+        <span class="divider"></span>
+      }
+    }
   </div>
-  <h2>Mostre passate</h2>
 </section>

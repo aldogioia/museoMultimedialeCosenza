@@ -1,12 +1,44 @@
 section {
+  gap: 64pt;
+  padding: 32pt;
+}
+
+section.bg {
+  background: var(--fill);
+  padding: 64pt 32pt;
+}
+
+section, .sub-section, .title {
   display: flex;
   flex-direction: column;
+}
+
+.title {
   gap: 32pt;
-  padding: 32pt;
+}
+
+.sub-section {
+  gap: 24pt;
+}
+
+.divider {
+  height: 1pt;
+  background-color: var(--stroke-weak);
+  width: 100%;
+}
+
+@media (max-width: 1256px) {
+  section {
+    gap: 48pt;
+  }
 }
 
 @media (max-width: 768px) {
   section {
     padding: 16pt;
+  }
+  section.bg {
+    background: var(--fill);
+    padding: 64pt 16pt;
   }
 }
