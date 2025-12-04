@@ -28,6 +28,10 @@ section{
   gap: 24pt;
 }
 
+.sub-section > .large {
+  max-width: 60ch;
+}
+
 p.regular, .sub-section > p.large {
   color: var(--text-regular);
 }

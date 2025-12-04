@@ -9,7 +9,3 @@
   text-transform: uppercase;
   z-index: -1;
 }
-
-p {
-  max-width: 60ch;
-}

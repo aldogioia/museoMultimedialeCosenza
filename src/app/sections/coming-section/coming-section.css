@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
   padding: 96pt 32pt;
   gap: 96pt;
 }

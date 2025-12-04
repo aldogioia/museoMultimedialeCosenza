@@ -1,1 +1,82 @@
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 8pt;
+  width: 100%;
+}
 
+.input-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4pt;
+  width: 100%;
+}
+
+label {
+  color: var(--text-regular);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
+  padding: 16pt;
+  width: 100%;
+  border: 1px solid var(--stroke-weak);
+  font-size: 14px;
+  color: var(--text-strong);
+  background: var(--fill);
+  outline: none;
+  transition: .3s ease-in-out;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-weak);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="date"]:hover,
+textarea:hover {
+  border-color: var(--stroke-regular);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: var(--stroke-strong);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100pt;
+}
+
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button {
+  display: flex;
+  padding: 16pt;
+  justify-content: center;
+  color: var(--text-dark-strong);
+  background: var(--background-dark);
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.312px;
+  cursor: pointer;
+  width: 100%;
+}

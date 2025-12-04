@@ -34,8 +34,10 @@
 .page{
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 128pt;
-  width: 100%;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .name-section {

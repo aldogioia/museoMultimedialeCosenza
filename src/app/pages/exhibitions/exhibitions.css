@@ -1,16 +1,21 @@
-section {
-  gap: 64pt;
-  padding: 32pt;
-}
-
-section.bg {
-  background: var(--fill);
-  padding: 64pt 32pt;
-}
-
 section, .sub-section, .title {
   display: flex;
   flex-direction: column;
+}
+
+section {
+  gap: 64pt;
+  padding: 32pt;
+  width: 100%;
+  max-width: 1256pt;
+}
+
+.bg {
+  display: flex;
+  justify-content: center;
+  background: var(--fill);
+  padding: 64pt 32pt;
+  width: 100%;
 }
 
 .title {

@@ -1,0 +1,126 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: 96pt;
+  width: 100%;
+  max-width: 1256pt;
+  padding: 64pt 32pt 0;
+}
+
+section, .title, .details, .contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  position: sticky;
+  top: calc(80px + 32pt);
+  gap: 24pt;
+}
+
+section h3 {
+  color: var(--text-dark-strong);
+}
+
+section .large {
+  color: var(--text-dark-regular);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 16pt;
+}
+
+.step > h5 {
+  background: var(--fill-dark);
+  color: var(--text-dark-strong);
+  min-height: 32pt;
+  min-width: 32pt;
+  border-radius: 16pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details > .regular {
+  color: var(--text-dark-strong);
+}
+
+.details > .small {
+  color: var(--text-dark-weak);
+}
+
+.contacts {
+  border-top: 1px solid var(--stroke-dark-weak);
+  padding-top: 24pt;
+  gap: 16pt;
+}
+
+.row {
+  display: flex;
+  gap: 8pt;
+}
+
+.row > hugeicons-icon {
+  stroke: var(--text-dark-regular);
+  stroke-width: 1.5pt;
+}
+
+.row > a {
+  color: var(--text-dark-regular);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24pt;
+  width: 100%;
+  background: var(--background);
+  padding: 48pt;
+}
+
+form h4 {
+  width: 100%;
+}
+
+form .small {
+  color: var(--text-weak);
+}
+
+
+@media (max-width: 1080px) {
+  :host {
+    gap: 32pt;
+    flex-direction: column;
+  }
+
+  section {
+    position: relative;
+    top: auto;
+  }
+  form {
+    margin-bottom: 64pt;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 64pt 16pt 0;
+  }
+
+  form {
+    padding: 24pt;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 24pt 16pt;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+}

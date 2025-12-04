@@ -4,3 +4,7 @@ section {
   background: var(--fill);
   justify-content: center;
 }
+
+section.dark {
+  background: var(--background-dark);
+}

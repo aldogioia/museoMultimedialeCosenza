@@ -1,0 +1,15 @@
+<figure>
+  <div class="image-wrapper">
+    <img [src]="item.imageUrl" [alt]="item.title" class="typology-image" />
+  </div>
+  <figcaption>
+    <hugeicons-icon [icon]="item.icon" size="32"></hugeicons-icon>
+    <h5>{{item.title}}</h5>
+    <p>{{item.description}}</p>
+    <ul>
+      @for (service of item.services; let i = $index; track i){
+        <li>{{ service }}</li>
+      }
+    </ul>
+  </figcaption>
+</figure>

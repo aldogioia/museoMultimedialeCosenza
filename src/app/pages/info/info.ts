@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   standalone: false,
   templateUrl: './info.html',
   styleUrl: './info.css',
+  host: { 'class': 'page' }
 })
 export class Info {
 

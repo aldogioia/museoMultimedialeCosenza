@@ -13,21 +13,25 @@
   }
 </section>
 
-<section class="bg">
-  <div class="title">
-    <div class="name-section">
-      <span></span>
-      <p class="large">Prossimamente</p>
+<div class="bg">
+  <section>
+    <div class="title">
+      <div class="name-section">
+        <span></span>
+        <p class="large">Prossimamente</p>
+      </div>
+      <h2>In arrivo</h2>
     </div>
-    <h2>In arrivo</h2>
-  </div>
 
-  <div class="sub-section">
-    @for (upcomingExhibition of upcomingExhibitions; let i = $index; track i) {
-      <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
-    }
-  </div>
-</section>
+    <div class="sub-section">
+      @for (upcomingExhibition of upcomingExhibitions; let i = $index; track i) {
+        <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+      }
+    </div>
+  </section>
+</div>
+
+
 <section>
   <div class="title">
     <div class="name-section">

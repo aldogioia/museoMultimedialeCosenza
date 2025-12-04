@@ -1,0 +1,17 @@
+<div class="title">
+  <div class="name-section">
+    <span></span>
+    <p class="large">Tipologie</p>
+  </div>
+  <div class="column">
+    <h2>Ogni evento ha</h2>
+    <h2>il suo spazio</h2>
+  </div>
+  <p class="regular">Il nostro museo dispone di una sala unica di 500m² con un muro divisorio parziale che permette di configurare lo spazio in tre modi diversi, in base alle dimensioni del tuo evento e al numero di partecipanti.</p>
+</div>
+
+<section>
+  @for (typology of typologies; let i = $index; track i) {
+    <app-typology-item [item]="typology"></app-typology-item>
+  }
+</section>

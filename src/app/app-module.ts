@@ -17,6 +17,17 @@ import { HomeHeroSection } from './sections/home-hero-section/home-hero-section'
 import { InfoHeroSection } from './sections/info-hero-section/info-hero-section';
 import { Info } from './pages/info/info';
 import { ExhibitionArchiveItem } from './items/exhibition-archive-item/exhibition-archive-item';
+import { MissionSection } from './sections/mission-section/mission-section';
+import { ActivitiesSection } from './sections/activities-section/activities-section';
+import { ValuesSection } from './sections/values-section/values-section';
+import { PlanYourVisitSection } from './sections/plan-your-visit-section/plan-your-visit-section';
+import { Spaces } from './pages/spaces/spaces';
+import { SpacesDetailsSection } from './sections/spaces-details-section/spaces-details-section';
+import { SpacesHeroSection } from './sections/spaces-hero-section/spaces-hero-section';
+import { TypologiesSection } from './sections/typologies-section/typologies-section';
+import { TypologyItem } from './items/typology-item/typology-item';
+import { ReservationSection } from './sections/reservation-section/reservation-section';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,11 +45,22 @@ import { ExhibitionArchiveItem } from './items/exhibition-archive-item/exhibitio
     InfoHeroSection,
     Info,
     ExhibitionArchiveItem,
+    MissionSection,
+    ActivitiesSection,
+    ValuesSection,
+    PlanYourVisitSection,
+    Spaces,
+    SpacesDetailsSection,
+    SpacesHeroSection,
+    TypologiesSection,
+    TypologyItem,
+    ReservationSection,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HugeiconsIconComponent
+    HugeiconsIconComponent,
+    ReactiveFormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
