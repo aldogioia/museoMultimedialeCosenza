@@ -14,5 +14,4 @@ export class Ticketing {
     '18:00', '19:00'
   ];
 
-  ticketsLink: string = "https://www.diyticket.it/artists/4166/klimt-lincanto-dorato"
 }
