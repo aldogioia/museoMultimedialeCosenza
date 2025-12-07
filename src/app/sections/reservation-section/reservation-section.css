@@ -4,7 +4,7 @@
   gap: 96pt;
   width: 100%;
   max-width: 1256pt;
-  padding: 64pt 32pt 0;
+  padding: 64pt 32pt;
 }
 
 section, .title, .details, .contacts {
@@ -85,8 +85,12 @@ form h4 {
   width: 100%;
 }
 
-form .small {
+form > .small {
   color: var(--text-weak);
+}
+
+form > .large.success {
+  color: var(--success);
 }
 
 
@@ -107,7 +111,7 @@ form .small {
 
 @media (max-width: 768px) {
   :host {
-    padding: 64pt 16pt 0;
+    padding: 64pt 16pt;
   }
 
   form {
@@ -122,5 +126,6 @@ form .small {
 
   .input-row {
     flex-direction: column;
+    gap: 16pt;
   }
 }

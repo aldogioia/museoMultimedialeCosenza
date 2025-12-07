@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ArrowRight02Icon, Calendar01FreeIcons} from '@hugeicons/core-free-icons';
+import {ArrowRight02Icon, Calendar03Icon} from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-coming-section',
@@ -10,5 +10,5 @@ import {ArrowRight02Icon, Calendar01FreeIcons} from '@hugeicons/core-free-icons'
 export class ComingSection {
 
   protected readonly ArrowRight02Icon = ArrowRight02Icon;
-  protected readonly Calendar01FreeIcons = Calendar01FreeIcons;
+  protected readonly Calendar03Icon = Calendar03Icon;
 }

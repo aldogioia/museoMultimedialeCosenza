@@ -1,0 +1,39 @@
+<div class="title">
+  <h3>{{ticket.title}}</h3>
+  @if (ticket.subtitle != null) {
+    <h5>{{ticket.subtitle}}</h5>
+  }
+</div>
+<p>{{ticket.description}}</p>
+<section>
+  <section class="sub-section">
+    <div class="row">
+      <hugeicons-icon [icon]="Time02Icon"></hugeicons-icon>
+      <h5>Orari disponibili</h5>
+    </div>
+    @for (time of ticket.times; let i = $index; track i) {
+      <div class="time">
+        <p class="regular">{{time}}</p>
+        <hugeicons-icon [icon]="Calendar03Icon"></hugeicons-icon>
+      </div>
+    }
+  </section>
+  <section class="sub-section">
+    <div class="row">
+      <hugeicons-icon [icon]="Alert01Icon"></hugeicons-icon>
+      <h5>Eccezioni e informazioni</h5>
+    </div>
+    <ul>
+      @for (exceptions of ticket.exceptions; let i = $index; track i) {
+        <li>{{exceptions}}</li>
+      }
+    </ul>
+    <div class="column">
+      <a [href]="ticket.ticketsUrl" class="fill">
+        Acquista biglietti
+        <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
+      </a>
+      <p class="small">Verrai reindirizzato al sito ufficiale della biglietteria</p>
+    </div>
+  </section>
+</section>

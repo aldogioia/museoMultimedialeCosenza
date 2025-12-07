@@ -14,7 +14,6 @@ section {
   display: flex;
   justify-content: center;
   background: var(--fill);
-  padding: 64pt 32pt;
   width: 100%;
 }
 
@@ -41,9 +40,5 @@ section {
 @media (max-width: 768px) {
   section {
     padding: 16pt;
-  }
-  section.bg {
-    background: var(--fill);
-    padding: 64pt 16pt;
   }
 }

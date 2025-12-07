@@ -28,6 +28,14 @@ import { TypologiesSection } from './sections/typologies-section/typologies-sect
 import { TypologyItem } from './items/typology-item/typology-item';
 import { ReservationSection } from './sections/reservation-section/reservation-section';
 import {ReactiveFormsModule} from '@angular/forms';
+import { Schools } from './pages/schools/schools';
+import { SchoolsHeroSection } from './sections/schools-hero-section/schools-hero-section';
+import { ExperienceSection } from './sections/experience-section/experience-section';
+import { SchoolReservationSection } from './sections/school-reservation-section/school-reservation-section';
+import { Tickets } from './pages/tickets/tickets';
+import { TicketsHeroSection } from './sections/tickets-hero-section/tickets-hero-section';
+import { TicketItem } from './items/ticket-item/ticket-item';
+import { TicketsTimeSection } from './sections/tickets-time-section/tickets-time-section';
 
 @NgModule({
   declarations: [
@@ -55,6 +63,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     TypologiesSection,
     TypologyItem,
     ReservationSection,
+    Schools,
+    SchoolsHeroSection,
+    ExperienceSection,
+    SchoolReservationSection,
+    Tickets,
+    TicketsHeroSection,
+    TicketItem,
+    TicketsTimeSection,
   ],
   imports: [
     BrowserModule,

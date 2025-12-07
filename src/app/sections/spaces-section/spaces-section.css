@@ -24,12 +24,9 @@ figure {
   overflow: hidden;
 }
 
-figure > img {
+figure > video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: .3s ease;
 }
 
 figure:hover > img {
@@ -78,6 +75,18 @@ figure:hover > img {
   display: flex;
   flex-direction: column;
   gap: 16pt;
+}
+
+figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: .3s ease;
+}
+
+figure:hover > img {
+  scale: 1.05;
 }
 
 @media (max-width: 1080px) {

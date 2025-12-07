@@ -1,6 +1,6 @@
 .input-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8pt;
   width: 100%;
 }
@@ -62,11 +62,17 @@ textarea {
 }
 
 input[type="date"] {
+  max-height: 62px;
   -webkit-appearance: none;
   appearance: none;
 }
 
-button {
+p.small.error {
+  color: var(--error);
+}
+
+button, .fill {
+  text-decoration: none;
   display: flex;
   padding: 16pt;
   justify-content: center;
@@ -79,4 +85,11 @@ button {
   letter-spacing: -0.312px;
   cursor: pointer;
   width: 100%;
+  outline: none;
+  border: none;
+}
+
+button:disabled {
+  background: var(--background-dark-transparent);
+  cursor: not-allowed;
 }

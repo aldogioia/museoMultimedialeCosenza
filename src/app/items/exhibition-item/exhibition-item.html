@@ -4,7 +4,7 @@
   </div>
   @if (exhibition.opening != null) {
     <figcaption>
-      <hugeicons-icon [icon]="Calendar01FreeIcons" [size]="32"></hugeicons-icon>
+      <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
       <p class="small">Inizio</p>
       <p class="large">{{exhibition.opening}}</p>
     </figcaption>
@@ -41,7 +41,7 @@
       <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
     </a>
   } @else {
-    <a href="" class="regular button">
+    <a routerLink="/tickets" class="regular button">
       Biglietti
       <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
     </a>
