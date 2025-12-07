@@ -4,9 +4,9 @@ export class Ticket {
   description: string;
   times: string[];
   exceptions: string[];
-  ticketsUrl: string;
+  ticketsUrl: string | null;
 
-  constructor(title: string, subtitle: string | null, description: string, times: string[], exceptions: string[], ticketsUrl: string) {
+  constructor(title: string, subtitle: string | null, description: string, times: string[], exceptions: string[], ticketsUrl: string | null) {
     this.title = title;
     this.subtitle = subtitle;
     this.description = description;

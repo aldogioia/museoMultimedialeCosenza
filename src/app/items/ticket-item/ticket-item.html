@@ -28,12 +28,14 @@
         <li>{{exceptions}}</li>
       }
     </ul>
-    <div class="column">
-      <a [href]="ticket.ticketsUrl" class="fill">
-        Acquista biglietti
-        <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
-      </a>
-      <p class="small">Verrai reindirizzato al sito ufficiale della biglietteria</p>
-    </div>
+    @if (ticket.ticketsUrl !== null) {
+      <div class="column">
+        <a [href]="ticket.ticketsUrl" class="fill">
+          Acquista biglietti
+          <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
+        </a>
+        <p class="small">Verrai reindirizzato al sito ufficiale della biglietteria</p>
+      </div>
+    }
   </section>
 </section>

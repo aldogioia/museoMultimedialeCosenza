@@ -89,6 +89,13 @@ ul li::marker {
   color: var(--text-weak);
 }
 
+
+@media (max-width: 1080px) {
+  section {
+    gap: 24pt;
+  }
+}
+
 @media (max-width: 768px) {
   section {
     flex-direction: column;

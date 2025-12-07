@@ -14,42 +14,35 @@ export class TicketsTimeSection {
       null,
       "Mostra multimediale immersiva dedicata a Gustav Klimt, che esplora la sua arte e il suo mondo interiore attraverso immagini, musica e suggestioni visive.",
       [
-        "09:00 - 10:00",
-        "10:00 - 11:00",
-        "11:00 - 12:00",
-        "12:00 - 13:00",
-        "15:00 - 16:00",
-        "16:00 - 17:00",
-        "17:00 - 18:00",
-        "18:00 - 19:00",
-        "19:00 - 20:00",
+        "Sabato ore 09:00",
+        "Domenica ore 09:00",
+        "Domenica ore 15:00",
+        "Da Lun a Ven ore 16:00",
+        "Tutti i giorni ore 20:00",
       ],
       [
-        "Il turno delle 09:00 - 10:00 non è disponibile la domenica",
-        "Il turno delle 15:00 - 16:00 non è disponibile la domenica"
+        "Arrivare con un anticipo di almeno 15 minuti",
+        "I biglietti si acquistano in struttura",
+        "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"
       ],
-      "https://www.diyticket.it/artists/4166/klimt-lincanto-dorato"
+      null
     ),
     new Ticket(
       "Christmas World Tour",
       "Il sogno di Renzo",
       "Un viaggio magico attraverso le tradizioni natalizie di Cosenza e del Mondo, tramite proiezioni e atmosfere incantate per tutta la famiglia.",
       [
-        "09:00 - 10:00",
-        "10:00 - 11:00",
-        "11:00 - 12:00",
-        "12:00 - 13:00",
-        "15:00 - 16:00",
-        "16:00 - 17:00",
-        "17:00 - 18:00",
-        "18:00 - 19:00",
-        "19:00 - 20:00",
+        "Sab 10:00 - 12:00",
+        "Dom 11:00 - 12:00",
+        "Da Lun a Sab 15:00 - 19:00",
+        "Dom 16:00 - 19:00",
       ],
       [
-        "Il turno delle 09:00 - 10:00 non è disponibile la domenica",
-        "Il turno delle 15:00 - 16:00 non è disponibile la domenica"
+        "Arrivare con un anticipo di almeno 15 minuti",
+        "I biglietti si acquistano in struttura",
+        "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"
       ],
-      "https://www.diyticket.it/artists/4166/klimt-lincanto-dorato"
+      null
     ),
   ]
 
