@@ -7,7 +7,9 @@ export class Exhibition {
   duration: string;
   period: string;
   description: string;
+  trailerLink: string | null;
   imageUrl: string;
+  nameLink: string | null;
   reservationLink: string | null;
 
   constructor(
@@ -19,7 +21,9 @@ export class Exhibition {
     duration: string,
     period: string,
     description: string,
+    trailerLink: string | null,
     imageUrl: string,
+    nameLink: string | null,
     reservationLink: string | null,
   ) {
     this.titles = titles;
@@ -30,7 +34,9 @@ export class Exhibition {
     this.duration = duration;
     this.period = period;
     this.description = description;
+    this.trailerLink = trailerLink;
     this.imageUrl = imageUrl;
+    this.nameLink = nameLink;
     this.reservationLink = reservationLink;
   }
 }

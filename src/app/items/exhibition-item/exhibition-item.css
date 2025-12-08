@@ -32,11 +32,21 @@ figure:hover img {
 
 figcaption {
   position: absolute;
-  top: -16pt;
-  right: -16pt;
   background: var(--background-dark);
   backdrop-filter: blur(16pt);
   padding: 16pt;
+}
+
+figcaption.top {
+  top: -16pt;
+  right: -16pt;
+}
+
+figcaption.bottom {
+  bottom: -16pt;
+  right: -16pt;
+  display: flex;
+  gap: 8pt;
 }
 
 figcaption hugeicons-icon {
@@ -46,6 +56,11 @@ figcaption hugeicons-icon {
 
 figcaption .small {
   color: var(--text-dark-regular);
+}
+
+figcaption a.small.button {
+  color: var(--text-dark-strong);
+  border-color: var(--text-dark-strong);
 }
 
 figcaption .large {

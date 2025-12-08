@@ -1,4 +1,4 @@
-:host, .sub-section, .title, .column {
+:host, .sub-section, .title, .column, .contacts {
   display: flex;
   flex-direction: column;
 }
@@ -87,6 +87,33 @@ ul li::marker {
 
 .column > p {
   color: var(--text-weak);
+}
+
+.contacts {
+  padding-top: 24pt;
+  gap: 16pt;
+}
+
+.contacts .row {
+  display: flex;
+  gap: 8pt;
+}
+
+.contacts .row > hugeicons-icon {
+  stroke: var(--text-weak);
+  stroke-width: 1.5pt;
+  transition: .3s ease-in-out;
+}
+
+.contacts .row > a {
+  color: var(--text-weak);
+  transition: .3s ease-in-out;
+}
+
+.contacts .row:hover > hugeicons-icon,
+.contacts .row:hover > a {
+  stroke: var(--text-strong);
+  color: var(--text-strong);
 }
 
 

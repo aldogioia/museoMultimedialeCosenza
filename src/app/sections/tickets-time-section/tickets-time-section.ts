@@ -15,12 +15,13 @@ export class TicketsTimeSection {
       "Mostra multimediale immersiva dedicata a Gustav Klimt, che esplora la sua arte e il suo mondo interiore attraverso immagini, musica e suggestioni visive.",
       [
         "Sabato ore 09:00",
-        "Domenica ore 09:00",
+        "Domenica ore 10:00",
+        "Da Lun a Sab ore 14:00",
         "Domenica ore 15:00",
-        "Da Lun a Ven ore 16:00",
         "Tutti i giorni ore 20:00",
       ],
       [
+        "Gli orari restano validi anche nei giorni festivi",
         "Arrivare con un anticipo di almeno 15 minuti",
         "I biglietti si acquistano in struttura",
         "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"
@@ -38,6 +39,7 @@ export class TicketsTimeSection {
         "Dom 16:00 - 19:00",
       ],
       [
+        "Gli orari restano validi anche nei giorni festivi",
         "Arrivare con un anticipo di almeno 15 minuti",
         "I biglietti si acquistano in struttura",
         "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"

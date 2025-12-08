@@ -28,12 +28,16 @@ article {
 
 figure {
   display: flex;
+  aspect-ratio: 12 / 16;
+  max-height: 700px;
+  min-width: 300px;
   height: 100%;
   overflow: hidden;
 }
 
 figure img {
   height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -46,20 +50,23 @@ figure img {
 @media (max-width: 1080px) {
   :host {
     flex-direction: column-reverse;
+    align-items: start;
   }
 
   figure {
-    aspect-ratio: 16 / 9;
+    aspect-ratio:  auto;
+    max-height: unset;
+    min-width: 300px;
+    height: 100%;
     width: 100%;
+    overflow: hidden;
   }
 
-  figure img {
-    width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
   :host {
+    gap: 32pt;
     padding: 16pt;
   }
 

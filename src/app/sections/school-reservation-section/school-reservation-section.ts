@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CallIcon, MailIcon, Time02Icon, UserMultipleIcon} from '@hugeicons/core-free-icons';
+import {CallIcon, MailIcon, Time02Icon, UserMultipleIcon, WhatsappFreeIcons} from '@hugeicons/core-free-icons';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmailService} from '../../services/email.service';
 
@@ -116,4 +116,6 @@ export class SchoolReservationSection {
       this.isSending = false;
     }
   }
+
+  protected readonly WhatsappFreeIcons = WhatsappFreeIcons;
 }

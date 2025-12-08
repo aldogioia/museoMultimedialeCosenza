@@ -3,10 +3,18 @@
     <img [src]="exhibition.imageUrl" alt="Locandina evento">
   </div>
   @if (exhibition.opening != null) {
-    <figcaption>
+    <figcaption class="top">
       <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
       <p class="small">Inizio</p>
       <p class="large">{{exhibition.opening}}</p>
+    </figcaption>
+  }
+  @if (exhibition.trailerLink != null) {
+    <figcaption class="bottom">
+      <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
+      <a [href]="exhibition.trailerLink" target="_blank" class="small button">
+        Trailer
+      </a>
     </figcaption>
   }
 </figure>
@@ -37,7 +45,7 @@
   </div>
   @if (exhibition.reservationLink != null) {
     <a [href]="exhibition.reservationLink" class="regular button">
-      Prenota un posto
+      {{exhibition.nameLink}}
       <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
     </a>
   } @else {

@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
 import {Ticket} from '../../../model/ticket';
 import {
-  Alert01Icon, Calendar03Icon,
-  Link01Icon,
-  Time02Icon
+  Alert01Icon, Calendar03Icon, CallIcon,
+  Link01Icon, MailIcon,
+  Time02Icon, WhatsappFreeIcons
 } from '@hugeicons/core-free-icons';
 
 @Component({
@@ -18,4 +18,7 @@ export class TicketItem {
   protected readonly Time02Icon = Time02Icon;
   protected readonly Alert01Icon = Alert01Icon;
   protected readonly Calendar03Icon = Calendar03Icon;
+  protected readonly CallIcon = CallIcon;
+  protected readonly MailIcon = MailIcon;
+  protected readonly WhatsappFreeIcons = WhatsappFreeIcons;
 }

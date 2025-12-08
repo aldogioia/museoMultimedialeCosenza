@@ -19,7 +19,7 @@ export class TypologiesSection {
         "Regia audio/video",
         "Assistenza tecnica"
       ],
-      "images/poster_convegno.png"
+      "images/convegno_1.jpeg"
     ),
     new Typology(
       Store03Icon,
