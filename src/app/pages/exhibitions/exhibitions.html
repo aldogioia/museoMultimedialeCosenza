@@ -1,27 +1,50 @@
-<div class="title left">
-  <h2>Prossimamente <i>disponibile</i></h2>
-  <div class="title-bar"></div>
-</div>
-<app-exhibition
-  [openDescription]="true"
-  [title]="'Prossimamente'"
-  [exhibition]="nextExhibition">
-</app-exhibition>
+<app-exhibition-hero-section></app-exhibition-hero-section>
+<section>
+  <div class="title">
+    <div class="name-section">
+      <span></span>
+      <p class="large">In corso</p>
+    </div>
+    <h2>Visita ora</h2>
+  </div>
 
-<div class="title left">
-  <h2>Attualmente <i>disponibile</i></h2>
-  <div class="title-bar"></div>
-</div>
-<app-exhibition
-  [openDescription]="true"
-  [title]="'Attualmente in mostra'"
-  [exhibition]="nowExhibition">
-</app-exhibition>
+  @for(exhibition of exhibitions; let i = $index; track i) {
+    <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+  }
+</section>
 
-<div class="title left">
-  <h2>Mostre <i>passate</i></h2>
-  <div class="title-bar"></div>
+<div id="upcoming" class="bg">
+  <section>
+    <div class="title">
+      <div class="name-section">
+        <span></span>
+        <p class="large">Prossimamente</p>
+      </div>
+      <h2>In arrivo</h2>
+    </div>
+
+    @for (upcomingExhibition of upcomingExhibitions; let i = $index; track i) {
+      <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+    }
+  </section>
 </div>
-@for (exhibition of exhibitions; track exhibition) {
-  <app-exhibition [exhibition]="exhibition"></app-exhibition>
-}
+
+
+<section>
+  <div class="title">
+    <div class="name-section">
+      <span></span>
+      <p class="large">Archivio</p>
+    </div>
+    <h2>Mostre passate</h2>
+  </div>
+
+  <div class="sub-section">
+    @for (pastExhibition of pastExhibitions; let isLast = $last; let i = $index; track i) {
+      <app-exhibition-archive-item [exhibition]="pastExhibition"></app-exhibition-archive-item>
+      @if (!isLast) {
+        <span class="divider"></span>
+      }
+    }
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<section>
+  <img routerLink="/home" src="logo_studios.png" alt="Logo">
+  <a routerLink="/tickets" class="fill">Programmazione</a>
+  <hugeicons-icon
+    [icon]="isOpen ?  Cancel01Icon : Menu04Icon"
+    (click)="isOpen = !isOpen"
+    size="32">
+  </hugeicons-icon>
+</section>
+<nav [class.open]="isOpen">
+  <a routerLink="/exhibitions" (click)="isOpen = false" routerLinkActive="active" class="small">Mostre</a>
+  <a routerLink="/spaces" (click)="isOpen = false" routerLinkActive="active" class="small">Spazi</a>
+  <a routerLink="/schools" (click)="isOpen = false" routerLinkActive="active" class="small">Scuole</a>
+  <a routerLink="/info" (click)="isOpen = false" routerLinkActive="active" class="small">Info</a>
+  <a id="tickets" routerLink="/tickets" (click)="isOpen = false" routerLinkActive="active" class="small">Programmazione</a>
+</nav>

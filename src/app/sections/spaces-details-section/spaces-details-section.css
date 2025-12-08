@@ -1,0 +1,96 @@
+:host {
+  gap: 48pt;
+  width: 100%;
+  max-width: 1256pt;
+  padding: 32pt;
+}
+
+:host, .title, .column, .detail-item, .sub-section, ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  gap: 32pt;
+}
+
+.title > .large {
+  max-width: 60ch;
+}
+
+.detail-item {
+  justify-content: space-between;
+  width: 100%;
+  gap: 24pt;
+  padding: 32pt;
+  background: var(--fill);
+}
+
+.sub-section {
+  gap: 16pt;
+}
+
+.sub-section > .small {
+  color: var(--text-weak);
+}
+
+.sub-section > .regular {
+  color: var(--text-regular);
+}
+
+.row {
+  display: flex;
+  gap: 8pt;
+  color: var(--text-regular);
+}
+
+.row hugeicons-icon {
+  stroke: var(--text-strong);
+  stroke-width: 1.5px;
+}
+
+ul {
+  gap: 8pt;
+  padding-left: 16pt;
+}
+
+.title > .large {
+  color: var(--text-regular);
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 48pt;
+}
+
+a.regular.button {
+  opacity: 0;
+  transition: .3s ease-in-out;
+  width: fit-content;
+}
+
+.detail-item:hover > a.regular.button {
+  opacity: 1;
+}
+
+
+
+@media (max-width: 1080px) {
+  section {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24pt;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 16pt;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-item {
+    padding: 24pt;
+  }
+}

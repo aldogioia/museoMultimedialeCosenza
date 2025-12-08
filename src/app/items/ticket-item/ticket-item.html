@@ -1,0 +1,50 @@
+<div class="title">
+  <h3>{{ticket.title}}</h3>
+  @if (ticket.subtitle != null) {
+    <h5>{{ticket.subtitle}}</h5>
+  }
+</div>
+<p>{{ticket.description}}</p>
+<section>
+  <section class="sub-section">
+    <h5>Orari disponibili</h5>
+    @for (time of ticket.times; let i = $index; track i) {
+      <div class="time">
+        <p class="regular">{{time}}</p>
+        <hugeicons-icon [icon]="Calendar03Icon"></hugeicons-icon>
+      </div>
+    }
+  </section>
+  <section class="sub-section">
+    <h5>Informazioni</h5>
+    <ul>
+      @for (exceptions of ticket.exceptions; let i = $index; track i) {
+        <li>{{exceptions}}</li>
+      }
+    </ul>
+    <div class="contacts">
+      <h5>Contattaci</h5>
+      <div class="row">
+        <hugeicons-icon [icon]="CallIcon"></hugeicons-icon>
+        <a href="tel:3928716904" class="regular">+39 392 871 6904</a>
+      </div>
+      <div class="row">
+        <hugeicons-icon [icon]="WhatsappFreeIcons"></hugeicons-icon>
+        <a href="https://wa.me/393928716904?text=Ciao%2C%20vorrei%20avere%20informazioni" class="regular">Scrivici su WhatsApp</a>
+      </div>
+      <div class="row">
+        <hugeicons-icon [icon]="MailIcon"></hugeicons-icon>
+        <a href="mailto:info@museomultimedialecosenza.it" class="regular">info&#64;museomultimedialecosenza.it</a>
+      </div>
+    </div>
+    @if (ticket.ticketsUrl !== null) {
+      <div class="column">
+        <a [href]="ticket.ticketsUrl" class="fill">
+          Acquista biglietti
+          <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
+        </a>
+        <p class="small">Verrai reindirizzato al sito ufficiale della biglietteria</p>
+      </div>
+    }
+  </section>
+</section>

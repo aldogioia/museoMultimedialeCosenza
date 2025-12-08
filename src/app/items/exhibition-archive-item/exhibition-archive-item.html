@@ -1,0 +1,14 @@
+<h4>{{exhibition.year}}</h4>
+<figure>
+  <img [src]="exhibition.imageUrl" alt="Immagine della mostra {{exhibition.titles.join(' ')}}" />
+</figure>
+<article>
+  <div class="title">
+    <h5>{{exhibition.titles.join(' ')}}</h5>
+    @if (exhibition.subtitle) {
+      <p class="large">{{exhibition.subtitle}}</p>
+    }
+  </div>
+  <p class="small">Periodo: <span>{{exhibition.period}}</span></p>
+  <p class="small">{{exhibition.description}}</p>
+</article>

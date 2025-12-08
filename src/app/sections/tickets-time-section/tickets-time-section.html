@@ -1,0 +1,10 @@
+<div class="name-section">
+  <span></span>
+  <p class="large">Mostre ed Eventi</p>
+</div>
+@for (ticket of tickets; let i = $index; track i){
+  <app-ticket-item [ticket]="ticket"></app-ticket-item>
+  @if (i < tickets.length - 1) {
+    <div class="divider"></div>
+  }
+}

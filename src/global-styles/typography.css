@@ -1,0 +1,105 @@
+h1, h2, h3, h4, h5, p {
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text-strong);
+}
+
+h1 {
+  font-size: clamp(48px, 6vw + 1rem, 96px);
+  line-height: 0.95;
+  letter-spacing: -2.4px;
+}
+
+h2 {
+  font-size: clamp(36px, 5vw + 1rem, 72px);
+  line-height: 1;
+  letter-spacing: -1.677px;
+}
+
+h3 {
+  font-size: clamp(28px, 4vw + 1rem, 56px);
+  line-height: 1.1;
+  letter-spacing: -1.099px;
+}
+
+h4 {
+  font-size: clamp(20px, 2.5vw + 0.5rem, 36px);
+  line-height: 1.11;
+  letter-spacing: 0.369px;
+}
+
+h5 {
+  font-size: clamp(18px, 2vw + 0.5rem, 24px);
+  line-height: 1.33;
+  letter-spacing: 0.07px;
+}
+
+p.large {
+  font-size: 18px;
+  line-height: 29px;
+  letter-spacing: -0.439px;
+}
+
+p.regular {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.312px;
+}
+
+p.small {
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: -0.15px;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4pt;
+  text-decoration: none;
+  color: var(--text-strong);
+}
+
+a.regular {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.312px;
+}
+
+a.small {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+}
+
+a.button {
+  padding-bottom: 2pt;
+  border-bottom: 2px solid var(--background-dark);
+}
+
+a.button > hugeicons-icon {
+  transition: .3s ease-in-out;
+  stroke: var(--text-strong);
+  stroke-width: 2px;
+}
+
+a.button:hover > hugeicons-icon {
+  transform: translateX(4pt);
+}
+
+hugeicons-icon {
+  display: flex;
+}
+
+@media (max-width: 480px) {
+  h5 {
+    font-weight: 500;
+  }
+}

@@ -1,8 +1,44 @@
-:host {
-  align-items: flex-start;
+section, .sub-section, .title {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  gap: 64pt;
+  padding: 32pt;
+  width: 100%;
+  max-width: 1256pt;
+}
+
+.bg {
+  display: flex;
+  justify-content: center;
+  background: var(--fill);
+  width: 100%;
 }
 
 .title {
-  margin-left: 1rem;
+  gap: 32pt;
+}
 
+.sub-section {
+  gap: 24pt;
+}
+
+.divider {
+  height: 1pt;
+  background-color: var(--stroke-weak);
+  width: 100%;
+}
+
+@media (max-width: 1256px) {
+  section {
+    gap: 48pt;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 16pt;
+  }
 }

@@ -1,0 +1,83 @@
+:host, .title, .details, section, ul {
+  display: flex;
+  flex-direction: column;
+}
+
+:host {
+  gap: 96pt;
+  padding: 64pt 32pt;
+  width: 100%;
+  max-width: 1256pt;
+}
+
+.title {
+  gap: 32pt;
+}
+
+h3 {
+  color: var(--text-weak);
+}
+
+section {
+  gap: 24pt;
+}
+
+.divider {
+  height: 1pt;
+  width: 100%;
+  background: var(--stroke-weak);
+}
+
+.activity-item {
+  display: flex;
+  gap: 48pt;
+}
+
+.details {
+  width: 100%;
+  gap: 16pt;
+}
+
+.details > p {
+  color: var(--text-regular);
+  max-width: 80ch;
+}
+
+ul {
+  gap: 16pt;
+  justify-content: center;
+  padding: 16pt;
+  background: var(--background);
+  width: 100%;
+  max-width: 220pt;
+}
+
+li {
+  margin-left: 16pt;
+  font-size: 14px;
+  line-height: 23px;
+  letter-spacing: -0.15px;
+}
+
+@media (max-width: 1256px) {
+  :host {
+    gap: 48pt;
+  }
+}
+
+@media (max-width: 1080px) {
+  .activity-item {
+    flex-direction: column;
+    gap: 32pt;
+  }
+
+  ul {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 64pt 16pt;
+  }
+}

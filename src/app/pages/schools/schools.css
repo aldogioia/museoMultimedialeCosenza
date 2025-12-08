@@ -1,0 +1,10 @@
+section {
+  display: flex;
+  width: 100%;
+  background: var(--fill);
+  justify-content: center;
+}
+
+section.dark {
+  background: var(--background-dark);
+}

@@ -1,0 +1,16 @@
+<div class="title">
+  <div class="name-section">
+    <span></span>
+    <p class="large">Tipologie</p>
+  </div>
+  <div class="column">
+    <h2>Ogni evento ha</h2>
+    <h2>il suo spazio</h2>
+  </div>
+</div>
+
+<section>
+  @for (typology of typologies; let i = $index; track i) {
+    <app-typology-item [item]="typology"></app-typology-item>
+  }
+</section>

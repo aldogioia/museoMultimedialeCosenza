@@ -1,0 +1,11 @@
+:host:before {
+  content: "Mostre";
+  position: absolute;
+  color: var(--fill);
+  font-size: 254px;
+  font-weight: 500;
+  line-height: 254px;
+  letter-spacing: -12.71px;
+  text-transform: uppercase;
+  z-index: -1;
+}

@@ -1,0 +1,108 @@
+<section>
+  <div class="title">
+    <h3>Prenota il</h3>
+    <h3>tuo spazio</h3>
+  </div>
+  <p class="large">Il nostro team è a disposizione per guidarti nella scelta della configurazione ideale e creare un preventivo personalizzato per il tuo evento.</p>
+  <div class="step">
+    <h5>01</h5>
+    <div class="details">
+      <p class="regular">Contattaci</p>
+      <p class="small">Parlaci del tuo evento, del numero di ospiti e delle tue esigenze</p>
+    </div>
+  </div>
+  <div class="step">
+    <h5>02</h5>
+    <div class="details">
+      <p class="regular">Sopralluogo</p>
+      <p class="small">Organizza una visita per vedere gli spazi e discutere i dettagli</p>
+    </div>
+  </div>
+  <div class="step">
+    <h5>03</h5>
+    <div class="details">
+      <p class="regular">Preventivo</p>
+      <p class="small">Ricevi un'offerta dettagliata e personalizzata per il tuo evento</p>
+    </div>
+  </div>
+  <div class="contacts">
+    <div class="row">
+      <hugeicons-icon [icon]="CallIcon"></hugeicons-icon>
+      <a href="tel:3928716904" class="regular">+39 392 871 6904</a>
+    </div>
+    <div class="row">
+      <hugeicons-icon [icon]="WhatsappFreeIcons"></hugeicons-icon>
+      <a href="https://wa.me/393928716904?text=Ciao%2C%20vorrei%20avere%20informazioni" class="regular">Scrivici su WhatsApp</a>
+    </div>
+    <div class="row">
+      <hugeicons-icon [icon]="MailIcon"></hugeicons-icon>
+      <a href="mailto:info@museomultimedialecosenza.it" class="regular">info&#64;museomultimedialecosenza.it</a>
+    </div>
+  </div>
+</section>
+<form [formGroup]="form">
+  <h4>Richiesta informazioni</h4>
+
+  <input type="text" formControlName="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="input-row">
+    <div class="input-column">
+      <label for="name">Nome</label>
+      <input formControlName="name" name="name" type="text" placeholder="Il tuo nome">
+      @if (isInvalid("name")) {
+        <p class="small error">{{ getError('name') }}</p>
+      }
+    </div>
+    <div class="input-column">
+      <label for="surname">Cognome</label>
+      <input formControlName="surname" name="surname" type="text" placeholder="Il tuo cognome">
+      @if (isInvalid("surname")) {
+        <p class="small error">{{ getError('surname') }}</p>
+      }
+    </div>
+  </div>
+  <div class="input-column">
+    <label for="email">Email</label>
+    <input formControlName="email" name="email" type="email" placeholder="La tua email">
+    @if (isInvalid("email")) {
+      <p class="small error">{{ getError('email') }}</p>
+    }
+  </div>
+  <div class="input-column">
+    <label for="tel">Telefono</label>
+    <input formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
+    @if (isInvalid("tel")) {
+      <p class="small error">{{ getError('tel') }}</p>
+    }
+  </div>
+  <div class="input-row">
+    <div class="input-column">
+      <label for="date">Data preferita</label>
+      <input formControlName="date" name="date" type="date">
+      @if (isInvalid("date")) {
+        <p class="small error">{{ getError('date') }}</p>
+      }
+    </div>
+    <div class="input-column">
+      <label for="guests">Numero ospiti</label>
+      <input formControlName="guests" name="guests" type="text" placeholder="Un numero indicativo di ospiti">
+      @if (isInvalid("guests")) {
+        <p class="small error">{{ getError('guests') }}</p>
+      }
+    </div>
+  </div>
+  <div class="input-column">
+    <label for="note">Note aggiuntive</label>
+    <textarea formControlName="notes" name="note" placeholder="Breve descrizione del tuo evento e delle tue esigenze"></textarea>
+    @if (isInvalid("notes")) {
+      <p class="small error">{{ getError('notes') }}</p>
+    }
+  </div>
+  <button type="submit" [disabled]="form.invalid || isSending">{{ isSending ? "Invio in corso..." : "Invia richiesta" }}</button>
+
+  @if (submitMessage) {
+    <p class="large" [class.success]="!form.invalid && !isSending">{{ submitMessage }}</p>
+  }
+
+  <p class="small">Ti risponderemo entro 24 ore lavorative</p>
+</form>

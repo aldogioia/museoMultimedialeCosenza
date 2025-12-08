@@ -1,0 +1,57 @@
+<figure>
+  <div class="image-wrapper">
+    <img [src]="exhibition.imageUrl" alt="Locandina evento">
+  </div>
+  @if (exhibition.opening != null) {
+    <figcaption class="top">
+      <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
+      <p class="small">Inizio</p>
+      <p class="large">{{exhibition.opening}}</p>
+    </figcaption>
+  }
+  @if (exhibition.trailerLink != null) {
+    <figcaption class="bottom">
+      <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
+      <a [href]="exhibition.trailerLink" target="_blank" class="small button">
+        Trailer
+      </a>
+    </figcaption>
+  }
+</figure>
+<article>
+  <div class="title">
+    @for (title of exhibition.titles; track title) {
+      <h3>{{title}}</h3>
+    }
+    <h5>{{exhibition.subtitle}}</h5>
+  </div>
+  <p class="large">{{exhibition.description}}</p>
+  <div class="infos">
+    @if (exhibition.closing != null) {
+      <div class="info">
+        <p class="small">Fino al</p>
+        <p class="regular">{{exhibition.closing}}</p>
+      </div>
+    } @else {
+      <div class="info">
+        <p class="small">Periodo</p>
+        <p class="regular">{{exhibition.period}}</p>
+      </div>
+    }
+    <div class="info">
+      <p class="small">Durata</p>
+      <p class="regular">{{exhibition.duration}}</p>
+    </div>
+  </div>
+  @if (exhibition.reservationLink != null) {
+    <a [href]="exhibition.reservationLink" class="regular button">
+      {{exhibition.nameLink}}
+      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+    </a>
+  } @else {
+    <a routerLink="/tickets" class="regular button">
+      Programmazione
+      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+    </a>
+  }
+</article>

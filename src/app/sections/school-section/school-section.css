@@ -1,0 +1,136 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1256pt;
+  gap: 96pt;
+  padding: 32pt;
+  position: relative;
+}
+
+section, .sub-section, .title {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  width: 100%;
+}
+
+section:first-of-type {
+  position: sticky;
+  top: calc(80px + 32pt);
+  gap: 32pt;
+}
+
+.sub-section {
+  gap: 24pt;
+}
+
+.sub-section > p {
+  color: var(--text-regular);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 16pt;
+  border-top: 1px solid var(--stroke-weak);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat > p {
+  color: var(--text-weak);
+}
+
+figure {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: .3s ease-in-out;
+}
+
+figure:hover > img {
+  transform: scale(1.05);
+}
+
+.grid-activities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100pt, 1fr));
+  grid-gap: 16pt;
+  padding: 32pt 16pt;
+  background: var(--fill);
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8pt;
+}
+
+.activity-item > p {
+  color: var(--text-weak);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24pt;
+  padding: 32pt 16pt;
+  background: var(--background-dark);
+}
+
+.info > h5, .info > a {
+  color: var(--text-dark-strong);
+}
+
+.info > a {
+  width: fit-content;
+  border-color: var(--background);
+}
+
+.info > a > hugeicons-icon {
+  stroke: var(--background);
+}
+
+.info > p {
+  color: var(--text-dark-weak);
+}
+
+@media (max-width: 1080px) {
+  :host{
+    gap: 64pt;
+  }
+
+  section:first-of-type {
+    top: calc(80px + 16pt);
+  }
+}
+
+@media (max-width: 768px) {
+  :host{
+    flex-direction: column;
+    gap: 48pt;
+    padding: 16pt;
+  }
+  section:first-of-type {
+    position: relative;
+    top: inherit;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-activities {
+    grid-template-columns: 1fr;
+  }
+}

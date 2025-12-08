@@ -1,0 +1,121 @@
+<section>
+  <div class="name-section">
+    <span></span>
+    <p class="large">Informazioni pratiche</p>
+  </div>
+  <div class="title">
+    <h3>Organizzare</h3>
+    <h3>la visita</h3>
+  </div>
+  <p class="large">Pianificare una visita al museo è semplice e flessibile. Prenota con anticipo e goditi un'esperienza educativa su misura per la tua classe.</p>
+  <div class="step">
+    <hugeicons-icon [icon]="Time02Icon"></hugeicons-icon>
+    <div class="details">
+      <h5>Durata</h5>
+      <p class="regular">Le visite hanno una durata relativa alla mostra scelta.</p>
+      <p class="small">Disponibilile tutte le Mattine</p>
+    </div>
+  </div>
+  <div class="step">
+    <hugeicons-icon [icon]="UserMultipleIcon"></hugeicons-icon>
+    <div class="details">
+      <h5>Gruppi</h5>
+      <p class="regular">Ogni gruppo può ospitare un numero illimitato di studenti.</p>
+      <p class="small">Gli insegnanti accompagnatori sempre gratuiti</p>
+    </div>
+  </div>
+  <div class="contacts">
+    <div class="row">
+      <hugeicons-icon [icon]="CallIcon"></hugeicons-icon>
+      <a href="tel:3928716904" class="regular">+39 392 871 6904</a>
+    </div>
+    <div class="row">
+      <hugeicons-icon [icon]="WhatsappFreeIcons"></hugeicons-icon>
+      <a href="https://wa.me/393928716904?text=Ciao%2C%20vorrei%20avere%20informazioni" class="regular">Scrivici su WhatsApp</a>
+    </div>
+    <div class="row">
+      <hugeicons-icon [icon]="MailIcon"></hugeicons-icon>
+      <a href="mailto:biglietteria@museomultimedialecosenza.it" class="regular">biglietteria&#64;museomultimedialecosenza.it</a>
+    </div>
+  </div>
+</section>
+<form [formGroup]="form" (submit)="submit()">
+  <h4>Richiesta informazioni</h4>
+
+  <input type="text" formControlName="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+  <div class="input-column">
+    <label for="schoolName">Nome</label>
+    <input formControlName="schoolName" name="schoolName" type="text" placeholder="Es. Istituto Comprensivo G. Verdi">
+    @if (isInvalid("schoolName")) {
+      <p class="small error">{{ getError('schoolName') }}</p>
+    }
+  </div>
+  <div class="input-row">
+    <div class="input-column">
+      <label for="profName">Nome</label>
+      <input formControlName="profName" name="profName" type="text" placeholder="Il tuo nome">
+      @if (isInvalid("profName")) {
+        <p class="small error">{{ getError('profName') }}</p>
+      }
+    </div>
+    <div class="input-column">
+      <label for="profSurname">Cognome</label>
+      <input formControlName="profSurname" name="profSurname" type="text" placeholder="Il tuo cognome">
+      @if (isInvalid("profSurname")) {
+        <p class="small error">{{ getError('profSurname') }}</p>
+      }
+    </div>
+  </div>
+  <div class="input-column">
+    <label for="email">Email</label>
+    <input formControlName="email" name="email" type="email" placeholder="Es. scuola@edu.it">
+    @if (isInvalid("email")) {
+      <p class="small error">{{ getError('email') }}</p>
+    }
+  </div>
+  <div class="input-column">
+    <label for="tel">Telefono</label>
+    <input formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
+    @if (isInvalid("tel")) {
+      <p class="small error">{{ getError('tel') }}</p>
+    }
+  </div>
+  <div class="input-row">
+    <div class="input-column">
+      <label for="date">Data preferita</label>
+      <input formControlName="date" name="date" type="date">
+      @if (isInvalid("date")) {
+        <p class="small error">{{ getError('date') }}</p>
+      }
+    </div>
+    <div class="input-column">
+      <label for="classes">Numero classi</label>
+      <input formControlName="classes" name="classes" type="text" placeholder="Es. 3">
+      @if (isInvalid("classes")) {
+        <p class="small error">{{ getError('classes') }}</p>
+      }
+    </div>
+    <div class="input-column">
+      <label for="guests">Numero studenti</label>
+      <input formControlName="students" name="guests" type="text" placeholder="Es. 30">
+      @if (isInvalid("students")) {
+        <p class="small error">{{ getError('students') }}</p>
+      }
+    </div>
+  </div>
+  <div class="input-column">
+    <label for="note">Note aggiuntive</label>
+    <textarea formControlName="notes" name="note" placeholder="Eventuali esigenze particolari o domande..."></textarea>
+    @if (isInvalid("notes")) {
+      <p class="small error">{{ getError('notes') }}</p>
+    }
+  </div>
+  <button type="submit" [disabled]="form.invalid || isSending">{{ isSending ? "Invio in corso..." : "Invia richiesta" }}</button>
+
+  @if (submitMessage) {
+    <p class="large" [class.success]="!form.invalid && !isSending">{{ submitMessage }}</p>
+  }
+
+  <p class="small">Ti risponderemo entro 24 ore lavorative</p>
+</form>
