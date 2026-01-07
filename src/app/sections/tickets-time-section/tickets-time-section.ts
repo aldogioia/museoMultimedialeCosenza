@@ -14,11 +14,9 @@ export class TicketsTimeSection {
       null,
       "Mostra multimediale immersiva dedicata a Gustav Klimt, che esplora la sua arte e il suo mondo interiore attraverso immagini, musica e suggestioni visive.",
       [
-        "Sabato ore 09:00",
-        "Domenica ore 10:00",
-        "Da Lun a Sab ore 14:00",
-        "Domenica ore 15:00",
-        "Tutti i giorni ore 20:00",
+        "Da Lun a Sab dalle 09:00 alle 12:00",
+        "Da Lun a Sab dalle 10:00 alle 12:00",
+        "Tutti i giorni dalle 15:00 alle 19:00",
       ],
       [
         "Gli orari restano validi anche nei giorni festivi",
