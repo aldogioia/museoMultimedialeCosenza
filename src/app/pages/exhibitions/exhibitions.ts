@@ -41,6 +41,7 @@ export class Exhibitions {
   ];
 
   protected upcomingExhibitions: Exhibition[] = [
+    /* Quando ci saranno nuove mostre in programma, aggiungerle qui
     new Exhibition(
       ["XMAS", "La festa di natale"],
       "Al Museo Mutlimediale",
@@ -55,6 +56,7 @@ export class Exhibitions {
       "Chiama e prenota ora",
       "tel:3928716904"
     ),
+    */
   ];
 
   protected pastExhibitions: Exhibition[] = [
