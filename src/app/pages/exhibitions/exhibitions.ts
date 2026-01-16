@@ -11,55 +11,53 @@ import {Exhibition} from '../../../model/exhibition';
 export class Exhibitions {
   protected exhibitions: Exhibition[] = [
     new Exhibition(
-      ["Klimt: L'incanto dorato"],
-      null,
+      ["Klimt"],
+      "L'incanto dorato",
       2025,
       null,
-      "31 Gen 2025",
+      null,
       "45 minuti",
-      "Set - Gen 2025",
+      "Da Set 2025",
       "Mostra multimediale immersiva dedicata a Gustav Klimt, che esplora la sua arte e il suo mondo interiore attraverso immagini, musica e suggestioni visive.",
       "videos/KLIMT_teaser_web.mp4",
       "https://museo-multimediale-cosenza.s3.eu-north-1.amazonaws.com/AD-mostra.jpeg",
       null,
       null
     ),
+  ];
+
+  protected upcomingExhibitions: Exhibition[] = [
     new Exhibition(
-      ["Christmas", "World Tour"],
-      "Il sogno di Renzo",
-      2025,
-      "1 Dic 2025",
+      ["MESOZOICO"],
+      "Il respiro dei dinosauri",
+      2026,
+      "Aprile 2026",
       null,
-      "35 minuti",
-      "Dic - Gen 2026",
-      "Un viaggio magico attraverso le tradizioni natalizie di Cosenza e del Mondo, tramite proiezioni e atmosfere incantate per tutta la famiglia.",
-      "videos/teaser_natale.mov",
-      "images/christmas_world_tour.jpeg",
+      "30 - 45 minuti",
+      "Da Apr 2026",
+      "Il Respiro dei Dinosauri” arriva a Cosenza! Proiezioni a 360° e audio 3D ti immergono nel Mesozoico, riportando in vita i dinosauri. Un’esperienza educativa e spettacolare per tutta la famiglia. Preparati all'estinzione della noia!",
+      null,
+      "images/dinosauri.jpeg",
       null,
       null
     ),
   ];
 
-  protected upcomingExhibitions: Exhibition[] = [
-    /* Quando ci saranno nuove mostre in programma, aggiungerle qui
-    new Exhibition(
-      ["XMAS", "La festa di natale"],
-      "Al Museo Mutlimediale",
-      2025,
-      "25 Dic 2025",
-      null,
-      "Tutta la notte",
-      "25 Dic 2025",
-      "Il Museo Multimediale si trasforma per una scintillante festa di Natale tra luci, atmosfere digitali e musica. Una notte speciale con DJ set e vibrazioni uniche per celebrare il 25 dicembre in grande stile.",
-      null,
-      "images/natale_al_museo.jpeg",
-      "Chiama e prenota ora",
-      "tel:3928716904"
-    ),
-    */
-  ];
-
   protected pastExhibitions: Exhibition[] = [
+    new Exhibition(
+      ["Christmas", "World Tour"],
+      "Il sogno di Renzo",
+      2025,
+      "",
+      "",
+      "",
+      "Dic - Gen 2026",
+      "Un viaggio magico attraverso le tradizioni natalizie di Cosenza e del Mondo, tramite proiezioni e atmosfere incantate per tutta la famiglia.",
+      null,
+      "images/christmas_world_tour.jpeg",
+      null,
+      null
+    ),
     new Exhibition(
       ["Atlanthis"],
       "La città sommersa",

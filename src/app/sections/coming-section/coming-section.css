@@ -117,15 +117,16 @@ a.regular hugeicons-icon {
   section {
     gap: 24pt;
   }
+
+  section {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 48pt;
+  }
 }
 
 @media (max-width: 768px) {
   :host {
     padding: 64pt 16pt;
-  }
-
-  section {
-    flex-direction: column-reverse;
-    gap: 48pt;
   }
 }

@@ -26,7 +26,7 @@ export class TicketsTimeSection {
       ],
       null
     ),
-    new Ticket(
+    /*new Ticket(
       "Christmas World Tour",
       "Il sogno di Renzo",
       "Un viaggio magico attraverso le tradizioni natalizie di Cosenza e del Mondo, tramite proiezioni e atmosfere incantate per tutta la famiglia.",
@@ -43,7 +43,7 @@ export class TicketsTimeSection {
         "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"
       ],
       null
-    ),
+    ),*/
   ]
 
 }
