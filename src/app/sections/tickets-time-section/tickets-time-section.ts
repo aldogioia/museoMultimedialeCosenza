@@ -24,7 +24,7 @@ export class TicketsTimeSection {
         "I biglietti si acquistano in struttura",
         "La mattina dal Lunedì al Venerdì è riservata per gruppi e scuole"
       ],
-      null
+      "https://www.diyticket.it/events/arte/29071/klimt-lincanto-dorato-febbraio-202610.00"
     ),
     /*new Ticket(
       "Christmas World Tour",
