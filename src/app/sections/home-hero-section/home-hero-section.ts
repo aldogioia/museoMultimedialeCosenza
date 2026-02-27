@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ArrowRight02Icon, PlayIcon} from '@hugeicons/core-free-icons';
+import {ArrowRight02Icon, DateTimeIcon, PlayIcon} from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-home-hero-section',
@@ -10,4 +10,5 @@ import {ArrowRight02Icon, PlayIcon} from '@hugeicons/core-free-icons';
 export class HomeHeroSection {
   protected readonly ArrowRight02Icon = ArrowRight02Icon;
   protected readonly PlayIcon = PlayIcon;
+  protected readonly DateTimeIcon = DateTimeIcon;
 }
