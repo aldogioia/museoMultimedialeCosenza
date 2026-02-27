@@ -28,6 +28,20 @@ export class Exhibitions {
 
   protected upcomingExhibitions: Exhibition[] = [
     new Exhibition(
+      ["Essenza Essamble"],
+      "In concerto",
+      2026,
+      null,
+      null,
+      "1 ora e 45 minuti",
+      "9 Apr 2026",
+      "Un concerto emozionante che intreccia musica contemporanea e grandi colonne sonore in un’atmosfera intensa e suggestiva. Nella cornice del Museo Multimediale Città di Cosenza, l’esperienza è arricchita dall’ingresso alla mostra multimediale “Klimt: l’incanto dorato”, per un viaggio immersivo tra arte e musica capace di coinvolgere tutti i sensi.",
+      null,
+      "images/essenza_essamble_wide.jpeg",
+      "Acquista biglietti",
+      "https://www.diyticket.it/events/Musica/29765/essenza-ensemble"
+    ),
+    new Exhibition(
       ["MESOZOICO"],
       "Il respiro dei dinosauri",
       2026,
