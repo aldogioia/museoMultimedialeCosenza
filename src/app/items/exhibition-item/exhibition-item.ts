@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {ArrowRight02Icon, Calendar03Icon, PlayIcon} from "@hugeicons/core-free-icons";
-import {Exhibition} from '../../../model/exhibition';
+import { Component, Input } from '@angular/core';
+import { ArrowRight02Icon, Calendar03Icon, PlayIcon } from "@hugeicons/core-free-icons";
+import { Exhibition } from '../../../model/exhibition';
 
 @Component({
   selector: 'app-exhibition-item',
@@ -13,6 +13,7 @@ export class ExhibitionItem {
 
   @Input({required:true}) exhibition!: Exhibition;
   @Input({required:false}) isReverse: boolean = false;
+
   protected readonly Calendar03Icon = Calendar03Icon;
   protected readonly PlayIcon = PlayIcon;
 }

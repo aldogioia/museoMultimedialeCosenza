@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Exhibition} from '../../../model/exhibition';
+import { Component, Input } from '@angular/core';
+import { Exhibition } from '../../../model/exhibition';
 
 @Component({
   selector: 'app-exhibition-archive-item',

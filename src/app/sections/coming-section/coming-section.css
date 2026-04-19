@@ -55,10 +55,20 @@ figure:hover img {
 
 figcaption {
   position: absolute;
-  top: -16pt;
-  right: -16pt;
   background: var(--background);
   padding: 16pt;
+}
+
+figcaption.top {
+  top: -16pt;
+  right: -16pt;
+}
+
+figcaption.bottom {
+  bottom: -16pt;
+  right: -16pt;
+  display: flex;
+  gap: 8pt;
 }
 
 figcaption hugeicons-icon {

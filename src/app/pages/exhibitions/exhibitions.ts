@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data-service';
 import {Exhibition} from '../../../model/exhibition';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-exhibitions',
@@ -8,125 +10,16 @@ import {Exhibition} from '../../../model/exhibition';
   styleUrl: './exhibitions.css',
   host: {class: 'page'}
 })
-export class Exhibitions {
-  protected exhibitions: Exhibition[] = [
-    new Exhibition(
-      ["Klimt"],
-      "L'incanto dorato",
-      2025,
-      null,
-      null,
-      "45 minuti",
-      "Da Set 2025",
-      "Mostra multimediale immersiva dedicata a Gustav Klimt, che esplora la sua arte e il suo mondo interiore attraverso immagini, musica e suggestioni visive.",
-      "videos/KLIMT_teaser_web.mp4",
-      "https://museo-multimediale-cosenza.s3.eu-north-1.amazonaws.com/AD-mostra.jpeg",
-      null,
-      null
-    ),
-  ];
+export class Exhibitions implements OnInit {
+  currentExhibitions$!: Observable<Exhibition[]>;
+  upcomingExhibitions$!: Observable<Exhibition[]>;
+  pastExhibitions$!: Observable<Exhibition[]>;
 
-  protected upcomingExhibitions: Exhibition[] = [
-    new Exhibition(
-      ["Essenza Essamble"],
-      "In concerto",
-      2026,
-      null,
-      null,
-      "1 ora e 45 minuti",
-      "9 Apr 2026",
-      "Un concerto emozionante che intreccia musica contemporanea e grandi colonne sonore in un’atmosfera intensa e suggestiva. Nella cornice del Museo Multimediale Città di Cosenza, l’esperienza è arricchita dall’ingresso alla mostra multimediale “Klimt: l’incanto dorato”, per un viaggio immersivo tra arte e musica capace di coinvolgere tutti i sensi.",
-      null,
-      "images/essenza_essamble_wide.jpeg",
-      "Acquista biglietti",
-      "https://www.diyticket.it/events/Musica/29765/essenza-ensemble"
-    ),
-    new Exhibition(
-      ["MESOZOICO"],
-      "Il respiro dei dinosauri",
-      2026,
-      "Aprile 2026",
-      null,
-      "30 - 45 minuti",
-      "Da Apr 2026",
-      "Il Respiro dei Dinosauri” arriva a Cosenza! Proiezioni a 360° e audio 3D ti immergono nel Mesozoico, riportando in vita i dinosauri. Un’esperienza educativa e spettacolare per tutta la famiglia. Preparati all'estinzione della noia!",
-      null,
-      "images/dinosauri.jpeg",
-      null,
-      null
-    ),
-  ];
+  constructor(private dataService: DataService) {}
 
-  protected pastExhibitions: Exhibition[] = [
-    new Exhibition(
-      ["Christmas", "World Tour"],
-      "Il sogno di Renzo",
-      2025,
-      "",
-      "",
-      "",
-      "Dic - Gen 2026",
-      "Un viaggio magico attraverso le tradizioni natalizie di Cosenza e del Mondo, tramite proiezioni e atmosfere incantate per tutta la famiglia.",
-      null,
-      "images/christmas_world_tour.jpeg",
-      null,
-      null
-    ),
-    new Exhibition(
-      ["Atlanthis"],
-      "La città sommersa",
-      2019,
-      "",
-      "",
-      "",
-      "Giu - Set 2019",
-      "Un viaggio emozionante nel mistero di Atlantide: tra installazioni multimediali e fisiche, la leggenda prende vita, coinvolgendo il pubblico in un’esperienza immersiva.",
-      null,
-      "images/atlanthis.jpg",
-      null,
-      null
-    ),
-    new Exhibition(
-      ["Leonardo Da Vinci"],
-      null,
-      2019,
-      null,
-      null,
-      "",
-      "Gen - Apr 2019",
-      "Celebrazione della vita e delle invenzioni di Leonardo da Vinci attraverso un percorso di apprendimento innovativo con proiezioni e ambientazioni interattive.",
-      null,
-      "images/leonardo.jpg",
-      null,
-      null
-    ),
-    new Exhibition(
-      ["Van Gogh Alive"],
-      "The experience",
-      2018,
-      null,
-      null,
-      "",
-      "Set - Nov 2018",
-      "Un’esperienza immersiva nei capolavori di Van Gogh: proiezioni, musiche e scenografie coinvolgenti rivelano la forza emotiva del suo linguaggio pittorico.",
-      null,
-      "images/vangogh.jpg",
-      null,
-      null
-    ),
-    new Exhibition(
-      ["Nome in codice Sira"],
-      "Missione Alarico",
-      2018,
-      null,
-      null,
-      "",
-      "Giu - Ago 2018",
-      "Un viaggio spaziale e narrativo tra passato e presente che unisce archeologia, storia e tecnologia per svelare il mistero della Menorah e la figura di Alarico.",
-      null,
-      "images/sira.jpg",
-      null,
-      null
-    ),
-  ]
+  ngOnInit() {
+    this.currentExhibitions$ = this.dataService.getExhibitionsByStatus('current');
+    this.upcomingExhibitions$ = this.dataService.getExhibitionsByStatus('upcoming');
+    this.pastExhibitions$ = this.dataService.getExhibitionsByStatus('past');
+  }
 }

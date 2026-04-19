@@ -15,7 +15,3 @@
   align-items: center;
   gap: 16pt;
 }
-
-.img-wrapper > img {
-  object-fit: contain !important;
-}

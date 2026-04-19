@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Ticket} from '../../../model/ticket';
+import { Component, Input } from '@angular/core';
+import { Exhibition } from '../../../model/exhibition';
 import {
   Alert01Icon, Calendar03Icon, CallIcon,
   Link01Icon, MailIcon,
@@ -13,7 +13,9 @@ import {
   styleUrl: './ticket-item.css',
 })
 export class TicketItem {
-  @Input({required: true}) ticket!: Ticket;
+  // Sostituito Ticket con Exhibition
+  @Input({required: true}) exhibition!: Exhibition;
+
   protected readonly Link01Icon = Link01Icon;
   protected readonly Time02Icon = Time02Icon;
   protected readonly Alert01Icon = Alert01Icon;

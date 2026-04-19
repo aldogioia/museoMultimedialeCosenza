@@ -1,37 +1,58 @@
-<section>
-  <figure>
-    <div class="image-wrapper">
-      <img src="images/dinosauri.jpeg" alt="Locandina mostra Mesozoico Il respiro dei dinosauri">
-    </div>
-    <figcaption>
-      <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
-      <p class="small">Inizio</p>
-      <p class="large">Aprile 2026</p>
-    </figcaption>
-  </figure>
-  <article>
-    <div class="name-section">
-      <span></span>
-      <p class="large">Prossimamente</p>
-    </div>
-    <div class="title">
-      <h3>MESOZOICO</h3>
-      <h5>Il respiro dei dinosauri</h5>
-    </div>
-    <p class="large">Il Respiro dei Dinosauri” arriva a Cosenza! Proiezioni a 360° e audio 3D ti immergono nel Mesozoico, riportando in vita i dinosauri. Un’esperienza educativa e spettacolare per tutta la famiglia. Preparati all'estinzione della noia!</p>
-    <div class="infos">
-      <div class="info">
-        <p class="small">Periodo</p>
-        <p class="regular">Da Apr 2026</p>
+@if (upcomingExhibition$ | async; as exhibition) {
+  <section>
+    <figure>
+      <div class="image-wrapper">
+        <img [src]="exhibition.imageUrl" [alt]="'Locandina ' + exhibition.titles.join(' ')">
       </div>
-      <div class="info">
-        <p class="small">Durata</p>
-        <p class="regular">30 - 45 minuti</p>
+
+      @if (exhibition.opening) {
+        <figcaption class="top">
+          <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
+          <p class="small">Inizio</p>
+          <p class="large">{{exhibition.opening}}</p>
+        </figcaption>
+      }
+
+      @if (exhibition.trailerLink) {
+        <figcaption class="bottom">
+          <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
+          <a [href]="exhibition.trailerLink" target="_blank" class="small button">
+            Trailer
+          </a>
+        </figcaption>
+      }
+    </figure>
+
+    <article>
+      <div class="name-section">
+        <span></span>
+        <p class="large">Prossimamente</p>
       </div>
-    </div>
-    <a routerLink="/exhibitions" fragment="upcoming" class="regular button">
-      Altro in arrivo
-      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-    </a>
-  </article>
-</section>
+      <div class="title">
+        @for (title of exhibition.titles; track title) {
+          <h3>{{title}}</h3>
+        }
+        @if (exhibition.subtitle) {
+          <h5>{{exhibition.subtitle}}</h5>
+        }
+      </div>
+      <p class="large">{{exhibition.description}}</p>
+
+      <div class="infos">
+        <div class="info">
+          <p class="small">Periodo</p>
+          <p class="regular">{{exhibition.period}}</p>
+        </div>
+        <div class="info">
+          <p class="small">Durata</p>
+          <p class="regular">{{exhibition.duration}}</p>
+        </div>
+      </div>
+
+      <a routerLink="/exhibitions" fragment="upcoming" class="regular button">
+        Altro in arrivo
+        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+      </a>
+    </article>
+  </section>
+}

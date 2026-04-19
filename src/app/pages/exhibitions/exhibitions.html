@@ -8,27 +8,31 @@
     <h2>Visita ora</h2>
   </div>
 
-  @for(exhibition of exhibitions; let i = $index; track i) {
-    <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+  @if (currentExhibitions$ | async; as currentExhibitions) {
+    @for(exhibition of currentExhibitions; let i = $index; track exhibition.titles) {
+      <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+    }
   }
 </section>
 
-@if (upcomingExhibitions.length > 0) {
-  <div id="upcoming" class="bg">
-    <section>
-      <div class="title">
-        <div class="name-section">
-          <span></span>
-          <p class="large">Prossimamente</p>
+@if (upcomingExhibitions$ | async; as upcomingExhibitions) {
+  @if (upcomingExhibitions.length > 0) {
+    <div id="upcoming" class="bg">
+      <section>
+        <div class="title">
+          <div class="name-section">
+            <span></span>
+            <p class="large">Prossimamente</p>
+          </div>
+          <h2>In arrivo</h2>
         </div>
-        <h2>In arrivo</h2>
-      </div>
 
-      @for (upcomingExhibition of upcomingExhibitions; let i = $index; track i) {
-        <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
-      }
-    </section>
-  </div>
+        @for (upcomingExhibition of upcomingExhibitions; let i = $index; track upcomingExhibition.titles) {
+          <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+        }
+      </section>
+    </div>
+  }
 }
 
 <section>
@@ -41,10 +45,12 @@
   </div>
 
   <div class="sub-section">
-    @for (pastExhibition of pastExhibitions; let isLast = $last; let i = $index; track i) {
-      <app-exhibition-archive-item [exhibition]="pastExhibition"></app-exhibition-archive-item>
-      @if (!isLast) {
-        <span class="divider"></span>
+    @if (pastExhibitions$ | async; as pastExhibitions) {
+      @for (pastExhibition of pastExhibitions; let isLast = $last; track pastExhibition.titles) {
+        <app-exhibition-archive-item [exhibition]="pastExhibition"></app-exhibition-archive-item>
+        @if (!isLast) {
+          <span class="divider"></span>
+        }
       }
     }
   </div>

@@ -2,9 +2,16 @@
   <span></span>
   <p class="large">Mostre ed Eventi</p>
 </div>
-@for (ticket of tickets; let i = $index; track i){
-  <app-ticket-item [ticket]="ticket"></app-ticket-item>
-  @if (i < tickets.length - 1) {
-    <div class="divider"></div>
+
+@if (ticketableExhibitions$ | async; as exhibitions) {
+
+  @for (exhibition of exhibitions; let i = $index; track exhibition.titles) {
+
+    <app-ticket-item [exhibition]="exhibition"></app-ticket-item>
+
+    @if (i < exhibitions.length - 1) {
+      <div class="divider"></div>
+    }
+
   }
 }

@@ -1,49 +1,54 @@
-<section>
-  <div class="sub-section">
-    <div class="name-section">
-      <span></span>
-      <p class="large">In Arrivo</p>
+@if (featuredExhibition$ | async; as exhibition) {
+  <section>
+    <div class="sub-section">
+      <div class="name-section">
+        <span></span>
+        <p class="large">In Evidenza</p>
+      </div>
+      <div class="title">
+        @for (title of exhibition.titles; track title) {
+          <h1>{{title}}</h1>
+        }
+        @if (exhibition.subtitle) {
+          <h4>{{exhibition.subtitle}}</h4>
+        }
+      </div>
+      <p class="large">{{exhibition.description}}</p>
     </div>
-    <div class="title">
-      <h1>Essenza Ensemble</h1>
-      <!--<h1>L'incanto dorato</h1>-->
-      <h4>In concerto</h4>
-    </div>
-    <p class="large">Un concerto emozionante che intreccia musica contemporanea e grandi colonne sonore in un’atmosfera intensa e suggestiva.</p>
-    <p class="large">Nella cornice del Museo Multimediale Città di Cosenza, l’esperienza è arricchita dall’ingresso alla mostra multimediale “Klimt: l’incanto dorato”, per un viaggio immersivo tra arte e musica capace di coinvolgere tutti i sensi.</p>
-  </div>
-  <div class="sub-section row">
-    <a routerLink="/tickets" class="regular button">
-      Programmazione
-      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-    </a>
-    <p class="small">Scopri gli orari di visita</p>
-  </div>
-  <div class="sub-section row">
-    <a routerLink="/exhibitions" class="regular button">
-      Altro in corso
-      <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-    </a>
-    <p class="small">Scopri le mostre e gli eventi</p>
-  </div>
 
-</section>
-<section>
-  <figure>
-    <div class="img-wrapper">
-      <!-- TODO Nel css imposto un "object-fit: contain", riportare in futuro a "object-fit: cover"-->
-      <img src="images/essenza_essamble.jpeg" alt="locandina">
-    </div>
-    <figcaption>
-      <!-- TRAILER
-      <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
-      <a href="videos/KLIMT_teaser_web.mp4" target="_blank" class="small button">
-        Trailer
+    <div class="sub-section row">
+      <a routerLink="/tickets" class="regular button">
+        Programmazione
+        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
       </a>
-      -->
-      <!-- INFO -->
-      <hugeicons-icon [icon]="DateTimeIcon"></hugeicons-icon>
-      <p class="small">9 Aprile alle 20:30</p>
-    </figcaption>
-  </figure>
-</section>
+      <p class="small">Scopri gli orari di visita</p>
+    </div>
+    <div class="sub-section row">
+      <a routerLink="/exhibitions" class="regular button">
+        Altro in corso
+        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+      </a>
+      <p class="small">Scopri le mostre e gli eventi</p>
+    </div>
+  </section>
+
+  <section>
+    <figure>
+      <div class="img-wrapper">
+        <img [src]="exhibition.imageUrl" [alt]="'Locandina ' + exhibition.titles.join(' ')">
+      </div>
+
+      <figcaption>
+        @if (exhibition.trailerLink) {
+          <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
+          <a [href]="exhibition.trailerLink" target="_blank" class="small button">
+            Trailer
+          </a>
+        } @else if (exhibition.period) {
+          <hugeicons-icon [icon]="DateTimeIcon"></hugeicons-icon>
+          <p class="small">{{exhibition.period}}</p>
+        }
+      </figcaption>
+    </figure>
+  </section>
+}

@@ -1,27 +1,34 @@
 <div class="title">
-  <h3>{{ticket.title}}</h3>
-  @if (ticket.subtitle != null) {
-    <h5>{{ticket.subtitle}}</h5>
+  @for (title of exhibition.titles; track title) {
+    <h3>{{title}}</h3>
+  }
+
+  @if (exhibition.subtitle != null) {
+    <h5>{{exhibition.subtitle}}</h5>
   }
 </div>
-<p>{{ticket.description}}</p>
+
+<p>{{exhibition.description}}</p>
+
 <section>
   <section class="sub-section">
     <h5>Orari disponibili</h5>
-    @for (time of ticket.times; let i = $index; track i) {
+    @for (time of exhibition.timeSlots; let i = $index; track i) {
       <div class="time">
         <p class="regular">{{time}}</p>
         <hugeicons-icon [icon]="Calendar03Icon"></hugeicons-icon>
       </div>
     }
   </section>
+
   <section class="sub-section">
     <h5>Informazioni</h5>
     <ul>
-      @for (exceptions of ticket.exceptions; let i = $index; track i) {
-        <li>{{exceptions}}</li>
+      @for (note of exhibition.notes; let i = $index; track i) {
+        <li>{{note}}</li>
       }
     </ul>
+
     <div class="contacts">
       <h5>Contattaci</h5>
       <div class="row">
@@ -37,9 +44,10 @@
         <a href="mailto:info@museomultimedialecosenza.it" class="regular">info&#64;museomultimedialecosenza.it</a>
       </div>
     </div>
-    @if (ticket.ticketsUrl !== null) {
+
+    @if (exhibition.reservationLink != null) {
       <div class="column">
-        <a [href]="ticket.ticketsUrl" class="fill">
+        <a [href]="exhibition.reservationLink" class="fill">
           Acquista biglietti
           <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
         </a>
