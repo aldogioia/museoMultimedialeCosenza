@@ -11,23 +11,27 @@
 <p>{{exhibition.description}}</p>
 
 <section>
-  <section class="sub-section">
-    <h5>Orari disponibili</h5>
-    @for (time of exhibition.timeSlots; let i = $index; track i) {
-      <div class="time">
-        <p class="regular">{{time}}</p>
-        <hugeicons-icon [icon]="Calendar03Icon"></hugeicons-icon>
-      </div>
-    }
-  </section>
+  @if (exhibition.timeSlots?.length) {
+    <section class="sub-section">
+      <h5>Orari disponibili</h5>
+      @for (time of exhibition.timeSlots; let i = $index; track i) {
+        <div class="time">
+          <p class="regular">{{time}}</p>
+          <hugeicons-icon [icon]="Calendar03Icon"></hugeicons-icon>
+        </div>
+      }
+    </section>
+  }
 
   <section class="sub-section">
-    <h5>Informazioni</h5>
-    <ul>
-      @for (note of exhibition.notes; let i = $index; track i) {
-        <li>{{note}}</li>
-      }
-    </ul>
+    @if (exhibition.notes?.length) {
+      <h5>Informazioni</h5>
+      <ul>
+        @for (note of exhibition.notes; let i = $index; track i) {
+          <li>{{note}}</li>
+        }
+      </ul>
+    }
 
     <div class="contacts">
       <h5>Contattaci</h5>
@@ -47,7 +51,7 @@
 
     @if (exhibition.reservationLink != null) {
       <div class="column">
-        <a [href]="exhibition.reservationLink" class="fill">
+        <a [href]="exhibition.reservationLink" target="_blank" rel="noopener noreferrer" class="fill">
           Acquista biglietti
           <hugeicons-icon [icon]="Link01Icon"></hugeicons-icon>
         </a>

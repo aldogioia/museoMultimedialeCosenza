@@ -1,12 +1,12 @@
 <figure>
   <div class="image-wrapper">
-    <img [src]="exhibition.imageUrl" alt="Locandina evento">
+    <img [src]="exhibition.imageUrl" [alt]="'Locandina di ' + exhibition.titles.join(' ')" loading="lazy">
   </div>
-  @if (exhibition.opening != null) {
+  @if (exhibition.kind === 'exhibition' && exhibition.startPeriod) {
     <figcaption class="top">
       <hugeicons-icon [icon]="Calendar03Icon" [size]="32"></hugeicons-icon>
       <p class="small">Inizio</p>
-      <p class="large">{{exhibition.opening}}</p>
+      <p class="large">{{ exhibition.startPeriod }}</p>
     </figcaption>
   }
   @if (exhibition.trailerLink != null) {
@@ -26,31 +26,32 @@
     <h5>{{exhibition.subtitle}}</h5>
   </div>
   <p class="large">{{exhibition.description}}</p>
-  <div class="infos">
-    @if (exhibition.closing != null) {
-      <div class="info">
-        <p class="small">Fino al</p>
-        <p class="regular">{{exhibition.closing}}</p>
-      </div>
-    } @else {
-      <div class="info">
-        <p class="small">Periodo</p>
-        <p class="regular">{{exhibition.period}}</p>
-      </div>
-    }
-    <div class="info">
-      <p class="small">Durata</p>
-      <p class="regular">{{exhibition.duration}}</p>
+  @if (exhibition.kind === 'event' && exhibition.eventSessions.length) {
+    <div class="event-sessions" aria-label="Date e orari dell'evento">
+      @for (session of exhibition.eventSessions; track session.date + session.times) {
+        <div class="info">
+          <p class="small">Data</p>
+          <p class="regular">{{ session.date }}</p>
+          @if (session.times) { <p class="small">{{ session.times }}</p> }
+        </div>
+      }
     </div>
-  </div>
+  } @else if (exhibition.firstEditionYear) {
+    <div class="infos">
+      <div class="info">
+        <p class="small">Prima edizione</p>
+        <p class="regular">{{ exhibition.firstEditionYear }}</p>
+      </div>
+    </div>
+  }
   @if (exhibition.reservationLink != null) {
-    <a [href]="exhibition.reservationLink" class="regular button">
+    <a [href]="exhibition.reservationLink" target="_blank" rel="noopener noreferrer" class="regular button">
       {{exhibition.nameLink}}
       <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
     </a>
   } @else {
-    <a routerLink="/tickets" class="regular button">
-      Programmazione
+    <a routerLink="/" fragment="visita" class="regular button">
+      Informazioni di visita
       <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
     </a>
   }

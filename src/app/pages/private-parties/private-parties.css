@@ -1,0 +1,30 @@
+.services, .gallery, .direct-contact {
+  width: 100%;
+  max-width: 1256pt;
+  padding: 32pt;
+}
+
+.section-title, .direct-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 24pt;
+}
+
+.service-grid p, .direct-contact p { color: var(--text-regular); }
+
+.services { display: flex; flex-direction: column; gap: 48pt; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24pt; }
+.service-grid article { display: flex; flex-direction: column; gap: 16pt; padding: 32pt; background: var(--fill); }
+
+.gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16pt; }
+.gallery img { width: 100%; height: 360px; object-fit: cover; }
+.direct-contact { align-items: flex-start; background: var(--fill); }
+.contact-links { display: flex; flex-wrap: wrap; gap: 24pt; }
+.contact-links a { overflow-wrap: anywhere; }
+
+@media (max-width: 768px) {
+  .services, .gallery, .direct-contact { padding: 16pt; }
+  .service-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: auto; aspect-ratio: 16 / 10; }
+}

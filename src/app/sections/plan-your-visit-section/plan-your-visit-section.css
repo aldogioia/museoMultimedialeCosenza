@@ -16,7 +16,7 @@
 
 section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 48pt;
 }
 
@@ -74,6 +74,27 @@ section {
 
 .plan-item > .small {
   color: var(--text-regular);
+}
+
+.plan-item a {
+  width: fit-content;
+  justify-content: flex-start;
+  overflow-wrap: anywhere;
+}
+
+.map-wrapper {
+  width: 100%;
+  min-height: 380px;
+  border: 1px solid var(--stroke-weak);
+  overflow: hidden;
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  min-height: 380px;
+  border: 0;
+  filter: grayscale(1) contrast(.9);
 }
 
 @media (max-width: 1080px) {

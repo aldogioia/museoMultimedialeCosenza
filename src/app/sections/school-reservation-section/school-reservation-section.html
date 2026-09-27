@@ -39,14 +39,14 @@
     </div>
   </div>
 </section>
-<form [formGroup]="form" (submit)="submit()">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <h4>Richiesta informazioni</h4>
 
   <input type="text" formControlName="hp" style="display:none" tabindex="-1" autocomplete="off">
 
   <div class="input-column">
-    <label for="schoolName">Nome</label>
-    <input formControlName="schoolName" name="schoolName" type="text" placeholder="Es. Istituto Comprensivo G. Verdi">
+    <label for="schoolName">Scuola</label>
+    <input id="schoolName" formControlName="schoolName" name="schoolName" type="text" placeholder="Es. Istituto Comprensivo G. Verdi">
     @if (isInvalid("schoolName")) {
       <p class="small error">{{ getError('schoolName') }}</p>
     }
@@ -54,14 +54,14 @@
   <div class="input-row">
     <div class="input-column">
       <label for="profName">Nome</label>
-      <input formControlName="profName" name="profName" type="text" placeholder="Il tuo nome">
+      <input id="profName" formControlName="profName" name="profName" type="text" placeholder="Il tuo nome">
       @if (isInvalid("profName")) {
         <p class="small error">{{ getError('profName') }}</p>
       }
     </div>
     <div class="input-column">
       <label for="profSurname">Cognome</label>
-      <input formControlName="profSurname" name="profSurname" type="text" placeholder="Il tuo cognome">
+      <input id="profSurname" formControlName="profSurname" name="profSurname" type="text" placeholder="Il tuo cognome">
       @if (isInvalid("profSurname")) {
         <p class="small error">{{ getError('profSurname') }}</p>
       }
@@ -69,14 +69,14 @@
   </div>
   <div class="input-column">
     <label for="email">Email</label>
-    <input formControlName="email" name="email" type="email" placeholder="Es. scuola@edu.it">
+    <input id="email" formControlName="email" name="email" type="email" placeholder="Es. scuola@edu.it">
     @if (isInvalid("email")) {
       <p class="small error">{{ getError('email') }}</p>
     }
   </div>
   <div class="input-column">
     <label for="tel">Telefono</label>
-    <input formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
+    <input id="tel" formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
     @if (isInvalid("tel")) {
       <p class="small error">{{ getError('tel') }}</p>
     }
@@ -84,21 +84,21 @@
   <div class="input-row">
     <div class="input-column">
       <label for="date">Data preferita</label>
-      <input formControlName="date" name="date" type="date">
+      <input id="date" formControlName="date" name="date" type="date">
       @if (isInvalid("date")) {
         <p class="small error">{{ getError('date') }}</p>
       }
     </div>
     <div class="input-column">
       <label for="classes">Numero classi</label>
-      <input formControlName="classes" name="classes" type="text" placeholder="Es. 3">
+      <input id="classes" formControlName="classes" name="classes" type="text" placeholder="Es. 3">
       @if (isInvalid("classes")) {
         <p class="small error">{{ getError('classes') }}</p>
       }
     </div>
     <div class="input-column">
-      <label for="guests">Numero studenti</label>
-      <input formControlName="students" name="guests" type="text" placeholder="Es. 30">
+      <label for="students">Numero studenti</label>
+      <input id="students" formControlName="students" name="students" type="text" placeholder="Es. 30">
       @if (isInvalid("students")) {
         <p class="small error">{{ getError('students') }}</p>
       }
@@ -106,7 +106,7 @@
   </div>
   <div class="input-column">
     <label for="note">Note aggiuntive</label>
-    <textarea formControlName="notes" name="note" placeholder="Eventuali esigenze particolari o domande..."></textarea>
+    <textarea id="note" formControlName="notes" name="note" placeholder="Eventuali esigenze particolari o domande..."></textarea>
     @if (isInvalid("notes")) {
       <p class="small error">{{ getError('notes') }}</p>
     }
@@ -114,7 +114,7 @@
   <button type="submit" [disabled]="form.invalid || isSending">{{ isSending ? "Invio in corso..." : "Invia richiesta" }}</button>
 
   @if (submitMessage) {
-    <p class="large" [class.success]="!form.invalid && !isSending">{{ submitMessage }}</p>
+    <p class="large" [class.success]="wasSuccessful" aria-live="polite">{{ submitMessage }}</p>
   }
 
   <p class="small">Ti risponderemo entro 24 ore lavorative</p>

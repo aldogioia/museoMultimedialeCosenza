@@ -31,6 +31,21 @@ section {
   width: 100%;
 }
 
+.message {
+  min-height: 240px;
+  justify-content: center;
+}
+
+.message p {
+  max-width: 64ch;
+  color: var(--text-regular);
+}
+
+.empty-state {
+  max-width: 56ch;
+  color: var(--text-weak);
+}
+
 @media (max-width: 1256px) {
   section {
     gap: 48pt;

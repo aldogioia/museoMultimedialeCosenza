@@ -1,17 +1,20 @@
-<div class="name-section">
-  <span></span>
-  <p class="large">Mostre ed Eventi</p>
-</div>
-
 @if (ticketableExhibitions$ | async; as exhibitions) {
+  <div class="name-section">
+    <span></span>
+    <p class="large">Orari degli spettacoli</p>
+  </div>
 
-  @for (exhibition of exhibitions; let i = $index; track exhibition.titles) {
+  @if (exhibitions.length) {
+    @for (exhibition of exhibitions; let i = $index; track exhibition.id) {
 
-    <app-ticket-item [exhibition]="exhibition"></app-ticket-item>
+      <app-ticket-item [exhibition]="exhibition"></app-ticket-item>
 
-    @if (i < exhibitions.length - 1) {
-      <div class="divider"></div>
+      @if (i < exhibitions.length - 1) {
+        <div class="divider"></div>
+      }
+
     }
-
+  } @else {
+    <p class="regular empty-state">Gli orari degli spettacoli saranno pubblicati presto.</p>
   }
 }

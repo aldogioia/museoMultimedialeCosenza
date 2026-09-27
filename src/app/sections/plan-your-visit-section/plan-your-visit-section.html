@@ -13,15 +13,15 @@
       <hugeicons-icon [icon]="Time02Icon"></hugeicons-icon>
     </span>
     <h5>Orari di Apertura</h5>
-    <div class="time">
-      <p class="regular">Lunedì - Sabato</p>
-      <p class="regular">09:00 - 13:00 e 15:00 - 20:00</p>
-    </div>
-    <div class="time">
-      <p class="regular">Domenica</p>
-      <p class="regular">10:00 - 13:00 e 16:00 - 20:00</p>
-    </div>
-    <p class="small">Ultimo ingresso 1 ora prima della chiusura, sia della mattina che del pomeriggio.</p>
+    @for (item of openingHours; track item.order) {
+      <div class="time">
+        <p class="regular">{{ item.day }}</p>
+        <p class="regular">{{ item.hours }}</p>
+      </div>
+      @if (item.note) {
+        <p class="small">{{ item.note }}</p>
+      }
+    }
   </div>
   <div class="plan-item">
     <span>
@@ -37,5 +37,26 @@
       <p class="regular">Parcheggio Quick Parking con accesso rapido</p>
     </div>
     <p class="small">Piazza Carlo Bilotti, 87100, Cosenza CS, Italia.</p>
+    <a href="https://maps.app.goo.gl/cJReWAx6eUpY6HsP6" target="_blank" rel="noopener noreferrer" class="regular button">Apri in Google Maps</a>
+  </div>
+  <div class="plan-item contact-item">
+    <span>
+      <hugeicons-icon [icon]="Location09Icon"></hugeicons-icon>
+    </span>
+    <h5>Contatti</h5>
+    <p class="regular">Per informazioni su visite, accessibilità e prenotazioni, il nostro staff è a disposizione.</p>
+    <a href="tel:+393928716904" class="regular">+39 392 871 6904</a>
+    <a href="mailto:info@museomultimedialecosenza.it" class="regular">info&#64;museomultimedialecosenza.it</a>
+    <a href="mailto:biglietteria@museomultimedialecosenza.it" class="regular">biglietteria&#64;museomultimedialecosenza.it</a>
+    <a href="https://wa.me/393928716904?text=Salve%2C%20vorrei%20informazioni%20sul%20Museo%20Multimediale%20Cosenza" target="_blank" rel="noopener noreferrer" class="regular button">Scrivici su WhatsApp</a>
   </div>
 </section>
+
+<div class="map-wrapper">
+  <iframe
+    title="Mappa del Museo Multimediale Cosenza"
+    src="https://www.google.com/maps?q=Museo%20Multimediale%20Cosenza%2C%20Piazza%20Carlo%20Bilotti%2C%20Cosenza&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>

@@ -1,11 +1,11 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Home } from './pages/home/home';
 import { NavBar } from './sections/nav-bar/nav-bar';
-import { ComingSection } from './sections/coming-section/coming-section';
 import { SpacesSection } from './sections/spaces-section/spaces-section';
 import { SchoolSection } from './sections/school-section/school-section';
 import {HugeiconsIconComponent} from '@hugeicons/angular';
@@ -36,13 +36,17 @@ import { Tickets } from './pages/tickets/tickets';
 import { TicketsHeroSection } from './sections/tickets-hero-section/tickets-hero-section';
 import { TicketItem } from './items/ticket-item/ticket-item';
 import { TicketsTimeSection } from './sections/tickets-time-section/tickets-time-section';
+import { Events } from './pages/events/events';
+import { PrivateParties } from './pages/private-parties/private-parties';
+import { ContentPreviewCard } from './items/content-preview-card/content-preview-card';
+import { EventsHeroSection } from './sections/events-hero-section/events-hero-section';
+import { PrivatePartiesHeroSection } from './sections/private-parties-hero-section/private-parties-hero-section';
 
 @NgModule({
   declarations: [
     App,
     Home,
     NavBar,
-    ComingSection,
     SpacesSection,
     SchoolSection,
     FooterSection,
@@ -71,6 +75,11 @@ import { TicketsTimeSection } from './sections/tickets-time-section/tickets-time
     TicketsHeroSection,
     TicketItem,
     TicketsTimeSection,
+    Events,
+    PrivateParties,
+    ContentPreviewCard,
+    EventsHeroSection,
+    PrivatePartiesHeroSection,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +88,8 @@ import { TicketsTimeSection } from './sections/tickets-time-section/tickets-time
     ReactiveFormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

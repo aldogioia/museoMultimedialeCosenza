@@ -11,4 +11,12 @@ export class NavBar {
   isOpen: boolean = false;
   protected readonly Menu04Icon = Menu04Icon;
   protected readonly Cancel01Icon = Cancel01Icon;
+
+  toggleMenu(): void {
+    this.isOpen = !this.isOpen;
+  }
+
+  closeMenu(): void {
+    this.isOpen = false;
+  }
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {WhatsappFreeIcons} from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import {Component} from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
-
+  protected readonly WhatsappFreeIcons = WhatsappFreeIcons;
 }

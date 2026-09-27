@@ -45,7 +45,7 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 128pt;
-  width: 100vw;
+  width: 100%;
 }
 
 .name-section {
@@ -65,4 +65,22 @@ html {
   width: 48pt;
   height: 2pt;
   background: var(--background-dark);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(10, 10, 10, .45);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .page { gap: 80pt; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }

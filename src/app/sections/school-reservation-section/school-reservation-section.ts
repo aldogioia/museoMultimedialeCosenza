@@ -18,6 +18,7 @@ export class SchoolReservationSection {
   form: FormGroup = new FormGroup({});
   isSending = false;
   submitMessage = '';
+  wasSuccessful = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -72,6 +73,8 @@ export class SchoolReservationSection {
 
   async submit() {
 
+    if (this.isSending) return;
+
     if (this.form.value.hp) {
       console.log('Honeypot triggered. Aborting.');
       return;
@@ -85,6 +88,7 @@ export class SchoolReservationSection {
 
     this.isSending = true;
     this.submitMessage = '';
+    this.wasSuccessful = false;
 
     const payload: Record<string, unknown> = {
       school_name: this.form.value.schoolName,
@@ -103,6 +107,7 @@ export class SchoolReservationSection {
       const res = await this.emailService.sendSchoolReservation(payload);
       console.log('EmailJS sent', res);
       this.submitMessage = 'Richiesta inviata con successo. Ti contatteremo presto.';
+      this.wasSuccessful = true;
       this.form.reset();
       const now = new Date();
       const year = now.getFullYear();
@@ -112,6 +117,7 @@ export class SchoolReservationSection {
     } catch (err) {
       console.error('EmailJS error', err);
       this.submitMessage = 'Errore durante l\'invio. Riprova più tardi.';
+      this.wasSuccessful = false;
     } finally {
       this.isSending = false;
     }

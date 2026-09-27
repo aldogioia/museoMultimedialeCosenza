@@ -1,0 +1,40 @@
+<app-events-hero-section></app-events-hero-section>
+
+@if (state$ | async; as state) {
+  @if (state.loading) {
+    <section class="events-list"><p class="large status" role="status">Stiamo caricando gli eventi…</p></section>
+  } @else if (state.error) {
+    <section class="events-list"><p class="large status" role="status">Gli eventi non sono disponibili in questo momento. Riprova tra poco o contattaci per informazioni.</p></section>
+  } @else if (!state.data.length) {
+    <section class="events-list"><p class="large status">I prossimi eventi saranno annunciati presto.</p></section>
+  } @else {
+    <section class="events-list">
+      <div class="title">
+        <div class="name-section"><span></span><p class="large">In programma</p></div>
+        <h2>Prossimi eventi</h2>
+      </div>
+      @if (state.upcoming.length) {
+        @for (event of state.upcoming; let i = $index; track event.id) {
+          <app-exhibition-item [exhibition]="event" [isReverse]="i % 2 !== 0"></app-exhibition-item>
+        }
+      } @else {
+        <p class="large empty-state">Al momento non ci sono eventi in programma.</p>
+      }
+    </section>
+
+    @if (state.past.length) {
+      <section class="events-list archive">
+        <div class="title">
+          <div class="name-section"><span></span><p class="large">Archivio</p></div>
+          <h2>Eventi passati</h2>
+        </div>
+        <div class="archive-list">
+          @for (event of state.past; let isLast = $last; track event.id) {
+            <app-exhibition-archive-item [exhibition]="event"></app-exhibition-archive-item>
+            @if (!isLast) { <span class="divider"></span> }
+          }
+        </div>
+      </section>
+    }
+  }
+}

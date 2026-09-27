@@ -1,57 +1,55 @@
 <app-exhibition-hero-section></app-exhibition-hero-section>
-<section>
-  <div class="title">
-    <div class="name-section">
-      <span></span>
-      <p class="large">In corso</p>
-    </div>
-    <h2>Visita ora</h2>
-  </div>
+@if (state$ | async; as state) {
+  @if (state.loading) {
+    <section class="message" role="status"><p class="large">Stiamo caricando le mostre…</p></section>
+  } @else if (state.error) {
+    <section class="message" role="status"><p class="large">Le mostre non sono disponibili in questo momento. Riprova tra poco o contattaci per informazioni.</p></section>
+  } @else if (!state.data.length) {
+    <section class="message"><p class="large">La nuova programmazione sarà pubblicata presto.</p></section>
+  } @else {
+    <section>
+      <div class="title">
+        <div class="name-section"><span></span><p class="large">In corso</p></div>
+        <h2>Visita ora</h2>
+      </div>
+      @if (state.current.length) {
+        @for(exhibition of state.current; let i = $index; track exhibition.id) {
+          <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 !== 0"></app-exhibition-item>
+        }
+      } @else {
+        <p class="large empty-state">Al momento non ci sono mostre in corso.</p>
+      }
+    </section>
 
-  @if (currentExhibitions$ | async; as currentExhibitions) {
-    @for(exhibition of currentExhibitions; let i = $index; track exhibition.titles) {
-      <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
-    }
-  }
-</section>
-
-@if (upcomingExhibitions$ | async; as upcomingExhibitions) {
-  @if (upcomingExhibitions.length > 0) {
     <div id="upcoming" class="bg">
       <section>
         <div class="title">
-          <div class="name-section">
-            <span></span>
-            <p class="large">Prossimamente</p>
-          </div>
+          <div class="name-section"><span></span><p class="large">Prossimamente</p></div>
           <h2>In arrivo</h2>
         </div>
-
-        @for (upcomingExhibition of upcomingExhibitions; let i = $index; track upcomingExhibition.titles) {
-          <app-exhibition-item [exhibition]="upcomingExhibition" [isReverse]="i % 2 != 0"></app-exhibition-item>
+        @if (state.upcoming.length) {
+          @for(exhibition of state.upcoming; let i = $index; track exhibition.id) {
+            <app-exhibition-item [exhibition]="exhibition" [isReverse]="i % 2 !== 0"></app-exhibition-item>
+          }
+        } @else {
+          <p class="large empty-state">Al momento non ci sono mostre in arrivo.</p>
         }
       </section>
     </div>
+
+    @if (state.past.length) {
+      <section>
+        <div class="title">
+          <div class="name-section"><span></span><p class="large">Archivio</p></div>
+          <h2>Mostre passate</h2>
+        </div>
+        <div class="sub-section">
+          @for(exhibition of state.past; let isLast = $last; track exhibition.id) {
+            <app-exhibition-archive-item [exhibition]="exhibition"></app-exhibition-archive-item>
+            @if (!isLast) { <span class="divider"></span> }
+          }
+        </div>
+      </section>
+    }
   }
 }
-
-<section>
-  <div class="title">
-    <div class="name-section">
-      <span></span>
-      <p class="large">Archivio</p>
-    </div>
-    <h2>Mostre passate</h2>
-  </div>
-
-  <div class="sub-section">
-    @if (pastExhibitions$ | async; as pastExhibitions) {
-      @for (pastExhibition of pastExhibitions; let isLast = $last; track pastExhibition.titles) {
-        <app-exhibition-archive-item [exhibition]="pastExhibition"></app-exhibition-archive-item>
-        @if (!isLast) {
-          <span class="divider"></span>
-        }
-      }
-    }
-  </div>
-</section>

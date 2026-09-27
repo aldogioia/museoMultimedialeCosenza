@@ -1,6 +1,8 @@
-<h4>{{exhibition.year}}</h4>
+@if (exhibition.kind !== 'event') {
+<h4>{{ exhibition.firstEditionYear }}</h4>
+}
 <figure>
-  <img [src]="exhibition.imageUrl" alt="Immagine della mostra {{exhibition.titles.join(' ')}}" />
+  <img [src]="exhibition.imageUrl" [alt]="'Immagine di ' + exhibition.titles.join(' ')" loading="lazy" (error)="useFallbackImage($event)" />
 </figure>
 <article>
   <div class="title">
@@ -9,6 +11,12 @@
       <p class="large">{{exhibition.subtitle}}</p>
     }
   </div>
-  <p class="small">Periodo: <span>{{exhibition.period}}</span></p>
+  @if (exhibition.kind === 'event') {
+    @for (session of exhibition.eventSessions; track session.date + session.times) {
+      <p class="small"><span>{{ session.date }}</span>@if (session.times) { · {{ session.times }} }</p>
+    }
+  } @else if (exhibition.startPeriod) {
+    <p class="small">Periodo di inizio: <span>{{ exhibition.startPeriod }}</span></p>
+  }
   <p class="small">{{exhibition.description}}</p>
 </article>

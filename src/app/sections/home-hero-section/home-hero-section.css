@@ -1,17 +1,72 @@
-:host:before {
-  content: "Museo";
+:host {
+  min-height: min(780px, calc(100vh - 81px));
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  padding: 64pt max(32pt, calc((100vw - 1256pt) / 2 + 32pt));
+  isolation: isolate;
+  background: url('/images/klimt.png') center 36% / cover no-repeat;
+}
+
+:host::before {
+  content: '';
   position: absolute;
-  color: var(--fill);
-  font-size: 254px;
-  font-weight: 500;
-  line-height: 254px;
-  letter-spacing: -12.71px;
-  text-transform: uppercase;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .86) 0%, rgba(0, 0, 0, .55) 48%, rgba(0, 0, 0, .15) 100%);
   z-index: -1;
 }
 
-.sub-section.row {
-  flex-direction: row;
-  align-items: center;
-  gap: 16pt;
+section, .title {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  max-width: 760px;
+  gap: 28pt;
+}
+
+.title h1, .intro, .dark-label {
+  color: var(--text-dark-strong);
+}
+
+.dark-label span {
+  background: var(--text-dark-strong);
+}
+
+.intro {
+  max-width: 56ch;
+}
+
+.hero-cta {
+  width: fit-content;
+  padding: 16pt 24pt;
+  color: var(--text-strong);
+  background: var(--background);
+}
+
+.hero-cta hugeicons-icon {
+  stroke: currentColor;
+  transition: transform .3s ease;
+}
+
+.hero-cta:hover hugeicons-icon {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  :host {
+    min-height: 72vh;
+    padding: 48pt 16pt;
+    background-position: 58% center;
+  }
+
+  :host::before {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .3) 100%);
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
 }

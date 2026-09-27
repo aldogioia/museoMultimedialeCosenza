@@ -40,7 +40,7 @@
     </div>
   </div>
 </section>
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <h4>Richiesta informazioni</h4>
 
   <input type="text" formControlName="hp" style="display:none" tabindex="-1" autocomplete="off">
@@ -48,14 +48,14 @@
   <div class="input-row">
     <div class="input-column">
       <label for="name">Nome</label>
-      <input formControlName="name" name="name" type="text" placeholder="Il tuo nome">
+      <input id="name" formControlName="name" name="name" type="text" placeholder="Il tuo nome">
       @if (isInvalid("name")) {
         <p class="small error">{{ getError('name') }}</p>
       }
     </div>
     <div class="input-column">
       <label for="surname">Cognome</label>
-      <input formControlName="surname" name="surname" type="text" placeholder="Il tuo cognome">
+      <input id="surname" formControlName="surname" name="surname" type="text" placeholder="Il tuo cognome">
       @if (isInvalid("surname")) {
         <p class="small error">{{ getError('surname') }}</p>
       }
@@ -63,14 +63,14 @@
   </div>
   <div class="input-column">
     <label for="email">Email</label>
-    <input formControlName="email" name="email" type="email" placeholder="La tua email">
+    <input id="email" formControlName="email" name="email" type="email" placeholder="La tua email">
     @if (isInvalid("email")) {
       <p class="small error">{{ getError('email') }}</p>
     }
   </div>
   <div class="input-column">
     <label for="tel">Telefono</label>
-    <input formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
+    <input id="tel" formControlName="tel" name="tel" type="tel" placeholder="Il tuo numero di telefono">
     @if (isInvalid("tel")) {
       <p class="small error">{{ getError('tel') }}</p>
     }
@@ -78,14 +78,14 @@
   <div class="input-row">
     <div class="input-column">
       <label for="date">Data preferita</label>
-      <input formControlName="date" name="date" type="date">
+      <input id="date" formControlName="date" name="date" type="date">
       @if (isInvalid("date")) {
         <p class="small error">{{ getError('date') }}</p>
       }
     </div>
     <div class="input-column">
       <label for="guests">Numero ospiti</label>
-      <input formControlName="guests" name="guests" type="text" placeholder="Un numero indicativo di ospiti">
+      <input id="guests" formControlName="guests" name="guests" type="text" placeholder="Un numero indicativo di ospiti">
       @if (isInvalid("guests")) {
         <p class="small error">{{ getError('guests') }}</p>
       }
@@ -93,7 +93,7 @@
   </div>
   <div class="input-column">
     <label for="note">Note aggiuntive</label>
-    <textarea formControlName="notes" name="note" placeholder="Breve descrizione del tuo evento e delle tue esigenze"></textarea>
+    <textarea id="note" formControlName="notes" name="note" placeholder="Breve descrizione del tuo evento e delle tue esigenze"></textarea>
     @if (isInvalid("notes")) {
       <p class="small error">{{ getError('notes') }}</p>
     }
@@ -101,7 +101,7 @@
   <button type="submit" [disabled]="form.invalid || isSending">{{ isSending ? "Invio in corso..." : "Invia richiesta" }}</button>
 
   @if (submitMessage) {
-    <p class="large" [class.success]="!form.invalid && !isSending">{{ submitMessage }}</p>
+    <p class="large" [class.success]="wasSuccessful" aria-live="polite">{{ submitMessage }}</p>
   }
 
   <p class="small">Ti risponderemo entro 24 ore lavorative</p>

@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
+## Content architecture
+
+The site is an Angular JAMstack application. Page copy, the Home hero, Schools, Spaces and Private Parties are maintained directly in the codebase. Google Sheets is queried only for the `Mostre`, `Eventi` and `Orari` tabs through its public CSV export; responses are cached in `sessionStorage` for 15 minutes.
+
+See [`docs/google-sheets-schema.md`](docs/google-sheets-schema.md) for the required spreadsheet columns and publishing conventions.
+
+Public routes are `/`, `/mostre`, `/eventi`, `/scuole`, `/spazi` and `/feste-private`. Legacy English routes redirect to their Italian equivalents.
+
 ## Development server
 
 To start a local development server, run:

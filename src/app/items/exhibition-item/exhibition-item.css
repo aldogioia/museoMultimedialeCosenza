@@ -5,6 +5,10 @@
   gap: 48pt;
 }
 
+:host.reverse {
+  flex-direction: row-reverse;
+}
+
 figure {
   position: sticky;
   top: calc(80px + 32pt);
@@ -67,7 +71,7 @@ figcaption .large {
   color: var(--text-dark-strong);
 }
 
-article, .title, .infos, .info {
+article, .title, .infos, .info, .event-sessions {
   display: flex;
   flex-direction: column;
 }
@@ -91,6 +95,15 @@ a.regular {
   gap: 48pt;
 }
 
+.event-sessions {
+  gap: 12pt;
+}
+
+.event-sessions .info {
+  padding-left: 12pt;
+  border-left: 1px solid var(--stroke-regular);
+}
+
 @media (max-width: 1256px) {
   :host {
     gap: 32pt;
@@ -104,7 +117,7 @@ a.regular {
 }
 
 @media (max-width: 768px) {
-  :host {
+  :host, :host.reverse {
     flex-direction: column-reverse;
   }
 
@@ -119,4 +132,3 @@ a.regular {
     max-width: 400pt;
   }
 }
-

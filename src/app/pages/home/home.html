@@ -1,10 +1,59 @@
 <app-home-hero-section></app-home-hero-section>
 
-@if (hasUpcomingExhibitions$ | async) {
-  <section>
-    <app-coming-section></app-coming-section>
-  </section>
-}
+<section class="preview-section">
+  <div class="section-heading">
+    <div class="name-section">
+      <span></span>
+      <p class="large">Mostre</p>
+    </div>
+    <h2>In corso e in arrivo</h2>
+  </div>
+  @if (exhibitionsState$ | async; as state) {
+    @if (state.loading) {
+      <p class="regular status" role="status">Stiamo caricando le mostre…</p>
+    } @else if (state.error) {
+      <p class="regular status" role="status">Le mostre non sono disponibili in questo momento. Riprova tra poco.</p>
+    } @else if (state.data.length) {
+      <div class="cards-grid">
+        @for (item of state.data; track item.id) {
+          <app-content-preview-card [item]="item"></app-content-preview-card>
+        }
+      </div>
+    } @else {
+      <p class="regular status">La nuova programmazione sarà pubblicata presto.</p>
+    }
+  }
+  <a routerLink="/mostre" class="regular fill section-cta">Vedi tutte le Mostre</a>
+</section>
 
-<app-spaces-section></app-spaces-section>
-<app-school-section></app-school-section>
+<div class="section-background">
+  <section class="preview-section">
+    <div class="section-heading">
+      <div class="name-section">
+        <span></span>
+        <p class="large">Eventi</p>
+      </div>
+      <h2>Prossimi appuntamenti</h2>
+    </div>
+    @if (eventsState$ | async; as state) {
+      @if (state.loading) {
+        <p class="regular status" role="status">Stiamo caricando gli eventi…</p>
+      } @else if (state.error) {
+        <p class="regular status" role="status">Gli eventi non sono disponibili in questo momento. Riprova tra poco.</p>
+      } @else if (state.data.length) {
+        <div class="cards-grid">
+          @for (item of state.data; track item.id) {
+            <app-content-preview-card [item]="item"></app-content-preview-card>
+          }
+        </div>
+      } @else {
+        <p class="regular status">I prossimi eventi saranno annunciati presto.</p>
+      }
+    }
+    <a routerLink="/eventi" class="regular fill section-cta">Tutti gli Eventi</a>
+  </section>
+</div>
+
+<section id="visita" class="visit-wrapper">
+  <app-plan-your-visit-section></app-plan-your-visit-section>
+</section>

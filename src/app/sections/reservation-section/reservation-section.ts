@@ -17,6 +17,7 @@ export class ReservationSection {
   form: FormGroup = new FormGroup({});
   isSending = false;
   submitMessage = '';
+  wasSuccessful = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -68,7 +69,7 @@ export class ReservationSection {
   }
 
   async submit() {
-    if (this.form.invalid || this.isSending) return;
+    if (this.isSending) return;
 
     if (this.form.value.hp) {
       console.log('Honeypot triggered. Aborting.');
@@ -83,6 +84,7 @@ export class ReservationSection {
 
     this.isSending = true;
     this.submitMessage = '';
+    this.wasSuccessful = false;
 
     const payload: Record<string, unknown> = {
       name: this.form.value.name,
@@ -99,6 +101,7 @@ export class ReservationSection {
       const res = await this.emailService.sendSpacesReservation(payload);
       console.log('EmailJS sent', res);
       this.submitMessage = 'Richiesta inviata con successo. Ti contatteremo presto.';
+      this.wasSuccessful = true;
       this.form.reset();
       const now = new Date();
       const year = now.getFullYear();
@@ -108,6 +111,7 @@ export class ReservationSection {
     } catch (err) {
       console.error('EmailJS error', err);
       this.submitMessage = 'Errore durante l\'invio. Riprova più tardi.';
+      this.wasSuccessful = false;
     } finally {
       this.isSending = false;
     }

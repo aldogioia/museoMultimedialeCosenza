@@ -16,26 +16,39 @@ section {
   width: 100%;
 }
 
-hugeicons-icon {
+.menu-toggle {
   display: none;
-  stroke: var(--text-weak);
-  stroke-width: 1.5px;
+  width: auto;
+  padding: 0;
+  color: var(--text-weak);
+  background: transparent;
   cursor: pointer;
   transition: .3s ease-in-out;
 }
 
-hugeicons-icon:hover {
-  stroke: var(--text-strong);
+.menu-toggle hugeicons-icon {
+  display: block;
+  stroke: currentColor;
+  stroke-width: 1.5px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  color: var(--text-strong);
 }
 
 img {
   height: 50px;
-  cursor: pointer;
 }
 
-section a {
+section a:not(.logo) {
   width: fit-content;
   padding: 8pt 16pt;
+}
+
+.logo {
+  display: block;
+  height: 50px;
 }
 
 nav > a {
@@ -60,21 +73,31 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 28px;
 }
 
 @media (max-width: 1080px) {
   nav {
-    gap: 32pt;
+    gap: 16pt;
   }
 }
 
+@media (max-width: 1180px) {
+  section a:not(.logo) { display: none; }
+  .menu-toggle { display: block; }
+  nav { flex-direction: column; align-items: start; position: relative; top: auto; left: auto; gap: 24pt; transform: none; }
+  nav > a { display: none; padding-bottom: 0; padding-left: 4pt; }
+  nav.open { height: fit-content; margin-top: 32pt; padding-bottom: 16pt; }
+  nav.open > a, nav.open > #tickets { display: block; }
+  a.active { transform: translateX(2pt); border-left: 3pt solid var(--background-dark); border-bottom: none; }
+}
+
 @media (max-width: 768px) {
-  a {
+  section a:not(.logo) {
     display: none;
   }
 
-  hugeicons-icon {
+  .menu-toggle {
     display: block;
   }
 

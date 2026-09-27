@@ -1,54 +1,15 @@
-@if (featuredExhibition$ | async; as exhibition) {
-  <section>
-    <div class="sub-section">
-      <div class="name-section">
-        <span></span>
-        <p class="large">In Evidenza</p>
-      </div>
-      <div class="title">
-        @for (title of exhibition.titles; track title) {
-          <h1>{{title}}</h1>
-        }
-        @if (exhibition.subtitle) {
-          <h4>{{exhibition.subtitle}}</h4>
-        }
-      </div>
-      <p class="large">{{exhibition.description}}</p>
-    </div>
-
-    <div class="sub-section row">
-      <a routerLink="/tickets" class="regular button">
-        Programmazione
-        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-      </a>
-      <p class="small">Scopri gli orari di visita</p>
-    </div>
-    <div class="sub-section row">
-      <a routerLink="/exhibitions" class="regular button">
-        Altro in corso
-        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
-      </a>
-      <p class="small">Scopri le mostre e gli eventi</p>
-    </div>
-  </section>
-
-  <section>
-    <figure>
-      <div class="img-wrapper">
-        <img [src]="exhibition.imageUrl" [alt]="'Locandina ' + exhibition.titles.join(' ')">
-      </div>
-
-      <figcaption>
-        @if (exhibition.trailerLink) {
-          <hugeicons-icon [icon]="PlayIcon"></hugeicons-icon>
-          <a [href]="exhibition.trailerLink" target="_blank" class="small button">
-            Trailer
-          </a>
-        } @else if (exhibition.period) {
-          <hugeicons-icon [icon]="DateTimeIcon"></hugeicons-icon>
-          <p class="small">{{exhibition.period}}</p>
-        }
-      </figcaption>
-    </figure>
-  </section>
-}
+<section>
+  <div class="name-section dark-label">
+    <span></span>
+    <p class="large">Museo Multimediale Cosenza</p>
+  </div>
+  <div class="title">
+    <h1>Arte, cultura</h1>
+    <h1>e tecnologia</h1>
+  </div>
+  <p class="large intro">Un’esperienza immersiva nel cuore di Cosenza, dove ogni visita diventa un nuovo modo di incontrare l’arte.</p>
+  <a routerLink="/tickets" class="regular fill hero-cta">
+    Acquista Biglietti
+    <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+  </a>
+</section>

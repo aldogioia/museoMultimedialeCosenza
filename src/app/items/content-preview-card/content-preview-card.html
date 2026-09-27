@@ -1,0 +1,35 @@
+<article>
+  <div class="image-wrapper">
+    <img [src]="item.imageUrl" [alt]="'Immagine di ' + item.titles.join(' ')" loading="lazy">
+  </div>
+  <div class="content">
+    @if (item.kind === 'event' && item.eventSessions.length) {
+      <p class="small meta">
+        {{ item.eventSessions[0].date }}
+        @if (item.eventSessions[0].times) { · {{ item.eventSessions[0].times }} }
+        @if (item.eventSessions.length > 1) {
+          · altre {{ item.eventSessions.length - 1 }} {{ item.eventSessions.length === 2 ? 'data' : 'date' }}
+        }
+      </p>
+    } @else {
+      <p class="small meta">
+        @if (item.startPeriod) { Da {{ item.startPeriod }} }
+        @if (item.startPeriod && item.firstEditionYear) { · }
+        @if (item.firstEditionYear) { Prima edizione {{ item.firstEditionYear }} }
+      </p>
+    }
+    <div class="title">
+      <h4>{{ item.titles.join(' ') }}</h4>
+      @if (item.subtitle) {
+        <p class="regular subtitle">{{ item.subtitle }}</p>
+      }
+    </div>
+    <p class="regular description">{{ item.description }}</p>
+    @if (item.reservationLink) {
+      <a [href]="item.reservationLink" target="_blank" rel="noopener noreferrer" class="regular button">
+        {{ item.nameLink }}
+        <hugeicons-icon [icon]="ArrowRight02Icon"></hugeicons-icon>
+      </a>
+    }
+  </div>
+</article>

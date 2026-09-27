@@ -9,4 +9,11 @@ import { Exhibition } from '../../../model/exhibition';
 })
 export class ExhibitionArchiveItem {
   @Input({required:true}) exhibition!: Exhibition;
+
+  useFallbackImage(event: Event): void {
+    const image = event.target as HTMLImageElement;
+    if (!image.src.endsWith('/images/poster_mostra.png')) {
+      image.src = 'images/poster_mostra.png';
+    }
+  }
 }
